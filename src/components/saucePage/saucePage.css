@@ -1,0 +1,59 @@
+.sauceContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 3vw 6vw;
+}
+
+.sauceContainer .sauceImage {
+  padding-right: 2vw;
+  max-width: 500px;
+}
+
+.sauceContainer .sauceImage img {
+  max-width: 100%;
+}
+
+.sauceContainer .sauceInfo .likeButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sauceContainer .sauceInfo .likeButtons .thumbs {
+  padding: 0.5em 1em;
+}
+
+.sauceContainer .sauceInfo .likeButtons .thumbs i {
+  padding: 0 8px 5px 0;
+}
+
+.sauceContainer .sauceInfo .controlButtons .sauceButton {
+  padding: 3px 10px;
+  margin: 5px;
+  border-radius: 6px;
+  border: none;
+  -webkit-box-shadow: 3px 3px 3px #bbbbbb;
+          box-shadow: 3px 3px 3px #bbbbbb;
+}
+
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 190px;
+}
+
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .modifyButton {
+  min-width: 85px;
+  background-color: #673ab7;
+}
+
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton {
+  min-width: 85px;
+  background-color: #f44336;
+}
+/*# sourceMappingURL=saucePage.css.map */

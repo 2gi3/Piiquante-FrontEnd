@@ -1,0 +1,44 @@
+.sauceContainer{
+    display: flex;
+    justify-content: center;
+    padding: 3vw 6vw;
+    .sauceImage{
+        padding-right: 2vw;
+        max-width: 500px;
+        img{max-width: 100%;}
+    }
+
+    .sauceInfo{
+        .likeButtons{
+        display: flex;
+          .thumbs{
+              padding: 0.5em 1em;
+              i{
+                  padding: 0 8px 5px 0;
+              }
+          }        
+        }
+        .controlButtons{
+            
+            .sauceButton{
+                padding: 3px 10px;
+                margin: 5px;
+                border-radius: 6px;
+                border: none;
+                box-shadow: 3px 3px 3px #bbbbbb;
+            }
+            .modifyDeleteButtons{
+                display: flex;
+                min-width: 190px;
+                .modifyButton{
+                    min-width: 85px;
+                    background-color: #673ab7;
+                }
+                .deleteButton{
+                    min-width: 85px;
+                    background-color: #f44336;
+                }
+            }
+        }
+    }
+}

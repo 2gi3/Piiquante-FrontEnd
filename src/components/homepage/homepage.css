@@ -1,0 +1,22 @@
+.sauceBox {
+  min-width: 150px;
+}
+
+.sauceBox .sauceBoxImage {
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.sauceBox .sauceBoxImage img {
+  width: 100%;
+  max-width: 250px;
+}
+
+.sauceBox .sauceName {
+  text-align: center;
+}
+
+.sauceBox .sauceName h2 {
+  font-size: 1.5rem;
+}
+/*# sourceMappingURL=homepage.css.map */

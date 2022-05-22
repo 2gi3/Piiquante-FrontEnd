@@ -1,0 +1,18 @@
+.sauceBox {
+    min-width: 150px;
+    .sauceBoxImage {
+        justify-content: space-around;
+
+        img {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+
+    .sauceName {
+        text-align: center;
+        h2{
+            font-size: 1.5rem;
+        }
+    }
+}
