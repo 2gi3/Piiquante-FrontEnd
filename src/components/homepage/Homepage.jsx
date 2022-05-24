@@ -1,23 +1,23 @@
 import "./homepage.css"
-import { Link } from 'react-router-dom'
+import { Link, } from 'react-router-dom'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
+import NavBar from "../navBar/NavBar";
 
 function Homepage() {
     const access_token = sessionStorage.getItem('token');
-    const [sauces, setSauces] =useState([''])
+    const [sauces, setSauces] = useState([''])
 
 
     const getSauces = async () => {
         const res = await axios.get("https://secure-harbor-62492.herokuapp.com/api/sauces",
             {
                 headers: {
-                    // 'Authorization': `token ${access_token}`
-                    "Authorization": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Mjg3YjNiYzc0NjM4NzBjNWYxZWIwZjAiLCJpYXQiOjE2NTMxNDUxMjgsImV4cCI6MTY1MzIzMTUyOH0.vklux6sqge8HLX1OWnyS_ALfxHmQVyH5QncVDFtbvMQ"
+                    'Authorization': `token ${access_token}`
                 }
             })
         await setSauces(res.data)
-        console.log(await sauces)
+        await console.log(sauces)
     }
 
     useEffect(() => {
@@ -28,9 +28,9 @@ function Homepage() {
 
     const content = sauces.map((data, index) => {
         return (
-           
+
             <div className="sauceBox col col-md-6 col-lg-4" key={index}>
-                <Link to={`saucepage/${data._id}`} >
+                <Link className="link" to={`saucepage/${data._id}`} >
                     <div className='sauceBoxImage d-flex flex-wrap justify-content-around'>
                         <img src={data.imageUrl} alt="" />
                     </div>
@@ -47,10 +47,13 @@ function Homepage() {
 
     return (
         <div className="row">
-            
-            
-                 {content}
-            
+            <NavBar />
+            <div className="allSaucesBody">
+            <div className="saucesListHeader">
+                <h4>The sauces</h4>
+            </div>
+            {content}
+            </div>
         </div>
     )
 }

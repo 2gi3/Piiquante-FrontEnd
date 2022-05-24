@@ -1,29 +1,5 @@
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 8vh;
-}
-
 .innerContainer {
-  min-width: 290px;
-  width: 55%;
-  border-radius: 15px;
-  max-width: 700px;
-  background-color: #f443368f;
-  padding-top: 3vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  width: 60%;
 }
 
 .innerContainer .inputBox {
@@ -45,7 +21,7 @@
 }
 
 .innerContainer .inputBox input {
-  min-width: 230px;
+  min-width: 250px;
   border: none;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -56,18 +32,23 @@
   outline: none;
 }
 
-.innerContainer .logInSignUpButtons {
+.innerContainer .inputBox input .description {
+  min-height: 80px;
+}
+
+.innerContainer .addImageButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  min-width: 190px;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  max-width: 230px;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
   padding: 0 10px 20px 10px;
+  font-size: 14px;
 }
 
-.innerContainer .logInSignUpButtons .sauceButton {
+.innerContainer .addImageButton .sauceButton {
   padding: 3px 10px;
   margin: 5px;
   border-radius: 6px;
@@ -76,13 +57,13 @@
           box-shadow: 3px 3px 3px #bbbbbb;
 }
 
-.innerContainer .logInSignUpButtons .signInButton {
+.innerContainer .addImageButton .signInButton {
   min-width: 85px;
   background-color: #673ab7;
 }
 
-.innerContainer .logInSignUpButtons .signUpButton {
+.innerContainer .addImageButton .signUpButton {
   min-width: 85px;
   background-color: #f44336;
 }
-/*# sourceMappingURL=signIn.css.map */
+/*# sourceMappingURL=newSauce.css.map */

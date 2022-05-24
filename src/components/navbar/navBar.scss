@@ -1,47 +1,25 @@
-
-.logout{
-    padding: 2vw 5vw 0 0;
-    text-align: right;
-    button{
-        background-color: #ffff;
-        padding: 2px 5px;
-        border: 1px solid #ececec;
-        &:hover{
-            box-shadow: 3px 3px 2px #cecece;
-            text-shadow: 1px 1px 1px #cecece;
-        
-        }
-    }
-}
-.header{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 5%;
-    width: 100vw;
-    .logo{
-        img{
-        max-height: 100px;
-        }
-    }
-    .title{
-        h1{
-            text-align: center;
-            color: #f44336;
-            font-size: 2.5rem;
-        }
-        h3{
-            text-align: center;
-            font-size: 2rem;
-        }
-    }
-}
 .navLinks{
     display: flex;
     justify-content: space-evenly;
-    padding: 0 15px 15px 15px;
+    padding: 0 15px 30px 15px;
+    width: 100%;
+    .link{
+        text-decoration: none;
+    }
     .nav-link{
+        margin-top: 5vh;
+        background-color: #683ab791;
+        border: 1px solid #683ab791;
+        color: #f44336;
         text-align: center;
-        font-size: 1.5em;
+        font-weight: bolder;
+        font-size: 1.1rem;
+        border-radius: 6px;
+        &:hover{
+            border: 1px solid white;
+            box-shadow: 3px 3px 3px #f44336;
+            text-shadow: 1px 1px 1px white;
+
+        }
     }
 }

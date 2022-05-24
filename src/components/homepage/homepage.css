@@ -1,22 +1,54 @@
-.sauceBox {
-  min-width: 150px;
+.allSaucesBody {
+  padding: 0 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.sauceBox .sauceBoxImage {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-}
-
-.sauceBox .sauceBoxImage img {
+.allSaucesBody .saucesListHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  padding: 0 5vw;
   width: 100%;
+}
+
+.allSaucesBody .sauceBox {
+  min-width: 150px;
+  margin-top: 5px;
+}
+
+.allSaucesBody .sauceBox .link {
+  text-decoration: none;
+}
+
+.allSaucesBody .sauceBox:hover {
+  -webkit-box-shadow: 3px 3px 3px #cecece;
+          box-shadow: 3px 3px 3px #cecece;
+}
+
+.allSaucesBody .sauceBox .sauceBoxImage {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.allSaucesBody .sauceBox .sauceBoxImage img {
+  width: 100%;
+  max-height: 100%;
   max-width: 250px;
 }
 
-.sauceBox .sauceName {
+.allSaucesBody .sauceBox .sauceName {
   text-align: center;
 }
 
-.sauceBox .sauceName h2 {
+.allSaucesBody .sauceBox .sauceName h2 {
   font-size: 1.5rem;
 }
 /*# sourceMappingURL=homepage.css.map */

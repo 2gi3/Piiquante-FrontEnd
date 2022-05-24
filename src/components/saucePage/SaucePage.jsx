@@ -1,5 +1,6 @@
 import "./saucePage.css"
 import React, { useEffect, useState, } from 'react';
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
 
@@ -12,6 +13,8 @@ function SaucePage() {
     const dislike = <FontAwesomeIcon icon={faThumbsDown} />
 
     const access_token = sessionStorage.getItem('token');
+    const userId = sessionStorage.getItem('userId');
+    let sauceCreator
     const params = useParams()
     const [sauce, setSauce] = useState('')
 
@@ -21,8 +24,7 @@ function SaucePage() {
         const res = await axios.get(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
             {
                 headers: {
-                    // 'Authorization': `token ${access_token}`
-                    "Authorization": "token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2Mjg3YjNiYzc0NjM4NzBjNWYxZWIwZjAiLCJpYXQiOjE2NTMxNDUxMjgsImV4cCI6MTY1MzIzMTUyOH0.vklux6sqge8HLX1OWnyS_ALfxHmQVyH5QncVDFtbvMQ"
+                    'Authorization': `token ${access_token}`
                 }
             })
         setSauce(await res.data)
@@ -32,6 +34,9 @@ function SaucePage() {
 
     useEffect(() => {
         getSauce()
+        console.log(userId)
+        sauceCreator = sauce.userId
+        console.log(sauceCreator)
 
 
     }, [])
@@ -58,17 +63,21 @@ function SaucePage() {
                         </div>
                     </div>
                     <div className="controlButtons">
-                        <button className="backButton sauceButton">
-                            <span>BACK</span>
-                        </button>
-                        <div className="modifyDeleteButtons">
-                            <button className="modifyButton sauceButton">
-                                <span>MODIFY</span>
+                        <Link className="nav-link" to='/'>
+                            <button className="backButton sauceButton">
+                                <span>BACK</span>
                             </button>
-                            <button className="deleteButton sauceButton">
-                                <span>DELETE</span>
-                            </button>
-                        </div>
+                        </Link>
+                        {sauce.userId === userId ?
+                            <div className="modifyDeleteButtons">
+                                <button className="modifyButton sauceButton">
+                                    <span>MODIFY</span>
+                                </button>
+                                <button className="deleteButton sauceButton">
+                                    <span>DELETE</span>
+                                </button>
+                            </div>
+                            : <></>}
                     </div>
                 </div>
             </div>

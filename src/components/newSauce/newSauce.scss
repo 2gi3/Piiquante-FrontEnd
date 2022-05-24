@@ -1,0 +1,60 @@
+.innerContainer{
+    width: 60%;
+
+.inputBox {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    
+
+    .icon {
+        background-color: white;
+        padding: 3px 12px 0 0;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+
+    }
+
+    input {
+        min-width: 250px;
+        border: none;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        padding-left: 10px;
+        &:focus-visible{
+            outline: none;
+        }
+        .description{
+            min-height: 80px;
+        }
+    }
+}
+
+
+.addImageButton {
+    display: flex;
+    max-width: 230px;
+    justify-content: left;
+    padding: 0 10px 20px 10px;
+    font-size: 14px;
+
+    .sauceButton {
+        padding: 3px 10px;
+        margin: 5px;
+        border-radius: 6px;
+        border: none;
+        box-shadow: 3px 3px 3px #bbbbbb;
+    }
+
+    .signInButton {
+        min-width: 85px;
+        background-color: #673ab7;
+    }
+
+    .signUpButton {
+        min-width: 85px;
+        background-color: #f44336;
+    }
+}
+}

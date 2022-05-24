@@ -1,0 +1,37 @@
+.logout{
+    padding: 2vw 5vw 0 0;
+    text-align: right;
+    button{
+        background-color: #ffff;
+        padding: 2px 5px;
+        border: 1px solid #ececec;
+        &:hover{
+            box-shadow: 3px 3px 2px #cecece;
+            text-shadow: 1px 1px 1px #cecece;
+        
+        }
+    }
+}
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5%;
+    width: 100vw;
+    .logo{
+        img{
+        max-height: 100px;
+        }
+    }
+    .title{
+        h1{
+            text-align: center;
+            color: #f44336;
+            font-size: 2rem;
+        }
+        h3{
+            text-align: center;
+            font-size: 1.4rem;
+        }
+    }
+}

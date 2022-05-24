@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link, } from 'react-router-dom'
-import NavBar from './components/navbar/NavBar';
+import Header from './components/header/Header';
 import Homepage from './components/homepage/Homepage';
 import SaucePage from './components/saucePage/SaucePage';
 import SignIn from './components/signIn/SignIn';
+import NewSauce from './components/newSauce/NewSauce';
 
 function App() {
   return (
@@ -13,13 +14,14 @@ function App() {
         <div className='container-fluid'>
           <div className='row'>
             <header>
-              <NavBar />
+              <Header />
             </header>
           </div>
         <Routes>
         <Route path='/' element={ <Homepage />} />   
         <Route path='saucepage/:id' element={ <SaucePage />} />
-        <Route path='signin' element={ <SignIn /> } />
+        <Route path=':signin' element={ <SignIn /> } />
+        <Route path='newsauce' element={<NewSauce />}/>
         </Routes>
       </div>
     </div>
