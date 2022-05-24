@@ -21,6 +21,10 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -79,10 +83,14 @@
 .innerContainer .logInSignUpButtons .signInButton {
   min-width: 85px;
   background-color: #673ab7;
+  margin-right: 105px;
+  margin-bottom: -25px;
 }
 
 .innerContainer .logInSignUpButtons .signUpButton {
   min-width: 85px;
   background-color: #f44336;
+  margin-left: 105px;
+  margin-top: -25px;
 }
 /*# sourceMappingURL=signIn.css.map */

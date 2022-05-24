@@ -1,12 +1,16 @@
 import "./signIn.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightToBracket, faKey, faAt} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightToBracket, faKey, faAt } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
 function SignIn() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const userData = {
+        email,
+        password
+    }
 
     const logIn = (e) => {
         e.preventDefault();
@@ -43,6 +47,7 @@ function SignIn() {
                     <div className="inputBox">
                         <input type="email" name="userEmail" placeholder="UserEmail"
                             onChange={event => setEmail(event.target.value)}
+                            onInput={event => setEmail(event.target.value)}
                         />
                         <div className="icon">
                             <FontAwesomeIcon icon={faAt} />
@@ -53,6 +58,7 @@ function SignIn() {
                     <div className="inputBox">
                         <input type="password" name="password" placeholder="Password"
                             onChange={event => setPassword(event.target.value)}
+                            onInput={event => setPassword(event.target.value)}
                         />
                         <div className="icon">
                             <FontAwesomeIcon icon={faKey} />
@@ -63,14 +69,15 @@ function SignIn() {
                         <button className="signInButton sauceButton " type="submit" value="submit">
                             <span>Login <FontAwesomeIcon icon={faArrowRightToBracket} /></span>
                         </button>
-                        {/* <button className="signUpButton sauceButton" type="submit" value="submit">
-                                <span>Sign up</span>
-                            </button> */}
                     </div>
-
                 </form>
+                <div className="logInSignUpButtons">
+                <button className="signUpButton sauceButton"
+                    onClick={() => console.log(userData)}>
+                    <span>Sign up</span>
+                </button>
             </div>
-
+            </div>
         </div>
     )
 }

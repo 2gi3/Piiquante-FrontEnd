@@ -11,7 +11,7 @@ function NavBar() {
                 All sauces
                 </button>
             </Link> */}
-            <Link className="link" to='/'>
+            <Link className="link" to='newsauce'>
                 <button className="nav-link">
                 Create a sauce
                 </button>

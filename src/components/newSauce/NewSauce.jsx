@@ -5,54 +5,70 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightToBracket, faKey,} from '@fortawesome/free-solid-svg-icons'
 
 function NewSauce() {
-    const access_token = sessionStorage.getItem('token');
+    const access_token = sessionStorage.getItem('token')
+    const userId = sessionStorage.getItem('userId')
+    const [title, setTitle] = useState('')
+    const [manufacturer, setManifacturer] = useState('')
+    const [description, setDescription] = useState('')
+    const [imageUrl, setImageUrl] = useState('')
+    const [mainPepper, setMainPepper] =useState('')
     const [heat, setHeat] = useState(0)
 
-    const createSauce = (e) => {
-		e.preventDefault();
 
-        // let formData = new FormData
-        // formData.append(
-        //     'userId', userId
-        // )
-        // formData.append(
-        //     'title', title
-        // )
-        // formData.append(
-        //     'manufacturer', manufacturer
-        // )
-        // formData.append(
-        //     'description', description
-        // )
-        // formData.append(
-        //     'imageUrl', imageUrl
-        // )
-        // formData.append(
-        //     'imageUrl', imageUrl.name
-        // )
-        // formData.append(
-        //     'mainPepper', mmainPepper
-        // )
-        // formData.append(
-        //     'heat', heat
-        // )
+    const createSauce = (e) => {
+		e.preventDefault()
+
+        let formData = new FormData
+		formData.append(
+            'userId', "this is a test string"
+        )
+        formData.append(
+            'title', title
+        )
+        formData.append(
+            'manufacturer', manufacturer
+        )
+        formData.append(
+            'description', description
+        )
+        formData.append(
+            'imageUrl', imageUrl
+        )
+        formData.append(
+            'imageUrl', imageUrl.name
+        )
+        formData.append(
+            'mainPepper', mainPepper
+        )
+        formData.append(
+            'heat', heat
+        )
+
+        console.log(title)
+        console.log(manufacturer)
+        console.log(description)
+        console.log(imageUrl)
+        console.log(imageUrl.name)
+        console.log(mainPepper)
+        console.log(heat)
+        console.log(formData)
     
-    axios.post("https://murmuring-everglades-04934.herokuapp.com/api/posts",
-    //  formData,
+    axios.post("https://murmuring-everglades-04934.herokuapp.com/api/posts", formData,
 		{
 			headers: {
-			  'Authorization': `Basic ${access_token}`
+			  'Authorization': `token ${access_token}`
 			}
 		  })
 			.then(
 				(res) => {
-					console.log('post created');
+					console.log('sauce created');
 
 				})
 			.catch((err) => {
 				console.log(err);
 			});
-		window.location = "/";
+
+		// window.location = "/";
 	}
     
 
@@ -61,11 +77,11 @@ function NewSauce() {
         <div className="row d-flex justify-content-center" >
             <div className="innerContainer">
                 <form
-                // onSubmit={event => logIn(event)}
+                onSubmit={event => createSauce(event)}
                 >
                     <div className="inputBox">
                         <input type="text" name="name" placeholder="name"
-                        // onChange={event => setEmail(event.target.value)}
+                        onChange={event => setTitle(event.target.value)}
                         />
                         <div className="icon">
                             {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
@@ -75,7 +91,7 @@ function NewSauce() {
 
                     <div className="inputBox">
                         <input type="text" name="manufacturer" placeholder="manufacturer"
-                        // onChange={event => setPassword(event.target.value)}
+                        onChange={event => setManifacturer(event.target.value)}
                         />
                         <div className="icon">
                             {/* <FontAwesomeIcon icon={faKey} /> */}
@@ -84,7 +100,7 @@ function NewSauce() {
                     </div>
                     <div className="inputBox">
                         <input className='description' type="text" name="description" placeholder="description"
-                        // onChange={event => setEmail(event.target.value)}
+                        onChange={event => setDescription(event.target.value)}
                         />
                         <div className="icon">
                             {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
@@ -93,13 +109,13 @@ function NewSauce() {
                     </div>
                     <div className="addImageButton">
                             <input className="signInButton sauceButton "type="file" name="imageUrl" placeholder="imageUrl"
-                                // onChange={event => setImageUrl(event.target.files[0])}
+                                onChange={event => setImageUrl(event.target.files[0])}
                                 accept="image/png, image/jpeg, image/jpg, image/webp">
                             </input>
                     </div>
                     <div className="inputBox">
                         <input type="text" name="mainPepperIngredient" placeholder="Main pepper ingrediend"
-                        // onChange={event => setEmail(event.target.value)}
+                        onChange={event => setMainPepper(event.target.value)}
                         />
                         <div className="icon">
                             {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
@@ -109,14 +125,10 @@ function NewSauce() {
                     {/* formcontrolname="heat"  */}
                     <div className="inputRange">
                         <input type="range"  min="0" max="10" name="heat" placeholder="0"
-                        // onChange={event => setEmail(event.target.value)}
                         onInput={((e)=>{setHeat(e.target.value)})}
+                        onChange={event => setHeat(event.target.value)}
                         />
                          <output>{heat}</output>
-
-                        {/* <input id="rangeNumber"
-                            formcontrolname="heatValue" type="number" disabled=""></input> */}
-
                         <div className="icon">
                             {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
                         </div>

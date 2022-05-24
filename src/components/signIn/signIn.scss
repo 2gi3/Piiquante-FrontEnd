@@ -13,6 +13,7 @@
     background-color: #f443368f;
     padding-top: 3vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
     .inputBox {
@@ -20,7 +21,7 @@
         display: flex;
         justify-content: center;
         margin: 20px 0;
-        
+
 
         .icon {
             background-color: white;
@@ -36,7 +37,8 @@
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
             padding-left: 10px;
-            &:focus-visible{
+
+            &:focus-visible {
                 outline: none;
             }
         }
@@ -61,11 +63,15 @@
         .signInButton {
             min-width: 85px;
             background-color: #673ab7;
+            margin-right: 105px;
+            margin-bottom: -25px;
         }
 
         .signUpButton {
             min-width: 85px;
             background-color: #f44336;
+            margin-left: 105px;
+            margin-top: -25px;
         }
     }
 }
