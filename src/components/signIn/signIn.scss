@@ -5,23 +5,33 @@
     margin-top: 8vh;
 }
 
-.innerContainer {
+.inContainer {
     min-width: 290px;
     width: 55%;
     border-radius: 15px;
     max-width: 700px;
     background-color: #f443368f;
-    padding-top: 3vh;
+    padding: 45px 3vw 0 3vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    .logInMessage {
+        background-color: #f44336cc;
+        text-align: center;
+        font-size: 14px;
+        border-radius: 15px;
+        margin: 20px 10vw -20px 10vw;
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
 
     .inputBox {
         height: 30px;
         display: flex;
         justify-content: center;
-        margin: 20px 0;
-
+        margin-bottom: 40px;
+        margin-top: -20px;
 
         .icon {
             background-color: white;
@@ -63,15 +73,19 @@
         .signInButton {
             min-width: 85px;
             background-color: #673ab7;
-            margin-right: 105px;
+            margin-right: 135px;
             margin-bottom: -25px;
         }
 
         .signUpButton {
             min-width: 85px;
             background-color: #f44336;
-            margin-left: 105px;
+            margin-left: 135px;
             margin-top: -25px;
+        }
+
+        #vanish {
+            display: none;
         }
     }
 }

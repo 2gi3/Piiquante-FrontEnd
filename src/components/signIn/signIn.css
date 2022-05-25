@@ -11,13 +11,13 @@
   margin-top: 8vh;
 }
 
-.innerContainer {
+.inContainer {
   min-width: 290px;
   width: 55%;
   border-radius: 15px;
   max-width: 700px;
   background-color: #f443368f;
-  padding-top: 3vh;
+  padding: 45px 3vw 0 3vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -30,7 +30,17 @@
           justify-content: center;
 }
 
-.innerContainer .inputBox {
+.inContainer .logInMessage {
+  background-color: #f44336cc;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 15px;
+  margin: 20px 10vw -20px 10vw;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.inContainer .inputBox {
   height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,17 +48,18 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 20px 0;
+  margin-bottom: 40px;
+  margin-top: -20px;
 }
 
-.innerContainer .inputBox .icon {
+.inContainer .inputBox .icon {
   background-color: white;
   padding: 3px 12px 0 0;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 
-.innerContainer .inputBox input {
+.inContainer .inputBox input {
   min-width: 230px;
   border: none;
   border-top-left-radius: 15px;
@@ -56,11 +67,11 @@
   padding-left: 10px;
 }
 
-.innerContainer .inputBox input:focus-visible {
+.inContainer .inputBox input:focus-visible {
   outline: none;
 }
 
-.innerContainer .logInSignUpButtons {
+.inContainer .logInSignUpButtons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -71,7 +82,7 @@
   padding: 0 10px 20px 10px;
 }
 
-.innerContainer .logInSignUpButtons .sauceButton {
+.inContainer .logInSignUpButtons .sauceButton {
   padding: 3px 10px;
   margin: 5px;
   border-radius: 6px;
@@ -80,17 +91,21 @@
           box-shadow: 3px 3px 3px #bbbbbb;
 }
 
-.innerContainer .logInSignUpButtons .signInButton {
+.inContainer .logInSignUpButtons .signInButton {
   min-width: 85px;
   background-color: #673ab7;
-  margin-right: 105px;
+  margin-right: 135px;
   margin-bottom: -25px;
 }
 
-.innerContainer .logInSignUpButtons .signUpButton {
+.inContainer .logInSignUpButtons .signUpButton {
   min-width: 85px;
   background-color: #f44336;
-  margin-left: 105px;
+  margin-left: 135px;
   margin-top: -25px;
+}
+
+.inContainer .logInSignUpButtons #vanish {
+  display: none;
 }
 /*# sourceMappingURL=signIn.css.map */
