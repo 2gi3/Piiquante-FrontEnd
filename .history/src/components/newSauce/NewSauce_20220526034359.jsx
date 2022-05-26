@@ -27,7 +27,7 @@ function NewSauce() {
       data: formData,
       headers: {
         Accept: "application/json",
-        "Content-Type": "multipart/form-data",
+        "Content-Type": "multip",
       },
     })
       .then((res) => {

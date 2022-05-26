@@ -22,14 +22,8 @@ function NewSauce() {
     formData.append("mainPepper", mainPepper);
     formData.append("heat", heat);
 
-    axios("http://localhost:3001/api/sauces", {
-      method: "post",
-      data: formData,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "multipart/form-data",
-      },
-    })
+    axios
+      .post("http://localhost:3001/api/sauces", formData })
       .then((res) => {
         console.log(res);
       })

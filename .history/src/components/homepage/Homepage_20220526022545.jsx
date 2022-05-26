@@ -23,6 +23,7 @@ function Homepage() {
     useEffect(() => {
         getSauces()
 
+
     }, [])
 
     const content = sauces.map((data, index) => {

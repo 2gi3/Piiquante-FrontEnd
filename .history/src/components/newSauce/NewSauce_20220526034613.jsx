@@ -24,7 +24,7 @@ function NewSauce() {
 
     axios("http://localhost:3001/api/sauces", {
       method: "post",
-      data: formData,
+      body: formData,
       headers: {
         Accept: "application/json",
         "Content-Type": "multipart/form-data",

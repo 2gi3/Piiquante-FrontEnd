@@ -2,7 +2,7 @@ import "./homepage.css"
 import { Link, } from 'react-router-dom'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
-import NavBar from "../navbar/NavBar";
+import NavBar from "../navBar/NavBar";
 
 function Homepage() {
     const access_token = sessionStorage.getItem('token');
@@ -16,12 +16,13 @@ function Homepage() {
                     'Authorization': `token ${access_token}`
                 }
             })
-        setSauces(res.data)
-         console.log(sauces)
+        await setSauces(res.data)
+        await console.log(sauces)
     }
 
     useEffect(() => {
         getSauces()
+
 
     }, [])
 

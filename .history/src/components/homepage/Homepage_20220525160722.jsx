@@ -16,12 +16,13 @@ function Homepage() {
                     'Authorization': `token ${access_token}`
                 }
             })
-        setSauces(res.data)
-         console.log(sauces)
+        await setSauces(res.data)
+        await console.log(sauces)
     }
 
     useEffect(() => {
         getSauces()
+
 
     }, [])
 

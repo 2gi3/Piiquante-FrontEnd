@@ -1,8 +1,15 @@
 import "./newSauce.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowRightToBracket,
+  faKey,
+} from "@fortawesome/free-solid-svg-icons";
 
 function NewSauce() {
+  const access_token = sessionStorage.getItem("token");
+  const userId = sessionStorage.getItem("userId");
   const [title, setTitle] = useState("");
   const [manufacturer, setManifacturer] = useState("");
   const [description, setDescription] = useState("");
@@ -14,7 +21,7 @@ function NewSauce() {
     e.preventDefault();
 
     let formData = new FormData();
-
+    formData.append("userId", "this is a test string");
     formData.append("name", title);
     formData.append("manufacturer", manufacturer);
     formData.append("description", description);
@@ -22,19 +29,16 @@ function NewSauce() {
     formData.append("mainPepper", mainPepper);
     formData.append("heat", heat);
 
-    axios("http://localhost:3001/api/sauces", {
-      method: "post",
-      data: formData,
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "multipart/form-data",
-      },
+    fetch("http://localhost:3001/api/sauces", {
+      method: "POST",
+      body: formData,
+      headers: { "Content-Type": "multipart/form-data", "Accept":"*/*" },
     })
       .then((res) => {
         console.log(res);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("eroooooooor");
       });
 
     // window.location = "/";
@@ -43,7 +47,7 @@ function NewSauce() {
   return (
     <div className="row d-flex justify-content-center">
       <div className="innerContainer">
-        <form>
+        <form onSubmit={(event) => createSauce(event)}>
           <div className="inputBox">
             <input
               type="text"
@@ -122,7 +126,6 @@ function NewSauce() {
           </div>
           <div className="addImageButton">
             <button
-              onClick={(event) => createSauce(event)}
               className="signInButton sauceButton "
               type="submit"
               value="submit">
