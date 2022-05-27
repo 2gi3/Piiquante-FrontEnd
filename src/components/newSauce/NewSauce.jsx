@@ -18,42 +18,21 @@ function NewSauce() {
     const createSauce = (e) => {
 		e.preventDefault()
 
-        let formData = new FormData
-		formData.append(
-            'userId', "this is a test string"
-        )
-        formData.append(
-            'title', title
-        )
-        formData.append(
-            'manufacturer', manufacturer
-        )
-        formData.append(
-            'description', description
-        )
-        formData.append(
-            'imageUrl', imageUrl
-        )
-        formData.append(
-            'imageUrl', imageUrl.name
-        )
-        formData.append(
-            'mainPepper', mainPepper
-        )
-        formData.append(
-            'heat', heat
-        )
+        const dataObj = {
+            userId,
+            name:title,
+            manufacturer,
+            description,
+            mainPepper,
+            heat
+        }
 
-        console.log(title)
-        console.log(manufacturer)
-        console.log(description)
-        console.log(imageUrl)
-        console.log(imageUrl.name)
-        console.log(mainPepper)
-        console.log(heat)
-        console.log(formData)
-    
-    axios.post("https://murmuring-everglades-04934.herokuapp.com/api/posts", formData,
+        const data = new FormData()
+        data.append("sauce", JSON.stringify(dataObj))
+        data.append("image", imageUrl)
+        console.log("formData" , dataObj)
+
+        axios.post("http://localhost:3000/api/sauces", data,
 		{
 			headers: {
 			  'Authorization': `token ${access_token}`
@@ -68,7 +47,7 @@ function NewSauce() {
 				console.log(err);
 			});
 
-		// window.location = "/";
+		window.location = "/";
 	}
     
 

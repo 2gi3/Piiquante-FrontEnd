@@ -21,7 +21,7 @@ function SaucePage() {
 
 
     const getSauce = async () => {
-        const res = await axios.get(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
+        const res = await axios.get(`http://localhost:3000/api/sauces/${params.id}`,
             {
                 headers: {
                     'Authorization': `token ${access_token}`
