@@ -1,5 +1,2 @@
--post new sauce not working
--delete sauce
--modify sauce
 -like /dislike
--create account
+-modify sauce only works if all input fields are modified

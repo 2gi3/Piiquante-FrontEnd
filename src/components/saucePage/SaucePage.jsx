@@ -18,8 +18,6 @@ function SaucePage() {
     const params = useParams()
     const [sauce, setSauce] = useState('')
 
-
-
     const getSauce = async () => {
         const res = await axios.get(`http://localhost:3000/api/sauces/${params.id}`,
             {
@@ -28,9 +26,30 @@ function SaucePage() {
                 }
             })
         setSauce(await res.data)
-        console.log(sauce)
+        console.log(params.id)
 
     }
+    
+    const deleteSauce = () => {
+        axios.delete(`http://localhost:3000/api/sauces/${params.id}`,
+            {
+                headers: {
+                    'Authorization': `token ${access_token}`
+                }
+            })
+            .then(response => console.log('Delete successful'))
+            .catch(error => {
+                console.log(error.message);
+                console.error('There was an error!', error);
+            })
+        window.location = "/"
+    }
+
+    
+
+
+
+
 
     useEffect(() => {
         getSauce()
@@ -57,10 +76,10 @@ function SaucePage() {
                             <i>{like}</i>
                             <span>{sauce.likes}</span>
                         </div>
-                        <div className="thumbs">
+                        <button className="thumbs" onClick={console.log('thumbs down')}>
                             <i>{dislike}</i>
                             <span>{sauce.dislikes}</span>
-                        </div>
+                        </button>
                     </div>
                     <div className="controlButtons">
                         <Link className="nav-link" to='/'>
@@ -69,11 +88,13 @@ function SaucePage() {
                             </button>
                         </Link>
                         {sauce.userId === userId ?
-                            <div className="modifyDeleteButtons">
+                            <div className="modifyDeleteButtons">                                
+                                <Link className="nav-link" to={`updatesauce/${params.id}`}>
                                 <button className="modifyButton sauceButton">
                                     <span>MODIFY</span>
                                 </button>
-                                <button className="deleteButton sauceButton">
+                                </Link>
+                                <button className="deleteButton sauceButton" onClick={event => deleteSauce()}>
                                     <span>DELETE</span>
                                 </button>
                             </div>

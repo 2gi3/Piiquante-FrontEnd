@@ -20,6 +20,7 @@ function App() {
         <Routes>
         <Route path='/' element={ <Homepage />} />   
         <Route path='saucepage/:id' element={ <SaucePage />} />
+        <Route path='saucepage/:id/updatesauce/:id' element={ <NewSauce />} />
         <Route path=':signin' element={ <SignIn /> } />
         <Route path='newsauce' element={<NewSauce />}/>
         </Routes>

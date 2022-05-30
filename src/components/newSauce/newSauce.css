@@ -48,6 +48,10 @@
   font-size: 14px;
 }
 
+.innerContainer .addImageButton #vanish {
+  display: none;
+}
+
 .innerContainer .addImageButton .sauceButton {
   padding: 3px 10px;
   margin: 5px;
