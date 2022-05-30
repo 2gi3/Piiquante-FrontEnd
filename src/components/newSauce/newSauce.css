@@ -1,5 +1,11 @@
 .innerContainer {
-  width: 60%;
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .innerContainer .inputBox {
@@ -23,13 +29,16 @@
 .innerContainer .inputBox input {
   min-width: 250px;
   border: none;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
+  border-radius: 10px;
   padding-left: 10px;
+  background-color: #f443363a;
 }
 
 .innerContainer .inputBox input:focus-visible {
   outline: none;
+  background-color: #f4433660;
+  -webkit-box-shadow: 2px 2px 2px #683ab779;
+          box-shadow: 2px 2px 2px #683ab779;
 }
 
 .innerContainer .inputBox input .description {
@@ -44,7 +53,7 @@
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
-  padding: 0 10px 20px 10px;
+  margin-left: -3px;
   font-size: 14px;
 }
 

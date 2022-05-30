@@ -35,7 +35,7 @@
 
         .icon {
             background-color: white;
-            padding: 3px 12px 0 0;
+            padding: 3px 12px 0 10px;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
 
@@ -47,9 +47,16 @@
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
             padding-left: 10px;
-
-            &:focus-visible {
+            &:focus-visible + .icon  {
                 outline: none;
+                background-color: #f4433660;
+            box-shadow: 2px 2px 2px #683ab779;
+            }
+            &:focus-visible{
+                outline: none;
+                background-color: #f4433660;
+            box-shadow: 2px 2px 2px #683ab779;
+
             }
         }
 

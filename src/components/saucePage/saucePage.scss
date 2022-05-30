@@ -13,8 +13,21 @@
         display: flex;
           .thumbs{
               padding: 0.5em 1em;
+              background-color:#ffffff ;
+              border:none;
+              &:focus{
+                  outline: none;
+                  color:#673ab7;
+              }
+              &:focus-visible{
+                  outline: none;
+              }
               i{
                   padding: 0 8px 5px 0;
+                  &:hover{
+                    font-size: 1.1em;
+                    padding: 7px 4px 0;
+                  }
               }
           }        
         }

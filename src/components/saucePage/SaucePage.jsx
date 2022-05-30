@@ -72,11 +72,11 @@ function SaucePage() {
                     <h3>{sauce.description}</h3>
                     <p>{sauce.mainPepper}</p>
                     <div className="likeButtons">
-                        <div className="thumbs">
+                        <button className="thumbs" onClick={e => console.log('thumbs up')}>
                             <i>{like}</i>
                             <span>{sauce.likes}</span>
-                        </div>
-                        <button className="thumbs" onClick={console.log('thumbs down')}>
+                        </button>
+                        <button className="thumbs" onClick={e => console.log('thumbs down')}>
                             <i>{dislike}</i>
                             <span>{sauce.dislikes}</span>
                         </button>

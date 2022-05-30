@@ -25,10 +25,26 @@
 
 .sauceContainer .sauceInfo .likeButtons .thumbs {
   padding: 0.5em 1em;
+  background-color: #ffffff;
+  border: none;
+}
+
+.sauceContainer .sauceInfo .likeButtons .thumbs:focus {
+  outline: none;
+  color: #673ab7;
+}
+
+.sauceContainer .sauceInfo .likeButtons .thumbs:focus-visible {
+  outline: none;
 }
 
 .sauceContainer .sauceInfo .likeButtons .thumbs i {
   padding: 0 8px 5px 0;
+}
+
+.sauceContainer .sauceInfo .likeButtons .thumbs i:hover {
+  font-size: 1.1em;
+  padding: 7px 4px 0;
 }
 
 .sauceContainer .sauceInfo .controlButtons .sauceButton {
