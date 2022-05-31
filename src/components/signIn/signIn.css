@@ -102,14 +102,14 @@
 }
 
 .inContainer .logInSignUpButtons .signInButton {
-  min-width: 85px;
+  min-width: 99px;
   background-color: #673ab7;
   margin-right: 135px;
   margin-bottom: -25px;
 }
 
 .inContainer .logInSignUpButtons .signUpButton {
-  min-width: 85px;
+  min-width: 99px;
   background-color: #f44336;
   margin-left: 135px;
   margin-top: -25px;

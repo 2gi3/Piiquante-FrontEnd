@@ -68,8 +68,8 @@ function SaucePage() {
                 </div>
                 <div className="sauceInfo">
                     <h1 className="sauce-name">{sauce.name}</h1>
-                    <p className="manufacturer">{sauce.manifacturer}</p>
-                    <h3>{sauce.description}</h3>
+                    <h3 className="manufacturer">{sauce.manufacturer}</h3>
+                    <p>{sauce.description}</p>
                     <p>{sauce.mainPepper}</p>
                     <div className="likeButtons">
                         <button className="thumbs" onClick={e => console.log('thumbs up')}>

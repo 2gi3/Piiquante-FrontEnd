@@ -16,6 +16,7 @@ function NewSauce() {
     const [heat, setHeat] = useState(0)
     const[updateSauceButton, setUpdateSauceButton] =useState('')
     const[createSauceButton, setCreateSauceButton] =useState('')
+    const [sauce, setSauce] =useState('')
     const params = useParams()
 
 
@@ -88,9 +89,29 @@ function NewSauce() {
 
     }
 
+    const getSauce = async () => {
+        const res = await axios.get(`http://localhost:3000/api/sauces/${params.id}`,
+            {
+                headers: {
+                    'Authorization': `token ${access_token}`
+                }
+            })
+        await setTitle(res.data.name)
+         setManifacturer(res.data.manufacturer)
+         setDescription(res.data.description)
+         setImageUrl(res.data.imageUrl)
+         setMainPepper(res.data.mainPepper)
+         setHeat(res.data.heat)
+         console.log(res.data)
+
+    }
+
     useEffect(() => {
         params.id == undefined? setUpdateSauceButton('vanish')
         : setCreateSauceButton('vanish')
+        getSauce()
+       
+        
 
     }, [])
     
@@ -102,7 +123,8 @@ function NewSauce() {
                 <form>
                     <p>Every input field must be filled</p>
                     <div className="inputBox">
-                        <input type="text" name="name" placeholder="name"
+                        <lable for="name"> Sauce name</lable>
+                        <input type="text" id="name" name="name" defaultValue={title}
                         onChange={event => setTitle(event.target.value)}
                         />
                         <div className="icon">
@@ -112,7 +134,8 @@ function NewSauce() {
                     </div>
 
                     <div className="inputBox">
-                        <input type="text" name="manufacturer" placeholder="manufacturer"
+                    <lable for="manufacturer"> Manufacturer</lable>
+                        <input type="text" id="manufacturer" name="manufacturer" defaultValue={manufacturer}
                         onChange={event => setManifacturer(event.target.value)}
                         />
                         <div className="icon">
@@ -121,22 +144,24 @@ function NewSauce() {
                         {/* <h1>{passwordWarning}</h1> */}
                     </div>
                     <div className="inputBox">
-                        <input className='description' type="text" name="description" placeholder="description"
+                    <lable for="description"> Description</lable>
+                        <textarea id="description" className='description' type="text" name="description" defaultValue={description}
                         onChange={event => setDescription(event.target.value)}
-                        />
+                        ></textarea>
                         <div className="icon">
                             {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
                         </div>
                         {/* <h1>{emailInvalid}</h1> */}
                     </div>
                     <div className="addImageButton">
-                            <input className="signInButton sauceButton "type="file" name="imageUrl" placeholder="imageUrl"
+                            <input className="signInButton sauceButton "type="file" name="imageUrl" defaultValue={imageUrl}
                                 onChange={event => setImageUrl(event.target.files[0])}
                                 accept="image/png, image/jpeg, image/jpg, image/webp">
                             </input>
                     </div>
                     <div className="inputBox">
-                        <input type="text" name="mainPepperIngredient" placeholder="Main pepper ingrediend"
+                    <lable for="mainPepperIngredient"> Main pepper ingredient</lable>
+                        <input id="mainPepperIngredient" type="text" name="mainPepperIngredient" defaultValue={mainPepper}
                         onChange={event => setMainPepper(event.target.value)}
                         />
                         <div className="icon">
@@ -146,7 +171,8 @@ function NewSauce() {
                     </div>
                     {/* formcontrolname="heat"  */}
                     <div className="inputRange">
-                        <input type="range"  min="0" max="10" name="heat" placeholder="0"
+                    <lable for="heat"> Heat</lable>
+                        <input id="heat" type="range"  min="0" max="10" name="heat" defaultValue={heat}
                         onInput={((e)=>{setHeat(e.target.value)})}
                         onChange={event => setHeat(event.target.value)}
                         />

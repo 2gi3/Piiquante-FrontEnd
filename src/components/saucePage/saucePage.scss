@@ -1,57 +1,137 @@
-.sauceContainer{
+.sauceContainer {
     display: flex;
     justify-content: center;
     padding: 3vw 6vw;
-    .sauceImage{
+
+    .sauceImage {
         padding-right: 2vw;
         max-width: 500px;
-        img{max-width: 100%;}
+
+        img {
+            max-width: 100%;
+            max-height: 360px;
+        }
     }
 
-    .sauceInfo{
-        .likeButtons{
-        display: flex;
-          .thumbs{
-              padding: 0.5em 1em;
-              background-color:#ffffff ;
-              border:none;
-              &:focus{
-                  outline: none;
-                  color:#673ab7;
-              }
-              &:focus-visible{
-                  outline: none;
-              }
-              i{
-                  padding: 0 8px 5px 0;
-                  &:hover{
-                    font-size: 1.1em;
-                    padding: 7px 4px 0;
-                  }
-              }
-          }        
+    .sauceInfo {
+        .likeButtons {
+            display: flex;
+
+            .thumbs {
+                padding: 0.5em 1em;
+                background-color: #ffffff;
+                border: none;
+
+                &:focus {
+                    outline: none;
+                    color: #673ab7;
+                }
+
+                &:focus-visible {
+                    outline: none;
+                }
+
+                i {
+                    padding: 0 8px 5px 0;
+
+                    &:hover {
+                        font-size: 1.1em;
+                        padding: 7px 4px 0;
+                    }
+                }
+            }
         }
-        .controlButtons{
+
+        .controlButtons {
             
-            .sauceButton{
+
+            .sauceButton {
                 padding: 3px 10px;
                 margin: 5px;
                 border-radius: 6px;
                 border: none;
+                &:hover{
                 box-shadow: 3px 3px 3px #bbbbbb;
+                }
+                &:focus-visible{
+                    outline: none;
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: none;
+                }
             }
-            .modifyDeleteButtons{
+
+            .modifyDeleteButtons {
                 display: flex;
                 min-width: 190px;
-                .modifyButton{
+                .modifyButton {
                     min-width: 85px;
                     background-color: #673ab7;
+                    &:focus-visible{
+                        outline: none;
+                    }
+                    &:focus{
+                        outline: none;
+                        margin-bottom: -3px;
+                        box-shadow: none;
+                    }
                 }
-                .deleteButton{
+
+                .deleteButton {
                     min-width: 85px;
                     background-color: #f44336;
+                    margin-top: 13px;
+                    max-height: 30px;
+                    &:focus-visible{
+                        outline: none;
+                    }
+                    &:focus{
+                        outline: none;
+                        margin-bottom: -3px;
+                        box-shadow: none;
+                    }
                 }
+                
             }
         }
     }
+}
+
+@media all and (max-width: 768px) {
+    .sauceContainer {
+        align-items: center;
+        flex-direction: column;
+
+        .sauceImage {
+            img {
+                max-height: 240px;
+            }
+        }
+    }
+
+    .sauceInfo {
+        text-align: center;
+
+        .sauce-name {
+            padding-top: 10px;
+            font-size: 26px;
+        }
+
+        .manufacturer {
+            font-size: 20px;
+        }
+
+        .likeButtons {
+            justify-content: center;
+        }
+
+        .controlButtons {
+            .modifyDeleteButtons {
+                justify-content: space-around;
+            }
+        }
+
+    }
+
 }

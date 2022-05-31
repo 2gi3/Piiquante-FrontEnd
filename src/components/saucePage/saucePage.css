@@ -15,6 +15,7 @@
 
 .sauceContainer .sauceImage img {
   max-width: 100%;
+  max-height: 360px;
 }
 
 .sauceContainer .sauceInfo .likeButtons {
@@ -52,8 +53,21 @@
   margin: 5px;
   border-radius: 6px;
   border: none;
+}
+
+.sauceContainer .sauceInfo .controlButtons .sauceButton:hover {
   -webkit-box-shadow: 3px 3px 3px #bbbbbb;
           box-shadow: 3px 3px 3px #bbbbbb;
+}
+
+.sauceContainer .sauceInfo .controlButtons .sauceButton:focus-visible {
+  outline: none;
+}
+
+.sauceContainer .sauceInfo .controlButtons .sauceButton:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons {
@@ -68,8 +82,66 @@
   background-color: #673ab7;
 }
 
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .modifyButton:focus-visible {
+  outline: none;
+}
+
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .modifyButton:focus {
+  outline: none;
+  margin-bottom: -3px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton {
   min-width: 85px;
   background-color: #f44336;
+  margin-top: 13px;
+  max-height: 30px;
+}
+
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton:focus-visible {
+  outline: none;
+}
+
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton:focus {
+  outline: none;
+  margin-bottom: -3px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+@media all and (max-width: 768px) {
+  .sauceContainer {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .sauceContainer .sauceImage img {
+    max-height: 240px;
+  }
+  .sauceInfo {
+    text-align: center;
+  }
+  .sauceInfo .sauce-name {
+    padding-top: 10px;
+    font-size: 26px;
+  }
+  .sauceInfo .manufacturer {
+    font-size: 20px;
+  }
+  .sauceInfo .likeButtons {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .sauceInfo .controlButtons .modifyDeleteButtons {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
 }
 /*# sourceMappingURL=saucePage.css.map */

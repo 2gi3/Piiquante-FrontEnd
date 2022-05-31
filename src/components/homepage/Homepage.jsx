@@ -45,7 +45,7 @@ function Homepage() {
     })
 
     return (
-        <div className="row">
+        <div>
             <NavBar />
             <div className="allSaucesBody">
             <div className="saucesListHeader">

@@ -1,70 +1,115 @@
-.innerContainer{
+.innerContainer {
     width: 70%;
     display: flex;
     justify-content: center;
+    padding-top: 3vh;
 
-.inputBox {
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-    
+    .inputBox {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10px 0;
+        width: 500px;
+        #description{
+            height: 60px;
+            word-wrap: break-word;
+        word-break: break-all;
+        }
+        lable{
+            margin-bottom: -3px;
+        }
 
-    .icon {
-        background-color: white;
-        padding: 3px 12px 0 0;
-        border-top-right-radius: 15px;
-        border-bottom-right-radius: 15px;
 
+        .icon {
+            background-color: white;
+            padding: 3px 12px 0 0;
+            border-top-right-radius: 15px;
+            border-bottom-right-radius: 15px;
+
+        }
+
+        input, textarea {
+            min-width: 300px;
+            border: none;
+            width: 100%;
+            min-height: 30px;
+            border-radius: 10px;
+            padding-left: 10px;
+            margin-bottom: 3px;
+            background-color: #f443363a;
+
+            &:focus-visible {
+                outline: none;
+                background-color: #f4433660;
+                box-shadow: 2px 2px 2px #683ab779;
+            }
+
+            .description {
+                min-height: 80px;
+            }
+        }
+        
+    }
+    .inputRange {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 200px;
+        lable{
+            width: 100%;
+        }
     }
 
-    input {
-        min-width: 250px;
-        border: none;
-        // border-top-left-radius: 15px;
-        // border-bottom-left-radius: 15px;
-        border-radius: 10px;
-        padding-left: 10px;
-        background-color: #f443363a;
-        &:focus-visible{
-            outline: none;
-            background-color: #f4433660;
-            box-shadow: 2px 2px 2px #683ab779;
+
+    .addImageButton {
+        display: flex;
+        max-width: 230px;
+        justify-content: left;
+        margin-left: -3px;
+        font-size: 14px;
+
+        #vanish {
+            display: none;
         }
-        .description{
-            min-height: 80px;
+
+        .sauceButton {
+            padding: 3px 10px;
+            margin: 5px;
+            border-radius: 6px;
+            border: none;
+            box-shadow: 3px 3px 3px #bbbbbb;
+        }
+
+        .signInButton {
+            min-width: 85px;
+            background-color: #673ab7;
+        }
+
+        .signUpButton {
+            min-width: 85px;
+            background-color: #f44336;
         }
     }
 }
 
-
-.addImageButton {
-    display: flex;
-    max-width: 230px;
-    justify-content: left;
-    margin-left: -3px;
-    font-size: 14px;
-
-    #vanish{
-        display: none;
+@media all and (min-width: 361px) and (max-width: 768px){
+    .innerContainer{
+    .inputBox{
+        width: 100%;
+        input, textarea {
+            min-width: 330px;
+        }
     }
+}
+}
 
-    .sauceButton {
-        padding: 3px 10px;
-        margin: 5px;
-        border-radius: 6px;
-        border: none;
-        box-shadow: 3px 3px 3px #bbbbbb;
-    }
 
-    .signInButton {
-        min-width: 85px;
-        background-color: #673ab7;
-    }
-
-    .signUpButton {
-        min-width: 85px;
-        background-color: #f44336;
+@media all and (max-width: 360px){
+    .innerContainer{
+    .inputBox{
+        width: 100%;
+        input, textarea {
+            min-width: 200px;
+        }
     }
 }
 }

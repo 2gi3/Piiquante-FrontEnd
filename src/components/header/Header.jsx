@@ -14,7 +14,7 @@ function NavBar() {
 		sessionStorage.removeItem('userId');
 		sessionStorage.removeItem('UserName');
 	    sessionStorage.removeItem('email');
-		window.location="signin";
+		window.location="/signin";
 	}
     return (
         <div>

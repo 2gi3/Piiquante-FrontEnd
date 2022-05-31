@@ -5,6 +5,9 @@
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .allSaucesBody .saucesListHeader {
@@ -15,12 +18,15 @@
       -ms-flex-pack: left;
           justify-content: left;
   padding: 0 5vw;
-  width: 100%;
+  min-width: 100%;
 }
 
 .allSaucesBody .sauceBox {
-  min-width: 150px;
-  margin-top: 5px;
+  min-width: 260px;
+  max-width: 300px;
+  margin: 8px;
+  padding-top: 8px;
+  background-color: #f4433660;
 }
 
 .allSaucesBody .sauceBox .link {
@@ -28,8 +34,8 @@
 }
 
 .allSaucesBody .sauceBox:hover {
-  -webkit-box-shadow: 3px 3px 3px #cecece;
-          box-shadow: 3px 3px 3px #cecece;
+  -webkit-box-shadow: 3px 3px 3px #683ab779;
+          box-shadow: 3px 3px 3px #683ab779;
 }
 
 .allSaucesBody .sauceBox .sauceBoxImage {
@@ -39,8 +45,7 @@
 }
 
 .allSaucesBody .sauceBox .sauceBoxImage img {
-  width: 100%;
-  max-height: 100%;
+  max-height: 250px;
   max-width: 250px;
 }
 

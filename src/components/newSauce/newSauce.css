@@ -6,17 +6,32 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  padding-top: 3vh;
 }
 
 .innerContainer .inputBox {
-  height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 20px 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 10px 0;
+  width: 500px;
+}
+
+.innerContainer .inputBox #description {
+  height: 60px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.innerContainer .inputBox lable {
+  margin-bottom: -3px;
 }
 
 .innerContainer .inputBox .icon {
@@ -26,23 +41,39 @@
   border-bottom-right-radius: 15px;
 }
 
-.innerContainer .inputBox input {
-  min-width: 250px;
+.innerContainer .inputBox input, .innerContainer .inputBox textarea {
+  min-width: 300px;
   border: none;
+  width: 100%;
+  min-height: 30px;
   border-radius: 10px;
   padding-left: 10px;
+  margin-bottom: 3px;
   background-color: #f443363a;
 }
 
-.innerContainer .inputBox input:focus-visible {
+.innerContainer .inputBox input:focus-visible, .innerContainer .inputBox textarea:focus-visible {
   outline: none;
   background-color: #f4433660;
   -webkit-box-shadow: 2px 2px 2px #683ab779;
           box-shadow: 2px 2px 2px #683ab779;
 }
 
-.innerContainer .inputBox input .description {
+.innerContainer .inputBox input .description, .innerContainer .inputBox textarea .description {
   min-height: 80px;
+}
+
+.innerContainer .inputRange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  max-width: 200px;
+}
+
+.innerContainer .inputRange lable {
+  width: 100%;
 }
 
 .innerContainer .addImageButton {
@@ -78,5 +109,23 @@
 .innerContainer .addImageButton .signUpButton {
   min-width: 85px;
   background-color: #f44336;
+}
+
+@media all and (min-width: 361px) and (max-width: 768px) {
+  .innerContainer .inputBox {
+    width: 100%;
+  }
+  .innerContainer .inputBox input, .innerContainer .inputBox textarea {
+    min-width: 330px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .innerContainer .inputBox {
+    width: 100%;
+  }
+  .innerContainer .inputBox input, .innerContainer .inputBox textarea {
+    min-width: 200px;
+  }
 }
 /*# sourceMappingURL=newSauce.css.map */
