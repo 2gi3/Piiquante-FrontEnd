@@ -26,7 +26,7 @@ function SaucePage() {
                 }
             })
         setSauce(await res.data)
-        console.log(params.id)
+        await console.log(sauce._id)
 
     }
     
@@ -45,6 +45,34 @@ function SaucePage() {
         window.location = "/"
     }
 
+    const likeSauce=(e)=>{
+        e.preventDefault()
+
+        const dataObj = {
+            userId,
+            like:1
+        }
+
+        // const data = new FormData()
+        // data.append("like", JSON.stringify(dataObj))
+        // console.log("formData" , dataObj)
+
+        axios.post(`http://localhost:3000/api/sauces/${sauce._id}/like`, dataObj,
+		{
+			headers: {
+			  'Authorization': `token ${access_token}`
+			}
+		  })
+			.then(
+				(res) => {
+					console.log('sauce liked');
+
+				})
+			.catch((err) => {
+				console.log(err);
+			});
+
+    }
     
 
 
@@ -72,7 +100,7 @@ function SaucePage() {
                     <p>{sauce.description}</p>
                     <p>{sauce.mainPepper}</p>
                     <div className="likeButtons">
-                        <button className="thumbs" onClick={e => console.log('thumbs up')}>
+                        <button className="thumbs" onClick={likeSauce}>
                             <i>{like}</i>
                             <span>{sauce.likes}</span>
                         </button>

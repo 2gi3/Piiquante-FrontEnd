@@ -102,15 +102,14 @@ function NewSauce() {
          setImageUrl(res.data.imageUrl)
          setMainPepper(res.data.mainPepper)
          setHeat(res.data.heat)
-         console.log(res.data)
+         console.log(imageUrl)
 
     }
 
     useEffect(() => {
         params.id == undefined? setUpdateSauceButton('vanish')
         : setCreateSauceButton('vanish')
-        getSauce()
-       
+        getSauce()     
         
 
     }, [])
