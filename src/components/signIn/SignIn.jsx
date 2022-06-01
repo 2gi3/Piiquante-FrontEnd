@@ -1,7 +1,7 @@
 import "./signIn.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightToBracket, faKey, faAt, faUsers } from '@fortawesome/free-solid-svg-icons'
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios'
 
 function SignIn() {
@@ -9,10 +9,16 @@ function SignIn() {
     const [password, setPassword] = useState('');
     const [logInMessage, setLogInMessage] =useState('')
     const [afterLogIn, setAfterLogIn] =useState('')
+    const inputRef = useRef(null)
     const userData = {
         email,
         password
     }
+
+    useEffect(()=>{
+        inputRef.current.focus()
+
+    },[])
 
     const logIn = (e,) => {
         e.preventDefault();
@@ -66,7 +72,7 @@ function SignIn() {
             <div className="inContainer">
                 <form onSubmit={event => logIn(event)}>
                     <div className="inputBox">
-                        <input type="email" name="userEmail" placeholder="UserEmail"
+                        <input ref={inputRef} type="email" name="userEmail" placeholder="UserEmail"
                             onChange={event => setEmail(event.target.value)}
                             onInput={event => setEmail(event.target.value)}
                         />

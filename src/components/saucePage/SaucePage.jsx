@@ -48,16 +48,15 @@ function SaucePage() {
     const likeSauce=(e)=>{
         e.preventDefault()
 
-        const dataObj = {
+        const data = {
             userId,
-            like:1
+            // like to be made dynamic following the backend sauce controller
+            // if like = 1 (1 like is added and the user id is added to likedArray)
+            // if like = -1 (1 disLike is added and the user id is added to disLikedArray)
+            like:0
         }
 
-        // const data = new FormData()
-        // data.append("like", JSON.stringify(dataObj))
-        // console.log("formData" , dataObj)
-
-        axios.post(`http://localhost:3000/api/sauces/${sauce._id}/like`, dataObj,
+        axios.post(`http://localhost:3000/api/sauces/${sauce._id}/like`, data,
 		{
 			headers: {
 			  'Authorization': `token ${access_token}`
