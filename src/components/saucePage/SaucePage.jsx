@@ -17,6 +17,7 @@ function SaucePage() {
     let sauceCreator
     const params = useParams()
     const [sauce, setSauce] = useState('')
+    const [liked, setLiked] =useState(0)
 
     const getSauce = async () => {
         const res = await axios.get(`http://localhost:3000/api/sauces/${params.id}`,
@@ -27,6 +28,9 @@ function SaucePage() {
             })
         setSauce(await res.data)
         await console.log(sauce._id)
+        setLiked(sauce.liked)
+        sessionStorage.setItem("userLiked", sauce.userLiked)
+        sessionStorage.setItem("userDisliked", sauce.userDisliked)
 
     }
     
@@ -45,15 +49,16 @@ function SaucePage() {
         window.location = "/"
     }
 
-    const likeSauce=(e)=>{
+    const likeSauce=(e, likeValue)=>{
         e.preventDefault()
-
+    setLiked(liked =>liked++)
         const data = {
             userId,
             // like to be made dynamic following the backend sauce controller
             // if like = 1 (1 like is added and the user id is added to likedArray)
+            // if like = 0 (1 like is subtracted and the user id is deleted from likedArray)
             // if like = -1 (1 disLike is added and the user id is added to disLikedArray)
-            like:0
+            like: likeValue
         }
 
         axios.post(`http://localhost:3000/api/sauces/${sauce._id}/like`, data,
@@ -85,7 +90,7 @@ function SaucePage() {
         console.log(sauceCreator)
 
 
-    }, [])
+    }, [liked])
     return (
         <div>
 
@@ -99,11 +104,11 @@ function SaucePage() {
                     <p>{sauce.description}</p>
                     <p>{sauce.mainPepper}</p>
                     <div className="likeButtons">
-                        <button className="thumbs" onClick={likeSauce}>
+                        <button className="thumbs" onClick={e => likeSauce(e,1)}>
                             <i>{like}</i>
                             <span>{sauce.likes}</span>
                         </button>
-                        <button className="thumbs" onClick={e => console.log('thumbs down')}>
+                        <button className="thumbs" onClick={e => likeSauce(e,-1)}>
                             <i>{dislike}</i>
                             <span>{sauce.dislikes}</span>
                         </button>

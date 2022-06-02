@@ -30,7 +30,7 @@
   word-break: break-all;
 }
 
-.innerContainer .inputBox lable {
+.innerContainer .inputBox label {
   margin-bottom: -3px;
 }
 
@@ -72,7 +72,7 @@
   max-width: 200px;
 }
 
-.innerContainer .inputRange lable {
+.innerContainer .inputRange label {
   width: 100%;
 }
 
