@@ -1,5 +1,5 @@
 import "./homepage.css"
-import { Link, } from 'react-router-dom'
+import { Navigate, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 import NavBar from "../navBar/NavBar";
@@ -7,6 +7,8 @@ import NavBar from "../navBar/NavBar";
 function Homepage() {
     const access_token = sessionStorage.getItem('token');
     const [sauces, setSauces] = useState([''])
+
+    
 
 
     const getSauces = async () => {
@@ -21,6 +23,9 @@ function Homepage() {
     } 
 
     useEffect(() => {
+        if(!sessionStorage.getItem('token') ){
+        
+            return <Navigate to={"/signin"} />}
         getSauces()
 
     }, [])

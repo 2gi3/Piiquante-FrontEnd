@@ -18,7 +18,9 @@ function App() {
             </header>
           </div>
         <Routes>
-        <Route path='/' element={ <Homepage />} />   
+          {!sessionStorage.getItem('token')?
+          <Route path='/' element={ <SignIn />} />
+          : <Route path='/' element={ <Homepage />} />  } 
         <Route path='saucepage/:id' element={ <SaucePage />} />
         <Route path='saucepage/:id/updatesauce/:id' element={ <NewSauce />} />
         <Route path=':signin' element={ <SignIn /> } />
