@@ -68,13 +68,14 @@ function NewSauce() {
             mainPepper,
             heat
         }
-
+// if payload = data, then image must be changed in order to modify anything
+// if payload = dataObj then everyting can be changed but the picture
         const data = new FormData()
         data.append("sauce", JSON.stringify(dataObj))
         data.append("image", imageUrl)
-        console.log("formData" , imageUrl)
+        // console.log("formData" , imageUrl)
 
-        axios.put(`http://localhost:3000/api/sauces/${params.id}`, data,
+        axios.put(`http://localhost:3000/api/sauces/${params.id}`, dataObj,
         {
             headers: {
                 'Authorization': `token ${access_token}`
@@ -85,7 +86,7 @@ function NewSauce() {
             console.error('There was an error!', error);
         })
 
-        // window.location = `/saucepage/${params.id}`
+        window.location = `/saucepage/${params.id}`
 
     }
 
