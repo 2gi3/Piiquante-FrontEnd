@@ -1,2 +1,4 @@
 -like /dislike
--modify sauce only works if all input fields are modified
+-can't modify pictures
+-regex
+-logIn/signUp syncronicity
