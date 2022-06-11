@@ -36,8 +36,9 @@ function NewSauce() {
         data.append("sauce", JSON.stringify(dataObj))
         data.append("image", imageUrl)
         console.log("formData" , dataObj)
+        console.log(data)
 
-        axios.post("http://localhost:3000/api/sauces", data,
+        axios.post("https://secure-harbor-62492.herokuapp.com/api/sauces", data,
 		{
 			headers: {
 			  'Authorization': `token ${access_token}`
@@ -46,13 +47,12 @@ function NewSauce() {
 			.then(
 				(res) => {
 					console.log('sauce created');
+                    window.location = "/";
 
 				})
 			.catch((err) => {
 				console.log(err);
 			});
-
-		window.location = "/";
 	}
 
     const updateSauce=(e)=>{
@@ -75,7 +75,7 @@ function NewSauce() {
         data.append("image", imageUrl)
         // console.log("formData" , imageUrl)
 
-        axios.put(`http://localhost:3000/api/sauces/${params.id}`, dataObj,
+        axios.put(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`, dataObj,
         {
             headers: {
                 'Authorization': `token ${access_token}`
@@ -91,7 +91,7 @@ function NewSauce() {
     }
 
     const getSauce = async () => {
-        const res = await axios.get(`http://localhost:3000/api/sauces/${params.id}`,
+        const res = await axios.get(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
             {
                 headers: {
                     'Authorization': `token ${access_token}`

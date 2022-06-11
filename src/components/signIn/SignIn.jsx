@@ -32,7 +32,7 @@ function SignIn() {
         // 	}else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
         // 	      setPasswordWarning('Please provide a password that contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
         // 		}else{		
-        axios.post("http://localhost:3000/api/auth/login", userData)
+        axios.post("https://secure-harbor-62492.herokuapp.com/api/auth/login", userData)
             .then(
                 (res) => {
                     sessionStorage.setItem("token", res.data.token)
@@ -52,7 +52,7 @@ function SignIn() {
     const signUp =(e) =>{
         e.preventDefault()
 
-        axios.post("http://localhost:3000/api/auth/signup", userData)
+        axios.post("https://secure-harbor-62492.herokuapp.com/api/auth/signup", userData)
         .then(
             () => {
                

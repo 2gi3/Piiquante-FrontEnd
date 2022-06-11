@@ -20,7 +20,7 @@ function SaucePage() {
     const [liked, setLiked] =useState(0)
 
     const getSauce = async () => {
-        const res = await axios.get(`http://localhost:3000/api/sauces/${params.id}`,
+        const res = await axios.get(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
             {
                 headers: {
                     'Authorization': `token ${access_token}`
@@ -35,7 +35,7 @@ function SaucePage() {
     }
     
     const deleteSauce = () => {
-        axios.delete(`http://localhost:3000/api/sauces/${params.id}`,
+        axios.delete(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
             {
                 headers: {
                     'Authorization': `token ${access_token}`
@@ -61,7 +61,7 @@ function SaucePage() {
             like: likeValue
         }
 
-        axios.post(`http://localhost:3000/api/sauces/${sauce._id}/like`, data,
+        axios.post(`https://secure-harbor-62492.herokuapp.com/api/sauces/${sauce._id}/like`, data,
 		{
 			headers: {
 			  'Authorization': `token ${access_token}`
