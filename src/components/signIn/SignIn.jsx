@@ -22,10 +22,6 @@ function SignIn() {
 
     const logIn = (e,) => {
         e.preventDefault();
-        // let data = {
-        //     email: email,
-        //     password: password,
-        // }
         console.log(userData)
         //  if(!re.test(email)){
         // 	  setEmailInvalid(` Please provide a valid email `)			  

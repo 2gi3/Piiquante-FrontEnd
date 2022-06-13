@@ -18,6 +18,7 @@ function NewSauce() {
     const[createSauceButton, setCreateSauceButton] =useState('')
     const [sauce, setSauce] =useState('')
     const params = useParams()
+    const [imageChanged, setImageChanged] = useState(false)
 
 
     const createSauce = (e) => {
@@ -56,8 +57,6 @@ function NewSauce() {
 	}
 
     const updateSauce=(e)=>{
-        // only works if all fields are filled in the form
-        //when new picture is added, old picture is not deleted from directory (but new picture is displaied correctly in the browser)
         e.preventDefault()
 
         const dataObj = {
@@ -68,26 +67,29 @@ function NewSauce() {
             mainPepper,
             heat
         }
-// if payload = data, then image must be changed in order to modify anything
-// if payload = dataObj then everyting can be changed but the picture
+
         const data = new FormData()
         data.append("sauce", JSON.stringify(dataObj))
         data.append("image", imageUrl)
-        // console.log("formData" , imageUrl)
 
-        axios.put(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`, dataObj,
+        let payLoad
+        if(imageChanged === false){
+            payLoad = dataObj
+        } else{
+            payLoad = data
+        }
+
+        axios.put(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`, payLoad,
         {
             headers: {
                 'Authorization': `token ${access_token}`
             }
         }) .then(response => console.log('Sauce updated'))
+        .then(()=> window.location = `/saucepage/${params.id}`)
         .catch(error => {
             console.log(error.message);
             console.error('There was an error!', error);
         })
-
-        window.location = `/saucepage/${params.id}`
-
     }
 
     const getSauce = async () => {
@@ -151,8 +153,9 @@ function NewSauce() {
                         {/* <h1>{emailInvalid}</h1> */}
                     </div>
                     <div className="addImageButton">
-                            <input className="signInButton sauceButton "type="file" name="imageUrl" defaultfile={imageUrl}
-                                onChange={event => setImageUrl(event.target.files[0])}
+                            <input className="signInButton sauceButton "type="file" name="imageUrl" 
+                                onChange={(event) => {setImageUrl(event.target.files[0])
+                                setImageChanged(true)}}
                                 accept="image/png, image/jpeg, image/jpg, image/webp">
                             </input>
                     </div>
