@@ -18,6 +18,8 @@ function SaucePage() {
     const params = useParams()
     const [sauce, setSauce] = useState('')
     const [liked, setLiked] =useState(0)
+    const [userLiked, setUserLiked] =useState([])
+    const [userDisliked, setUserDisliked] =useState([])
 
     const getSauce = async () => {
         const res = await axios.get(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
@@ -27,11 +29,9 @@ function SaucePage() {
                 }
             })
         setSauce(await res.data)
-        await console.log(sauce._id)
-        setLiked(sauce.liked)
-        sessionStorage.setItem("userLiked", sauce.userLiked)
-        sessionStorage.setItem("userDisliked", sauce.userDisliked)
-
+        setLiked(await sauce.liked)
+        setUserLiked(JSON.stringify(sauce.userLiked))
+        setUserDisliked(JSON.stringify(sauce.userDisliked))
     }
     
     const deleteSauce = () => {
@@ -51,7 +51,24 @@ function SaucePage() {
 
     const likeSauce=(e, likeValue)=>{
         e.preventDefault()
-    setLiked(liked =>liked++)
+        setLiked(liked =>liked=+ likeValue)
+        let history = userLiked.includes(userId )
+        console.log(history)
+        console.log(userLiked)
+        console.log(userDisliked)
+
+    
+       
+    //    if(likeValue === 1){
+    //        if(history === true){
+    //         setLiked(liked =>liked=- likeValue)
+    //        }else{
+    //         setLiked(liked =>liked=+ likeValue)
+    //        }
+    //    }else{
+
+    //    }
+
         const data = {
             userId,
             // like to be made dynamic following the backend sauce controller
