@@ -26,14 +26,14 @@ function SignIn() {
     const logIn = (e,) => {
         e.preventDefault();
         console.log(userData)
-         if(!re.test(email)){
-        	//   setEmailWarning(` Please provide a valid email `)	
-              alert("Please provide a valid email")		  
-        	}else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
-        	    //   setPasswordWarning('Please provide a password that contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
-                  alert("Your password must contain minimum eight characters,\n at least one uppercase letter, one lowercase letter, one number and one special character"
-                     )
-        		}else{		
+        //  if(!re.test(email)){
+        // 	//   setEmailWarning(` Please provide a valid email `)	
+        //       alert("Please provide a valid email")		  
+        // 	}else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
+        // 	    //   setPasswordWarning('Please provide a password that contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
+        //           alert("Your password must contain minimum eight characters,\n at least one uppercase letter, one lowercase letter, one number and one special character"
+        //              )
+        // 		}else{		
         axios.post("https://secure-harbor-62492.herokuapp.com/api/auth/login", userData)
             .then(
                 (res) => {
@@ -48,19 +48,19 @@ function SignIn() {
             .catch((err) => {
                 console.log(err);
             });
-        }
+        // }
     }
 
     const signUp = (e) =>{
         e.preventDefault()
-        if(!re.test(email)){
-        	//   setEmailWarning(` Please provide a valid email `)	
-              alert("Please provide a valid email")		  
-        	}else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
-        	    //   setPasswordWarning('Please provide a password that contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
-                  alert("Please provide a password that contains minimum eight characters,\n at least one uppercase letter, one lowercase letter, one number and one special character"
-                     )
-        		}else{	
+        // if(!re.test(email)){
+        // 	//   setEmailWarning(` Please provide a valid email `)	
+        //       alert("Please provide a valid email")		  
+        // 	}else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
+        // 	    //   setPasswordWarning('Please provide a password that contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
+        //           alert("Please provide a password that contains minimum eight characters,\n at least one uppercase letter, one lowercase letter, one number and one special character"
+        //              )
+        // 		}else{	
         axios.post("https://secure-harbor-62492.herokuapp.com/api/auth/signup", userData)
         .then(
             () => {
@@ -75,7 +75,7 @@ function SignIn() {
         .catch((err) => {
             console.log(err);
         });
-    }
+    // }
 }
     return (
         <div className="container">

@@ -18,6 +18,7 @@ function SaucePage() {
     const params = useParams()
     const [sauce, setSauce] = useState('')
     const [liked, setLiked] =useState(0)
+    const [disliked, setDisliked] =useState(0)
     const [userLiked, setUserLiked] =useState([])
     const [userDisliked, setUserDisliked] =useState([])
 
@@ -53,21 +54,32 @@ function SaucePage() {
         e.preventDefault()
         setLiked(liked =>liked=+ likeValue)
         let history = userLiked.includes(userId )
-        console.log(history)
+        let dislikeHistory = userDisliked.includes(userId)
+        let payloadValue
+        console.log(dislikeHistory)
         console.log(userLiked)
         console.log(userDisliked)
 
     
        
-    //    if(likeValue === 1){
-    //        if(history === true){
-    //         setLiked(liked =>liked=- likeValue)
-    //        }else{
-    //         setLiked(liked =>liked=+ likeValue)
-    //        }
-    //    }else{
+       if(likeValue === 1){
+           if(history === true){
+            setLiked(liked =>liked--)
+            payloadValue = 0
+           }else{
+            setLiked(liked =>liked++)
+            payloadValue = likeValue
+           }
+       }else{
+           if(dislikeHistory === true){
+               setDisliked(disliked => disliked--)
+               payloadValue = 0
+           }else{
+               setDisliked(disliked => disliked++)
+               payloadValue = likeValue
+           }
 
-    //    }
+       }
 
         const data = {
             userId,
@@ -75,7 +87,7 @@ function SaucePage() {
             // if like = 1 (1 like is added and the user id is added to likedArray)
             // if like = 0 (1 like is subtracted and the user id is deleted from likedArray)
             // if like = -1 (1 disLike is added and the user id is added to disLikedArray)
-            like: likeValue
+            like: payloadValue
         }
 
         axios.post(`https://secure-harbor-62492.herokuapp.com/api/sauces/${sauce._id}/like`, data,
@@ -107,7 +119,7 @@ function SaucePage() {
         console.log(sauceCreator)
 
 
-    }, [liked])
+    }, [liked, disliked])
     return (
         <div>
 
