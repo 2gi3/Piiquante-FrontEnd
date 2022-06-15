@@ -145,7 +145,7 @@ function SaucePage() {
                     <div className="controlButtons">
                         <Link className="nav-link" to='/'>
                             <button className="backButton sauceButton">
-                                <span>BACK</span>
+                                <span>GO BACK</span>
                             </button>
                         </Link>
                         {sauce.userId === userId ?
