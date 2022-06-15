@@ -17,8 +17,7 @@ function SaucePage() {
     let sauceCreator
     const params = useParams()
     const [sauce, setSauce] = useState('')
-    const [liked, setLiked] =useState(0)
-    const [disliked, setDisliked] =useState(0)
+    const [liked, setLiked] =useState('')
     const [userLiked, setUserLiked] =useState([])
     const [userDisliked, setUserDisliked] =useState([])
 
@@ -52,7 +51,6 @@ function SaucePage() {
 
     const likeSauce=(e, likeValue)=>{
         e.preventDefault()
-        setLiked(liked =>liked=+ likeValue)
         let history = userLiked.includes(userId )
         let dislikeHistory = userDisliked.includes(userId)
         let payloadValue
@@ -64,18 +62,18 @@ function SaucePage() {
        
        if(likeValue === 1){
            if(history === true){
-            setLiked(liked =>liked--)
+            setLiked("changed")
             payloadValue = 0
            }else{
-            setLiked(liked =>liked++)
+            setLiked("changed")
             payloadValue = likeValue
            }
        }else{
            if(dislikeHistory === true){
-               setDisliked(disliked => disliked--)
+               setLiked("changed")
                payloadValue = 0
            }else{
-               setDisliked(disliked => disliked++)
+               setLiked("changed")
                payloadValue = likeValue
            }
 
@@ -83,10 +81,6 @@ function SaucePage() {
 
         const data = {
             userId,
-            // like to be made dynamic following the backend sauce controller
-            // if like = 1 (1 like is added and the user id is added to likedArray)
-            // if like = 0 (1 like is subtracted and the user id is deleted from likedArray)
-            // if like = -1 (1 disLike is added and the user id is added to disLikedArray)
             like: payloadValue
         }
 
@@ -119,7 +113,7 @@ function SaucePage() {
         console.log(sauceCreator)
 
 
-    }, [liked, disliked])
+    }, [liked])
     return (
         <div>
 
