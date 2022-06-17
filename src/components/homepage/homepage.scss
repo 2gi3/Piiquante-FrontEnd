@@ -26,8 +26,9 @@
         justify-content: space-between;
 
         img {
-            max-height: 250px;
-            max-width: 250px;
+            object-fit: contain;
+            height: 220px;
+            width: 240px;
         }
     }
 

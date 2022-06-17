@@ -18,13 +18,12 @@ function App() {
             </header>
           </div>
         <Routes>
-          {!sessionStorage.getItem('token')?
-          <Route path='/' element={ <SignIn />} />
-          : <Route path='/' element={ <Homepage />} />  } 
+        <Route path='/' element={ <Homepage />} />  
         <Route path='saucepage/:id' element={ <SaucePage />} />
-        <Route path='saucepage/:id/updatesauce/:id' element={ <NewSauce />} />
+        {!sessionStorage.getItem('token')? <Route path='saucepage/:id/updatesauce/:id' element={ <SignIn /> } />
+        : <Route path='saucepage/:id/updatesauce/:id' element={ <NewSauce />} />}
         <Route path=':signin' element={ <SignIn /> } />
-        <Route path='newsauce' element={<NewSauce />}/>
+        {!sessionStorage.getItem('token')? <Route path='newsauce' element={<SignIn /> }/> :<Route path='newsauce' element={<NewSauce />}/>}
         </Routes>
       </div>
     </div>

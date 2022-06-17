@@ -47,15 +47,17 @@
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
             padding-left: 10px;
-            &:focus-visible + .icon  {
+
+            &:focus-visible+.icon {
                 outline: none;
                 background-color: #f4433660;
-            box-shadow: 2px 2px 2px #683ab779;
+                box-shadow: 2px 2px 2px #683ab779;
             }
-            &:focus-visible{
+
+            &:focus-visible {
                 outline: none;
                 background-color: #f4433660;
-            box-shadow: 2px 2px 2px #683ab779;
+                box-shadow: 2px 2px 2px #683ab779;
 
             }
         }
@@ -78,21 +80,48 @@
         }
 
         .signInButton {
-            min-width: 99px;
+            min-width: 112px;
             background-color: #673ab7;
             margin-right: 135px;
             margin-bottom: -25px;
+            padding: 4px;
+            color: white;
+            font-size: larger;
+            font-weight: 500;
+    letter-spacing: 1px;
         }
 
         .signUpButton {
-            min-width: 99px;
+            min-width: 112px;
             background-color: #f44336;
             margin-left: 135px;
-            margin-top: -25px;
+            margin-top: -31px;
+            padding: 4px;
+            color: white;
+            font-size: larger;
+            font-weight: 500;
+    letter-spacing: 1px;
         }
 
         #vanish {
             display: none;
         }
     }
+}
+
+@media all and (min-width: 768px){
+    .inContainer {
+        .inputBox {
+            input {
+                min-width: 300px;
+                height: 40px;
+            }
+            .icon{
+                height: 40px;
+            }
+
+        }
+
+    }
+
 }

@@ -102,20 +102,40 @@
 }
 
 .inContainer .logInSignUpButtons .signInButton {
-  min-width: 99px;
+  min-width: 112px;
   background-color: #673ab7;
   margin-right: 135px;
   margin-bottom: -25px;
+  padding: 4px;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .inContainer .logInSignUpButtons .signUpButton {
-  min-width: 99px;
+  min-width: 112px;
   background-color: #f44336;
   margin-left: 135px;
-  margin-top: -25px;
+  margin-top: -31px;
+  padding: 4px;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .inContainer .logInSignUpButtons #vanish {
   display: none;
+}
+
+@media all and (min-width: 768px) {
+  .inContainer .inputBox input {
+    min-width: 300px;
+    height: 40px;
+  }
+  .inContainer .inputBox .icon {
+    height: 40px;
+  }
 }
 /*# sourceMappingURL=signIn.css.map */

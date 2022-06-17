@@ -126,7 +126,7 @@ function SaucePage() {
                     <h3 className="manufacturer">{sauce.manufacturer}</h3>
                     <p>{sauce.description}</p>
                     <p>{sauce.mainPepper}</p>
-                    <div className="likeButtons">
+                    {/* <div className="likeButtons">
                         <button className="thumbs" onClick={e => likeSauce(e,1)}>
                             <i>{like}</i>
                             <span>{sauce.likes}</span>
@@ -135,7 +135,7 @@ function SaucePage() {
                             <i>{dislike}</i>
                             <span>{sauce.dislikes}</span>
                         </button>
-                    </div>
+                    </div> */}
                     <div className="controlButtons">
                         <Link className="nav-link" to='/'>
                             <button className="backButton sauceButton">

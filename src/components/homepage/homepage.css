@@ -45,8 +45,10 @@
 }
 
 .allSaucesBody .sauceBox .sauceBoxImage img {
-  max-height: 250px;
-  max-width: 250px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 220px;
+  width: 240px;
 }
 
 .allSaucesBody .sauceBox .sauceName {

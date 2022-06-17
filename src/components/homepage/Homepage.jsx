@@ -5,7 +5,7 @@ import axios from 'axios'
 import NavBar from "../navBar/NavBar";
 
 function Homepage() {
-    const access_token = sessionStorage.getItem('token');
+    // const access_token = sessionStorage.getItem('token');
     const [sauces, setSauces] = useState([''])
 
     
@@ -13,19 +13,20 @@ function Homepage() {
 
     const getSauces = async () => {
         const res = await axios.get("https://secure-harbor-62492.herokuapp.com/api/sauces",
-            {
-                headers: {
-                    'Authorization': `token ${access_token}`
-                }
-            })
+            // {
+            //     headers: {
+            //         'Authorization': `token ${access_token}`
+            //     }
+            // }
+            )
         setSauces(res.data)
          console.log(sauces)
     } 
 
     useEffect(() => {
-        if(!sessionStorage.getItem('token') ){
+        // if(!sessionStorage.getItem('token') ){
         
-            return <Navigate to={"/signin"} />}
+        //     return <Navigate to={"/signin"} />}
         getSauces()
 
     }, [])

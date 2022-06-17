@@ -18,8 +18,13 @@ function NavBar() {
 	}
     return (
         <div>
+            <div className="logInLogOutButtons">
+            {/* <div className="login">
+                <button>Log in {fElement}</button>
+            </div> */}
             <div className="logout">
                 <button onClick={logOut}>Log out {fElement}</button>
+            </div>
             </div>
             <div className="header">
                 <div className="logo"> <img src={logo} /></div>
