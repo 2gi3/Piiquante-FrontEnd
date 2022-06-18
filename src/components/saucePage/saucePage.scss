@@ -14,15 +14,19 @@
     }
 
     .sauceInfo {
+        max-width: 50vw;
+
         .label {
             font-size: 14px;
             font-weight: 400;
             margin-bottom: -3px;
         }
-        .sauceInfoField{
+
+        .sauceInfoField {
             background: linear-gradient(90deg, #683ab720 20%, #f4433610 80%);
-            &.sauce-name{
-                border-radius: 0% 15% 10% 0% / 10% 50% 0% 10% ;
+
+            &.sauce-name {
+                border-radius: 0% 15% 10% 0% / 10% 50% 0% 10%;
             }
         }
 
@@ -128,30 +132,38 @@
                 max-height: 240px;
             }
         }
-    }
 
-    .sauceInfo {
-        text-align: center;
 
-        .sauce-name {
-            padding-top: 10px;
-            font-size: 26px;
-        }
+        .sauceInfo {
+            max-width: 500px;
+            text-align: center;
+            .sauceInfoField {
+                &.sauce-name {
+                    border-radius: 10px 10px 0 0;
+                }
 
-        .manufacturer {
-            font-size: 20px;
-        }
-
-        .likeButtons {
-            justify-content: center;
-        }
-
-        .controlButtons {
-            .modifyDeleteButtons {
-                justify-content: space-around;
             }
-        }
 
+            .sauce-name {
+                padding-top: 10px;
+                font-size: 26px;
+            }
+
+            .manufacturer {
+                font-size: 20px;
+            }
+
+            .likeButtons {
+                justify-content: center;
+            }
+
+            .controlButtons {
+                .modifyDeleteButtons {
+                    justify-content: space-around;
+                }
+            }
+
+        }
     }
 
 }

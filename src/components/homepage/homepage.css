@@ -23,7 +23,7 @@
 
 .allSaucesBody .sauceBox {
   max-width: 26.5vw;
-  margin: 8px;
+  margin: 10px 8px;
   padding-top: 5px;
   background-color: #f4433660;
 }
@@ -67,7 +67,7 @@
   font-size: 1.5rem;
 }
 
-@media all and (min-width: 449px) and (max-width: 768px) {
+@media all and (min-width: 450px) and (max-width: 768px) {
   .allSaucesBody .sauceBox {
     min-width: 38vw;
   }
@@ -83,6 +83,27 @@
   .allSaucesBody .sauceBox .sauceBoxImage img {
     height: 145px;
     width: 30vw;
+  }
+}
+
+@media all and (max-width: 449px) {
+  .allSaucesBody .sauceBox {
+    width: 90vw;
+    max-width: 300px;
+  }
+  .allSaucesBody .sauceBox:nth-child(2) {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+  .allSaucesBody .sauceBox:nth-child(3) {
+    border-top-right-radius: 0;
+  }
+  .allSaucesBody .sauceBox:nth-child(4) {
+    border-top-right-radius: 0;
+  }
+  .allSaucesBody .sauceBox .sauceBoxImage img {
+    height: 150px;
+    width: 60vw;
   }
 }
 /*# sourceMappingURL=homepage.css.map */

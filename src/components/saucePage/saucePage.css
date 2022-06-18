@@ -18,6 +18,10 @@
   max-height: 360px;
 }
 
+.sauceContainer .sauceInfo {
+  max-width: 50vw;
+}
+
 .sauceContainer .sauceInfo .label {
   font-size: 14px;
   font-weight: 400;
@@ -139,22 +143,26 @@
   .sauceContainer .sauceImage img {
     max-height: 240px;
   }
-  .sauceInfo {
+  .sauceContainer .sauceInfo {
+    max-width: 500px;
     text-align: center;
   }
-  .sauceInfo .sauce-name {
+  .sauceContainer .sauceInfo .sauceInfoField.sauce-name {
+    border-radius: 10px 10px 0 0;
+  }
+  .sauceContainer .sauceInfo .sauce-name {
     padding-top: 10px;
     font-size: 26px;
   }
-  .sauceInfo .manufacturer {
+  .sauceContainer .sauceInfo .manufacturer {
     font-size: 20px;
   }
-  .sauceInfo .likeButtons {
+  .sauceContainer .sauceInfo .likeButtons {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
   }
-  .sauceInfo .controlButtons .modifyDeleteButtons {
+  .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons {
     -ms-flex-pack: distribute;
         justify-content: space-around;
   }
