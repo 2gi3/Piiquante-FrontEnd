@@ -122,10 +122,14 @@ function SaucePage() {
                     <img alt="" src={sauce.imageUrl} />
                 </div>
                 <div className="sauceInfo">
-                    <h1 className="sauce-name">{sauce.name}</h1>
-                    <h3 className="manufacturer">{sauce.manufacturer}</h3>
-                    <p>{sauce.description}</p>
-                    <p>{sauce.mainPepper}</p>
+                    <h1 className="label">Sauce name:</h1>
+                    <h2 className="sauce-name sauceInfoField">{sauce.name}</h2>
+                    <h3 className="label">Manufacturer:</h3>
+                    <p className="manufacturer sauceInfoField">{sauce.manufacturer}</p>
+                    <h3 className="label">Description:</h3>
+                    <p className="sauceInfoField">{sauce.description}</p>
+                    <h3 className="label ">Main pepper ingredient:</h3>
+                    <p className="sauceInfoField">{sauce.mainPepper}</p>
                     {/* <div className="likeButtons">
                         <button className="thumbs" onClick={e => likeSauce(e,1)}>
                             <i>{like}</i>
@@ -139,7 +143,7 @@ function SaucePage() {
                     <div className="controlButtons">
                         <Link className="nav-link" to='/'>
                             <button className="backButton sauceButton">
-                                <span>GO BACK</span>
+                                <span>Back to homepage</span>
                             </button>
                         </Link>
                         {sauce.userId === userId ?

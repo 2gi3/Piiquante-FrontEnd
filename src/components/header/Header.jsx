@@ -2,11 +2,12 @@ import "./header.css"
 import logo from "../../assets/images/flame.png"
 import { Link, useParams, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightFromBracket, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons' 
 
 
 function NavBar() {
-    const fElement = <FontAwesomeIcon icon={faArrowRightFromBracket} />
+    const logOutIcon = <FontAwesomeIcon icon={faArrowRightFromBracket} />
+    const logInIcon = <FontAwesomeIcon icon={faArrowRightToBracket} />
     const params = useParams()
     const history = useLocation()
     const pathname = history.pathname
@@ -26,11 +27,11 @@ function NavBar() {
                 {!sessionStorage.getItem('token')?
                 <Link to={"/signin"}>
                     <div className="logout">
-                        <button>Log in <span>{fElement}</span></button>
+                        <button>Log in <span>{logInIcon}</span></button>
                     </div>
                 </Link>
                 : <div className="logout">
-                    <button onClick={logOut}>Log out <span>{fElement}</span></button>
+                    <button onClick={logOut}>Log out <span>{logOutIcon}</span></button>
                 </div>}
             </div>}
             <div className="header">

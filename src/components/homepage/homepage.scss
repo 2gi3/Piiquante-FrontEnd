@@ -1,42 +1,79 @@
-.allSaucesBody{
+.allSaucesBody {
     padding: 0 5vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-.saucesListHeader{
-    display: flex;
-    justify-content: left;
-    padding:0 5vw;
-    min-width: 100%;
+
+    .saucesListHeader {
+        display: flex;
+        justify-content: left;
+        padding: 0 3vw;
+        min-width: 100%;
+    }
+
+    .sauceBox {
+        max-width: 26.5vw;
+        margin: 8px;
+        padding-top: 5px;
+        background-color: #f4433660;
+
+        &:nth-child(2) {
+            border-top-left-radius: 50px
+        }
+
+        &:nth-child(4) {
+            border-top-right-radius: 50px
+        }
+
+        .link {
+            text-decoration: none;
+        }
+
+        &:hover {
+            box-shadow: 3px 3px 3px #683ab779;
+        }
+
+        .sauceBoxImage {
+            justify-content: space-between;
+            padding-top: 8px;
+
+            img {
+                object-fit: contain;
+                height: 16vw;
+                width: 16vw;
+            }
+        }
+
+        .sauceName {
+            text-align: center;
+
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
 }
-.sauceBox {
-    min-width: 260px;
-    max-width: 300px;
-    margin: 8px;
-    padding-top: 8px;
-    background-color: #f4433660;
+
+@media all and (min-width: 449px) and (max-width: 768px) {
+    .allSaucesBody {
+        .sauceBox {
+             min-width: 38vw;
+            &:nth-child(2) {
+                border-top-left-radius: 30px
+            }
+            &:nth-child(3) {
+                border-top-right-radius: 30px
+            }
     
-    .link{
-        text-decoration: none;
-    }
-    &:hover{
-        box-shadow: 3px 3px 3px #683ab779;
-    }
-    .sauceBoxImage {
-        justify-content: space-between;
-
-        img {
-            object-fit: contain;
-            height: 220px;
-            width: 240px;
+            &:nth-child(4) {
+                border-top-right-radius: 0;
+            }
+            .sauceBoxImage {
+                img {
+                    height: 145px;
+                    width: 30vw
+                }
+            }
         }
     }
-
-    .sauceName {
-        text-align: center;
-        h2{
-            font-size: 1.5rem;
-        }
-    }
-}
 }
