@@ -1,31 +1,38 @@
 import "./header.css"
 import logo from "../../assets/images/flame.png"
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 
 
 function NavBar() {
     const fElement = <FontAwesomeIcon icon={faArrowRightFromBracket} />
-    const params= useParams()
+    const params = useParams()
+    const history = useLocation()
+    const pathname = history.pathname
+    console.log(pathname)
 
-    function logOut(){
-		sessionStorage.removeItem('token');
-		sessionStorage.removeItem('userId');
-		sessionStorage.removeItem('UserName');
-	    sessionStorage.removeItem('email');
-		window.location="/signin";
-	}
+    function logOut() {
+        sessionStorage.removeItem('token');
+        sessionStorage.removeItem('userId');
+        sessionStorage.removeItem('UserName');
+        sessionStorage.removeItem('email');
+        window.location = "/signin";
+    }
     return (
         <div>
-            <div className="logInLogOutButtons">
-            {/* <div className="login">
-                <button>Log in {fElement}</button>
-            </div> */}
-            <div className="logout">
-                <button onClick={logOut}>Log out {fElement}</button>
-            </div>
-            </div>
+            {pathname === "/signin" || pathname === "/newsauce"? <></>
+            : <div className="logInLogOutButtons">
+                {!sessionStorage.getItem('token')?
+                <Link to={"/signin"}>
+                    <div className="logout">
+                        <button>Log in <span>{fElement}</span></button>
+                    </div>
+                </Link>
+                : <div className="logout">
+                    <button onClick={logOut}>Log out <span>{fElement}</span></button>
+                </div>}
+            </div>}
             <div className="header">
                 <div className="logo"> <img src={logo} /></div>
                 <div className="title">
@@ -33,7 +40,7 @@ function NavBar() {
                     <h3>THE WEB'S BEST HOT SAUCE REVIEWS</h3>
                 </div>
                 <div className="logo"> <img src={logo} /></div>
-            </div>            
+            </div>
         </div>
 
     )

@@ -15,7 +15,7 @@
 }
 
 .logInLogOutButtons .logout button {
-  background: linear-gradient(45deg, #f44336e7 50%, #683ab7ea 100%);
+  background: linear-gradient(45deg, #f4433660 50%, #683ab791 100%);
   color: white;
   font-size: large;
   font-weight: 400;
@@ -46,6 +46,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 40px;
   padding: 0 5% 15px 5%;
   width: 100vw;
 }
@@ -66,6 +67,14 @@
 }
 
 @media all and (max-width: 768px) {
+  .logInLogOutButtons .logout button {
+    border-radius: 10px;
+    background: -webkit-gradient(linear, right top, left top, color-stop(20%, #683ab791), color-stop(80%, #f4433660));
+    background: linear-gradient(270deg, #683ab791 20%, #f4433660 80%);
+    padding: 2px 7px;
+    height: 35px;
+    width: 89px;
+  }
   .header .logo img {
     max-height: 65px;
   }
