@@ -36,6 +36,7 @@
 
         .icon {
             background-color: white;
+            height: 40px;
             padding: 3px 12px 0 10px;
             border-top-right-radius: 15px;
             border-bottom-right-radius: 15px;
@@ -43,7 +44,8 @@
         }
 
         input {
-            min-width: 230px;
+            min-width: 100%;
+            height: 40px;
             border: none;
             border-top-left-radius: 15px;
             border-bottom-left-radius: 15px;
@@ -51,54 +53,117 @@
 
             &:focus-visible+.icon {
                 outline: none;
-                background-color: #f4433660;
-                box-shadow: 2px 2px 2px #683ab779;
+    background-color: #f44336;
+    box-shadow: 2px 2px 2px #683ab7;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
             }
 
             &:focus-visible {
                 outline: none;
-                background-color: #f4433660;
-                box-shadow: 2px 2px 2px #683ab779;
+    background-color: #f44336;
+    box-shadow: 2px 2px 2px #683ab7;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: white;
 
             }
         }
 
     }
             .signInButton {
-            padding: 3px 10px;
-            border-radius: 6px;
-            border: none;
-            box-shadow: 3px 3px 3px #bbbbbb;
-            min-width: 112px;
-            background-color: #673ab7;
-            padding: 4px;
-            color: white;
-            font-size: larger;
-            font-weight: 500;
-    letter-spacing: 1px;
+                margin-top: -10px;
+                padding: 3px 10px;
+                border-radius: 6px;
+                border: none;
+                box-shadow: 1px 1px 1px #bbbbbb;
+                min-width: 112px;
+                background-color: #f44336;
+                padding: 4px;
+                color: white;
+                font-size: larger;
+                font-weight: 500;
+                letter-spacing: 1px;
+                &:hover{
+                    box-shadow: 2px 2px 2px #683ab7;
+                }
+                &:focus{
+                    outline: none;
+                    box-shadow: 3px 3px 3px #683ab7;
+                    color: #683ab7;
+                }
         }
         .extraButton{
             padding-top: 25px;
             color: white;
             text-align: end;
+            font-size: larger;
     }
 }
 }
 
-@media all and (min-width: 768px){
-    .inContainer {
-        .inputBox {
-            input {
-                min-width: 300px;
-                height: 40px;
+@media all and (min-width: 361px) and (max-width: 768px) {
+    .container {
+        .inContainer {
+            width: 75%;
+            .inputBox {
+                input {
+                    min-width: 90%;
+                    height: 40px;
+                    &:focus-visible+.icon {
+                        font-size: 16px;
+                        letter-spacing: normal;
+                    }
+                    &:focus-visible {
+                        font-size: 16px;
+                        letter-spacing: normal;
+                    }
+                }
+
+                .icon {
+                    height: 40px;
+                    padding-top: 8px;
+                }
             }
-            .icon{
-                height: 40px;
-                padding-top: 8px;
+            .extraButton {
+                font-size: 15px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 360px) {
+    .container {
+        .inContainer {
+            .inputBox {
+                input {
+                    min-width: 200px;
+                    height: auto;
+                    &:focus-visible+.icon {
+                        font-size: 14px;
+                        letter-spacing: normal;
+                    }
+                    &:focus-visible {
+                        font-size: 14px;
+                        letter-spacing: normal;
+                    }
+                }
+                .icon{
+                    height: auto;
+                }
+            }
+
+            .signInButton {
+                font-size: medium;
+            }
+
+            .extraButton {
+                font-size: medium;
             }
 
         }
-
     }
-
 }

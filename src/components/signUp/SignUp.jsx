@@ -105,7 +105,7 @@ function SignUp() {
                     <p> Already have an account? 
                     <Link to={"/signin"}>
                         
-                            <span> Log in <FontAwesomeIcon icon={faUsers} /></span>
+                            <span> Log in &#160;<FontAwesomeIcon icon={faUsers} /></span>
                         
                     </Link>
                     </p>

@@ -23,7 +23,7 @@
   max-width: 700px;
   background-color: #4b4b4b;
   border: 5px solid #4b4b4b;
-  padding: 45px 3vw 0 3vw;
+  padding: 45px 3vw 3vw 3vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,13 +59,15 @@
 
 .container .inContainer .inputBox .icon {
   background-color: white;
+  height: 40px;
   padding: 3px 12px 0 10px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 
 .container .inContainer .inputBox input {
-  min-width: 230px;
+  min-width: 100%;
+  height: 40px;
   border: none;
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
@@ -74,30 +76,40 @@
 
 .container .inContainer .inputBox input:focus-visible + .icon {
   outline: none;
-  background-color: #f4433660;
-  -webkit-box-shadow: 2px 2px 2px #683ab779;
-          box-shadow: 2px 2px 2px #683ab779;
+  background-color: #f44336;
+  -webkit-box-shadow: 2px 2px 2px #683ab7;
+          box-shadow: 2px 2px 2px #683ab7;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
 }
 
 .container .inContainer .inputBox input:focus-visible {
   outline: none;
-  background-color: #f4433660;
-  -webkit-box-shadow: 2px 2px 2px #683ab779;
-          box-shadow: 2px 2px 2px #683ab779;
+  background-color: #f44336;
+  -webkit-box-shadow: 2px 2px 2px #683ab7;
+          box-shadow: 2px 2px 2px #683ab7;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
 }
 
 .container .inContainer .extraButton {
   padding-top: 25px;
   color: white;
   text-align: end;
+  font-size: larger;
 }
 
 .container .inContainer .signUpButton {
+  margin-top: -10px;
   padding: 3px 10px;
   border-radius: 6px;
   border: none;
-  -webkit-box-shadow: 3px 3px 3px #bbbbbb;
-          box-shadow: 3px 3px 3px #bbbbbb;
+  -webkit-box-shadow: 1px 1px 1px #bbbbbb;
+          box-shadow: 1px 1px 1px #bbbbbb;
   min-width: 112px;
   background-color: #f44336;
   padding: 4px;
@@ -107,14 +119,64 @@
   letter-spacing: 1px;
 }
 
-@media all and (min-width: 768px) {
-  .inContainer .inputBox input {
-    min-width: 300px;
+.container .inContainer .signUpButton:hover {
+  -webkit-box-shadow: 2px 2px 2px #683ab7;
+          box-shadow: 2px 2px 2px #683ab7;
+}
+
+.container .inContainer .signUpButton:focus {
+  outline: none;
+  -webkit-box-shadow: 3px 3px 3px #683ab7;
+          box-shadow: 3px 3px 3px #683ab7;
+  color: #683ab7;
+}
+
+@media all and (min-width: 361px) and (max-width: 768px) {
+  .container .inContainer {
+    width: 75%;
+  }
+  .container .inContainer .inputBox input {
+    min-width: 90%;
     height: 40px;
   }
-  .inContainer .inputBox .icon {
+  .container .inContainer .inputBox input:focus-visible + .icon {
+    font-size: 16px;
+    letter-spacing: normal;
+  }
+  .container .inContainer .inputBox input:focus-visible {
+    font-size: 16px;
+    letter-spacing: normal;
+  }
+  .container .inContainer .inputBox .icon {
     height: 40px;
     padding-top: 8px;
+  }
+  .container .inContainer .extraButton {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .container .inContainer .inputBox input {
+    min-width: 200px;
+    height: auto;
+  }
+  .container .inContainer .inputBox input:focus-visible + .icon {
+    font-size: 14px;
+    letter-spacing: normal;
+  }
+  .container .inContainer .inputBox input:focus-visible {
+    font-size: 14px;
+    letter-spacing: normal;
+  }
+  .container .inContainer .inputBox .icon {
+    height: auto;
+  }
+  .container .inContainer .signUpButton {
+    font-size: medium;
+  }
+  .container .inContainer .extraButton {
+    font-size: medium;
   }
 }
 /*# sourceMappingURL=signUp.css.map */
