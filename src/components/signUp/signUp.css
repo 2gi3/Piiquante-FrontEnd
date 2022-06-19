@@ -16,7 +16,7 @@
 }
 
 .container .inContainer {
-  position: relative;
+  position: inherit;
   min-width: 290px;
   width: 55%;
   border-radius: 15px;
@@ -86,25 +86,25 @@
           box-shadow: 2px 2px 2px #683ab779;
 }
 
-.container .inContainer .signInButton {
+.container .inContainer .extraButton {
+  padding-top: 25px;
+  color: white;
+  text-align: end;
+}
+
+.container .inContainer .signUpButton {
   padding: 3px 10px;
   border-radius: 6px;
   border: none;
   -webkit-box-shadow: 3px 3px 3px #bbbbbb;
           box-shadow: 3px 3px 3px #bbbbbb;
   min-width: 112px;
-  background-color: #673ab7;
+  background-color: #f44336;
   padding: 4px;
   color: white;
   font-size: larger;
   font-weight: 500;
   letter-spacing: 1px;
-}
-
-.container .inContainer .extraButton {
-  padding-top: 25px;
-  color: white;
-  text-align: end;
 }
 
 @media all and (min-width: 768px) {
@@ -117,4 +117,4 @@
     padding-top: 8px;
   }
 }
-/*# sourceMappingURL=signIn.css.map */
+/*# sourceMappingURL=signUp.css.map */

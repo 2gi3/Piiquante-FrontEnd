@@ -1,6 +1,4 @@
--Sauce page labels
 -Delete tests and create real sauces
 -like /dislike
--can't modify pictures
 -regex
 -logIn/signUp syncronicity

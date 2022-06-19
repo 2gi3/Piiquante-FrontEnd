@@ -18,11 +18,11 @@ function NavBar() {
         sessionStorage.removeItem('userId');
         sessionStorage.removeItem('UserName');
         sessionStorage.removeItem('email');
-        window.location = "/signin";
+        window.location = "/";
     }
     return (
         <div>
-            {pathname === "/signin" || pathname === "/newsauce"? <></>
+            {pathname === "/signin" || pathname === "/newsauce" || pathname === "/signup"? <></>
             : <div className="logInLogOutButtons">
                 {!sessionStorage.getItem('token')?
                 <Link to={"/signin"}>

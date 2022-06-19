@@ -5,8 +5,9 @@
     align-items: center;
     margin-top: 8vh;
 
+
 .inContainer {
-    position: relative;
+    position: inherit;
     min-width: 290px;
     width: 55%;
     border-radius: 15px;
@@ -64,24 +65,27 @@
         }
 
     }
-            .signInButton {
+
+
+    .extraButton{
+        padding-top: 25px;
+        color: white;
+        text-align: end;
+    }
+        
+        .signUpButton {
             padding: 3px 10px;
             border-radius: 6px;
             border: none;
             box-shadow: 3px 3px 3px #bbbbbb;
             min-width: 112px;
-            background-color: #673ab7;
+            background-color: #f44336;
             padding: 4px;
             color: white;
             font-size: larger;
             font-weight: 500;
     letter-spacing: 1px;
         }
-        .extraButton{
-            padding-top: 25px;
-            color: white;
-            text-align: end;
-    }
 }
 }
 
@@ -98,7 +102,7 @@
             }
 
         }
-
+       
     }
 
 }
