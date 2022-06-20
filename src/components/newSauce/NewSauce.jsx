@@ -19,7 +19,7 @@ function NewSauce() {
     const [sauce, setSauce] =useState('')
     const params = useParams()
     const [imageChanged, setImageChanged] = useState(false)
-
+    const [imagePreview, setImagePreview] = useState()
 
     const createSauce = (e) => {
 		e.preventDefault()
@@ -113,6 +113,15 @@ function NewSauce() {
         : setCreateSauceButton('vanish')
           getSauce()    
     }, [])
+
+    function getImgData() {
+          const fileReader = new FileReader();
+          fileReader.readAsDataURL(imageUrl);
+          fileReader.addEventListener("load", function () {
+            setImagePreview(this.result) ;
+          });    
+        
+      }
     
 
 
@@ -154,13 +163,18 @@ function NewSauce() {
                     </div>
                     <div className="addImageButton">
                             <input className="signInButton sauceButton "type="file" name="imageUrl" 
-                                onChange={(event) => {setImageUrl(event.target.files[0])
-                                setImageChanged(true)}}
+                                onInput={(event) => {setImageUrl(event.target.files[0])}}
+                                onChange={(e)=> {setImageChanged(true)
+                                    getImgData()} }
+                                
                                 accept="image/png, image/jpeg, image/jpg, image/webp">
                             </input>
                     </div>
+                    {params.id == undefined? <img height="100px" src={imagePreview} /> 
+                      : imageChanged== true? <img height="100px" src={imagePreview} />
+                        : <img height="100px" src={imageUrl} /> }
                     
-                    <img height="100px" src={imageUrl} />
+                    {/* <img height="100px" src={imagePreview} /> */}
                     <div className="inputBox">
                     <label htmlFor="mainPepperIngredient"> Main pepper ingredient</label>
                         <input id="mainPepperIngredient" type="text" name="mainPepperIngredient" defaultValue={mainPepper}

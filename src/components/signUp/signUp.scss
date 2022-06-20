@@ -54,22 +54,22 @@
 
                 &:focus-visible+.icon {
                     outline: none;
-    background-color: #f44336;
-    box-shadow: 2px 2px 2px #683ab7;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: white;
+                    background-color: #f44336;
+                    box-shadow: 2px 2px 2px #683ab7;
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    color: white;
                 }
 
                 &:focus-visible {
                     outline: none;
-    background-color: #f44336;
-    box-shadow: 2px 2px 2px #683ab7;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    color: white;
+                    background-color: #f44336;
+                    box-shadow: 2px 2px 2px #683ab7;
+                    font-size: 17px;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+                    color: white;
 
                 }
             }
@@ -97,10 +97,12 @@
             font-size: larger;
             font-weight: 500;
             letter-spacing: 1px;
-            &:hover{
+
+            &:hover {
                 box-shadow: 2px 2px 2px #683ab7;
             }
-            &:focus{
+
+            &:focus {
                 outline: none;
                 box-shadow: 3px 3px 3px #683ab7;
                 color: #683ab7;
@@ -113,14 +115,17 @@
     .container {
         .inContainer {
             width: 75%;
+
             .inputBox {
                 input {
                     min-width: 90%;
                     height: 40px;
+
                     &:focus-visible+.icon {
                         font-size: 16px;
                         letter-spacing: normal;
                     }
+
                     &:focus-visible {
                         font-size: 16px;
                         letter-spacing: normal;
@@ -132,6 +137,7 @@
                     padding-top: 8px;
                 }
             }
+
             .extraButton {
                 font-size: 15px;
             }
@@ -147,16 +153,19 @@
                 input {
                     min-width: 200px;
                     height: auto;
+
                     &:focus-visible+.icon {
                         font-size: 14px;
                         letter-spacing: normal;
                     }
+
                     &:focus-visible {
                         font-size: 14px;
                         letter-spacing: normal;
                     }
                 }
-                .icon{
+
+                .icon {
                     height: auto;
                 }
             }

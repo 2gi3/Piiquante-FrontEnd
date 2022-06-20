@@ -24,16 +24,16 @@
 .allSaucesBody .sauceBox {
   max-width: 26.5vw;
   margin: 10px 8px;
-  padding-top: 5px;
+  padding-top: 13px;
   background-color: #f4433660;
 }
 
 .allSaucesBody .sauceBox:nth-child(2) {
-  border-top-left-radius: 50px;
+  border-top-left-radius: 30px;
 }
 
 .allSaucesBody .sauceBox:nth-child(4) {
-  border-top-right-radius: 50px;
+  border-top-right-radius: 30px;
 }
 
 .allSaucesBody .sauceBox .link {
@@ -67,15 +67,15 @@
   font-size: 1.5rem;
 }
 
-@media all and (min-width: 450px) and (max-width: 768px) {
+@media all and (min-width: 361px) and (max-width: 768px) {
   .allSaucesBody .sauceBox {
-    min-width: 38vw;
+    min-width: 36vw;
   }
   .allSaucesBody .sauceBox:nth-child(2) {
-    border-top-left-radius: 30px;
+    border-top-left-radius: 20px;
   }
   .allSaucesBody .sauceBox:nth-child(3) {
-    border-top-right-radius: 30px;
+    border-top-right-radius: 20px;
   }
   .allSaucesBody .sauceBox:nth-child(4) {
     border-top-right-radius: 0;
@@ -86,14 +86,18 @@
   }
 }
 
-@media all and (max-width: 449px) {
+@media all and (max-width: 360px) {
   .allSaucesBody .sauceBox {
     width: 90vw;
     max-width: 300px;
   }
   .allSaucesBody .sauceBox:nth-child(2) {
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  .allSaucesBody .sauceBox:last-child {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
   .allSaucesBody .sauceBox:nth-child(3) {
     border-top-right-radius: 0;
