@@ -23,7 +23,7 @@
   max-width: 700px;
   background-color: #4b4b4b;
   border: 5px solid #4b4b4b;
-  padding: 45px 3vw 0 3vw;
+  padding: 45px 3vw 3vw 3vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,13 +96,13 @@
   color: white;
 }
 
-.container .inContainer .signInButton {
+.container .inContainer .primaryButton {
   margin-top: -10px;
   padding: 3px 10px;
   border-radius: 6px;
   border: none;
-  -webkit-box-shadow: 1px 1px 1px #bbbbbb;
-          box-shadow: 1px 1px 1px #bbbbbb;
+  -webkit-box-shadow: 1px 1px 1px #683ab7;
+          box-shadow: 1px 1px 1px #683ab7;
   min-width: 112px;
   background-color: #f44336;
   padding: 4px;
@@ -112,12 +112,12 @@
   letter-spacing: 1px;
 }
 
-.container .inContainer .signInButton:hover {
+.container .inContainer .primaryButton:hover {
   -webkit-box-shadow: 2px 2px 2px #683ab7;
           box-shadow: 2px 2px 2px #683ab7;
 }
 
-.container .inContainer .signInButton:focus {
+.container .inContainer .primaryButton:focus {
   outline: none;
   -webkit-box-shadow: 3px 3px 3px #683ab7;
           box-shadow: 3px 3px 3px #683ab7;
@@ -172,7 +172,7 @@
   .container .inContainer .inputBox .icon {
     height: auto;
   }
-  .container .inContainer .signInButton {
+  .container .inContainer .primaryButton {
     font-size: medium;
   }
   .container .inContainer .extraButton {

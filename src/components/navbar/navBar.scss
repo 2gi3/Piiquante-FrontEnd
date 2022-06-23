@@ -1,25 +1,32 @@
-.navLinks{
+@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
+
+.navLinks {
     display: flex;
     justify-content: space-evenly;
     padding: 0 15px 30px 15px;
     width: 100%;
-    .link{
+
+    .link {
         text-decoration: none;
     }
-    .nav-link{
-        margin-top: 5vh;
-        background-color: #683ab791;
-        border: 1px solid #683ab791;
-        color: white;
-        text-align: center;
-        font-weight: bolder;
-        font-size: 1.1rem;
-        border-radius: 10px;
-        &:hover{
-            border: 1px solid white;
-            box-shadow: 3px 3px 3px #f44336;
-            text-shadow: 1px 1px 1px white;
 
+    .nav-link {
+        @include primaryButton($secondaryColor, $primaryColor);
+
+    }
+}
+
+@media all and (max-width: 360px) {
+    .navLinks {
+        width: 100vw;
+        justify-content: start;
+    padding: 11px 19px 11px 0;
+        .nav-link {
+            font-size: small;
+            padding: 0 3px 4px 3px;
+            min-width: none;
+            height: 28px;
         }
     }
 }

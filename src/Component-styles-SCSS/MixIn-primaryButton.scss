@@ -1,0 +1,23 @@
+@mixin primaryButton($mainColor, $minorColor ){
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 1px 1px 1px $minorColor;
+    min-width: 112px;
+    background-color: $mainColor;
+    padding: 4px;
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+    &:hover {
+        box-shadow: 2px 2px 2px $minorColor
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: 3px 3px 3px $minorColor;
+        color: $minorColor;
+    }
+}

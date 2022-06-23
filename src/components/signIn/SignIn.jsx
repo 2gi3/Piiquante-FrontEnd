@@ -102,7 +102,7 @@ function SignIn() {
                     </div>
                     {/* <div className="logInMessage"> <p>{logInMessage}</p></div> */}
                     <div className="logInSignUpButtons">
-                        <button className="signInButton sauceButton " type="submit" value="submit">
+                        <button className="primaryButton sauceButton " type="submit" value="submit">
                             <span>Log in <FontAwesomeIcon icon={faArrowRightToBracket} /></span>
                         </button>
                     </div>

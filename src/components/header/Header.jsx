@@ -37,7 +37,7 @@ function NavBar() {
             <div className="header">
                 <div className="logo"> <img src={logo} /></div>
                 <div className="title">
-                    <h1>HOT TAKES</h1>
+                    <h1>HOT TAKES</h1> 
                     <h3>THE WEB'S BEST HOT SAUCE REVIEWS</h3>
                 </div>
                 <div className="logo"> <img src={logo} /></div>

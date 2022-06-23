@@ -1,4 +1,2 @@
--Delete tests and create real sauces
+-restructure SCSS files and make style consistent
 -like /dislike
--regex
--logIn/signUp syncronicity

@@ -14,20 +14,45 @@
 }
 
 .navLinks .nav-link {
-  margin-top: 5vh;
-  background-color: #683ab791;
-  border: 1px solid #683ab791;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: none;
+  -webkit-box-shadow: 1px 1px 1px #f44336;
+          box-shadow: 1px 1px 1px #f44336;
+  min-width: 112px;
+  background-color: #683ab7;
+  padding: 4px;
   color: white;
-  text-align: center;
-  font-weight: bolder;
-  font-size: 1.1rem;
-  border-radius: 10px;
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
 .navLinks .nav-link:hover {
-  border: 1px solid white;
+  -webkit-box-shadow: 2px 2px 2px #f44336;
+          box-shadow: 2px 2px 2px #f44336;
+}
+
+.navLinks .nav-link:focus {
+  outline: none;
   -webkit-box-shadow: 3px 3px 3px #f44336;
           box-shadow: 3px 3px 3px #f44336;
-  text-shadow: 1px 1px 1px white;
+  color: #f44336;
+}
+
+@media all and (max-width: 360px) {
+  .navLinks {
+    width: 100vw;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+    padding: 11px 19px 11px 0;
+  }
+  .navLinks .nav-link {
+    font-size: small;
+    padding: 0 3px 4px 3px;
+    min-width: none;
+    height: 28px;
+  }
 }
 /*# sourceMappingURL=navBar.css.map */

@@ -176,7 +176,7 @@ function NewSauce() {
                     
                     {/* <img height="100px" src={imagePreview} /> */}
                     <div className="inputBox">
-                    <label htmlFor="mainPepperIngredient"> Main pepper ingredient</label>
+                    <label htmlFor="mainPepperIngredient"> Main ingredient</label>
                         <input id="mainPepperIngredient" type="text" name="mainPepperIngredient" defaultValue={mainPepper}
                         onChange={event => setMainPepper(event.target.value)}
                         />

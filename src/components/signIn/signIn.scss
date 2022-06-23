@@ -1,3 +1,7 @@
+// this file is also exported to "../signUp/signUp.scss" 
+@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
+
 .container {
     display: flex;
     flex-direction: column;
@@ -13,7 +17,7 @@
         max-width: 700px;
         background-color: #4b4b4b;
         border: 5px solid #4b4b4b;
-        padding: 45px 3vw 0 3vw;
+        padding: 45px 3vw 3vw 3vw;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -75,29 +79,8 @@
 
         }
 
-        .signInButton {
-            margin-top: -10px;
-            padding: 3px 10px;
-            border-radius: 6px;
-            border: none;
-            box-shadow: 1px 1px 1px #bbbbbb;
-            min-width: 112px;
-            background-color: #f44336;
-            padding: 4px;
-            color: white;
-            font-size: larger;
-            font-weight: 500;
-            letter-spacing: 1px;
-
-            &:hover {
-                box-shadow: 2px 2px 2px #683ab7;
-            }
-
-            &:focus {
-                outline: none;
-                box-shadow: 3px 3px 3px #683ab7;
-                color: #683ab7;
-            }
+        .primaryButton {
+            @include primaryButton($primaryColor, $secondaryColor)        
         }
 
         .extraButton {
@@ -167,7 +150,7 @@
                 }
             }
 
-            .signInButton {
+            .primaryButton {
                 font-size: medium;
             }
 

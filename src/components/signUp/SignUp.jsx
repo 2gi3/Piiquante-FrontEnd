@@ -24,33 +24,6 @@ function SignUp() {
 
     }, [])
 
-    // const logIn = (e,) => {
-    //     e.preventDefault();
-    //     console.log(userData)
-    //      if(!re.test(email)){
-    //     // 	//   setEmailWarning(` Please provide a valid email `)	
-    //           alert("Please provide a valid email address")		  
-    //     // 	}else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
-    //     // 	    //   setPasswordWarning('Please provide a password that contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
-    //     //           alert("Your password must contain minimum eight characters,\n at least one uppercase letter, one lowercase letter, one number and one special character"
-    //     //              )
-    //     		}else{		
-    //     axios.post("https://secure-harbor-62492.herokuapp.com/api/auth/login", userData)
-    //         .then(
-    //             (res) => {
-    //                 sessionStorage.setItem("token", res.data.token)
-    //                 sessionStorage.setItem("userId", res.data.userId)
-    //                 sessionStorage.setItem("email", email)
-    //                 // UserId = res.data.userId;
-    //                 console.log(res);
-
-    //                 window.location = "/";
-    //             })
-    //         .catch((err) => {
-    //             console.log(err);
-    //         });
-    //     }
-    // }
 
     const signUp = (e) => {
         e.preventDefault()
@@ -96,7 +69,7 @@ function SignUp() {
                     </div>
                     {/* <div className="logInMessage"> <p>{logInMessage}</p></div> */}
                     <div >
-                        <button className="signUpButton sauceButton" type="submit" value="submit">
+                        <button className="primaryButton sauceButton" type="submit" value="submit">
                             <span>Sign up <FontAwesomeIcon icon={faUsers} /></span>
                         </button>
                     </div>

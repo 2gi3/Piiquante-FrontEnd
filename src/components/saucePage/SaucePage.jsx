@@ -128,7 +128,7 @@ function SaucePage() {
                     <p className="manufacturer sauceInfoField">{sauce.manufacturer}</p>
                     <h3 className="label">Description:</h3>
                     <p className="sauceInfoField">{sauce.description}</p>
-                    <h3 className="label ">Main pepper ingredient:</h3>
+                    <h3 className="label ">Main ingredient:</h3>
                     <p className="sauceInfoField">{sauce.mainPepper}</p>
                     {/* <div className="likeButtons">
                         <button className="thumbs" onClick={e => likeSauce(e,1)}>
