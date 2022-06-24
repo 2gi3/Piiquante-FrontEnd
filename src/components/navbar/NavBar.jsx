@@ -18,6 +18,6 @@ function NavBar() {
             </Link>
         </div>
     )
-} 
+}
 
 export default NavBar

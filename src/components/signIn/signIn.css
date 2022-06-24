@@ -1,3 +1,4 @@
+@import url(c:\p6-front-react\src\Component-styles-SCSS\normalize.css);
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -97,7 +98,6 @@
 }
 
 .container .inContainer .primaryButton {
-  margin-top: -10px;
   padding: 3px 10px;
   border-radius: 6px;
   border: none;

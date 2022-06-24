@@ -1,3 +1,6 @@
+@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/normalize.css";
+
 .allSaucesBody {
     padding: 0 5vw;
     display: flex;
@@ -14,23 +17,17 @@
     .sauceBox {
         max-width: 26.5vw;
         margin: 10px 8px;
-        padding-top: 13px;
-        background-color: #f4433660;
-
-        &:nth-child(2) {
-            border-top-left-radius: 30px
-        }
-
-        &:nth-child(4) {
-            border-top-right-radius: 30px
-        }
+        padding-top: 10px;
+        border-radius: 6px;
+        box-shadow: 1px 1px 2px $primaryColor;
+        
 
         .link {
             text-decoration: none;
         }
 
         &:hover {
-            box-shadow: 3px 3px 3px #683ab779;
+            box-shadow: 2px 2px 5px $secondaryColor;
         }
 
         .sauceBoxImage {
@@ -48,7 +45,13 @@
             text-align: center;
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 18px;
+                color: $secondaryColor;
+            }
+
+            p {
+                font-size: 15px;
+                color: $secondaryColor;
             }
         }
     }
@@ -56,32 +59,89 @@
 
 @media all and (min-width: 361px) and (max-width: 768px) {
     .allSaucesBody {
-        .sauceBox {
-            min-width: 36vw;
+        padding: 0;
 
-            &:nth-child(2) {
-                border-top-left-radius: 20px
-            }
-
-            &:nth-child(3) {
-                border-top-right-radius: 20px;
-            }
-
-            &:nth-child(4) {
-                border-top-right-radius: 0;
-            }
-
-            .sauceBoxImage {
-                img {
-                    height: 145px;
-                    width: 30vw
-                }
-            }
-        }
+            .sauceBox {
+                        width: 46%;
+                        min-width: 165px;
+                        max-width: 220px;
+                        margin: 3px;
+                        padding: 0;
+                        background-color: white;
+                        .sauceBoxImage {
+                            img {
+                                height: 150px;
+                                width: 60vw;
+                                max-width: 149px;
+            
+                            }
+                        }
+            
+                        .sauceName {
+                            h2 {
+                                font-size: 16px;
+                            }
+            
+                            p {
+                                margin-top: -10px;
+                                margin-bottom: 0;
+                                font-size: 14px;
+                            }
+                        }
+                    }
+        
     }
 }
 
+// @media all and (min-width: 361px) and (max-width: 570px) {
+//     .allSaucesBody {
+//         .sauceBox {
+//             width: 100%;
+//         }
+//     }
+
+// }
+
 @media all and (max-width: 360px) {
+    // .allSaucesBody {
+    //     padding: 0;
+    //     justify-content: space-evenly;
+
+    //     .saucesListHeader {
+    //         display: none;
+    //     }
+
+    //     .sauceBox {
+    //         width: 46%;
+    //         min-width: 130px;
+    //         max-width: 300px;
+    //         margin: 3px;
+    //         padding: 0;
+    //         background-color: white;
+    //         box-shadow: 1px 1px 2px #f44336;
+    //         .sauceBoxImage {
+    //             img {
+    //                 height: 150px;
+    //                 width: 60vw;
+    //                 max-width: 149px;
+
+    //             }
+    //         }
+
+    //         .sauceName {
+    //             h2 {
+    //                 font-size: 16px;
+    //             }
+
+    //             p {
+    //                 margin-top: -10px;
+    //                 margin-bottom: 0;
+    //                 font-size: 14px;
+    //             }
+    //         }
+    //     }
+    // }
+
     .allSaucesBody {
         padding: 0;
         justify-content: space-evenly;
@@ -91,46 +151,40 @@
         }
 
         .sauceBox {
-            width: 43%;
-            max-width: 300px;
-            margin: o;
-            padding: 0;
-            background-color: white;
-
-            &:nth-child(2) {
-                border-radius: 0;
-            }
-
-            &:last-child {
-                border-bottom-left-radius: 20px;
-                border-bottom-right-radius: 20px;
-            }
-
-            &:nth-child(3) {
-                border-top-right-radius: 0;
-            }
-
-            &:nth-child(4) {
-                border-top-right-radius: 0;
-            }
+            // min-width: 36vw;
+            display: flex;
+            flex-direction: column;
+            min-width: 100%;
+            height: 150px;
+            margin: 3px;
+            padding: 5px;
 
             .sauceBoxImage {
+                display: inline-block !important;
+                vertical-align: top;
+                height: 90%;
+                width: 44%;
+
                 img {
-                    height: 150px;
-                    width: 60vw;
-                    max-width: 149px;
-                    
+                    height: 125px;
+                    // width: 30vw;
+                    width: 100%;
                 }
             }
 
             .sauceName {
+                display: inline-block !important;
+                padding-left: 5px;
+                padding-top: 38px;
+                vertical-align: middle;
+                height: 100%;
+                text-align: left;
+
                 h2 {
                     font-size: 16px;
                 }
 
                 p {
-                    margin-top:-10px;
-                    margin-bottom: 0;
                     font-size: 14px;
                 }
             }

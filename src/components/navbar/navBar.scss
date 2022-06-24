@@ -1,5 +1,6 @@
 @import "../../Component-styles-SCSS/colors.SCSS";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
+@import "../../Component-styles-SCSS/normalize.css";
 
 .navLinks {
     display: flex;
@@ -24,9 +25,8 @@
     padding: 11px 19px 11px 0;
         .nav-link {
             font-size: small;
-            padding: 0 3px 4px 3px;
+            padding: 0 3px 3px 3px;
             min-width: none;
-            height: 28px;
         }
     }
 }

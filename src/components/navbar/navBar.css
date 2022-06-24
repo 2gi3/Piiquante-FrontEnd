@@ -1,3 +1,4 @@
+@import url(c:\p6-front-react\src\Component-styles-SCSS\normalize.css);
 .navLinks {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -26,6 +27,7 @@
   font-size: larger;
   font-weight: 500;
   letter-spacing: 1px;
+  height: 35px;
 }
 
 .navLinks .nav-link:hover {
@@ -50,9 +52,8 @@
   }
   .navLinks .nav-link {
     font-size: small;
-    padding: 0 3px 4px 3px;
+    padding: 0 3px 3px 3px;
     min-width: none;
-    height: 28px;
   }
 }
 /*# sourceMappingURL=navBar.css.map */

@@ -1,5 +1,6 @@
 @import "../../Component-styles-SCSS/colors.SCSS";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
+@import "../../Component-styles-SCSS/normalize.css";
 
 .logInLogOutButtons {
     display: flex;
@@ -7,14 +8,13 @@
     justify-content: right;
 
     .logout {
-        padding: 2vw 5vw 0 0;
-        text-align: right;
 
         button {
-            background: linear-gradient(45deg, #f4433660 50%, #683ab791 100%);
+            // @include primaryButton($secondaryColor, $primaryColor);
+            background: linear-gradient(225deg, $primaryColor, $secondaryColor 50%);
             color: white;
-            font-size: large;
-            font-weight: 400;
+            font-size: larger;
+            font-weight: 500;
             padding: 5px;
             border: 1px solid #ececec;
             position: absolute;
@@ -39,8 +39,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    padding: 0 5% 15px 5%;
-    width: 100vw;
+    padding: 0 5% 15px 8vw;
+    width: 95vw;
 
     .logo {
         img {
@@ -72,7 +72,7 @@
                 font-size: small;
                 padding: 0 3px 3px 3px;
                 min-width: auto;
-                height: 28px;
+                top: 7px;
             }
         }
     }
@@ -118,7 +118,7 @@
                 font-size: small;
                 padding: 0 3px 3px 3px;
                 min-width: auto;
-                height: 28px;
+                top: 16px;
 
                 span {
                     display: none;
@@ -133,12 +133,9 @@
         justify-content: flex-start;
         align-items: flex-start;
         margin-top: 5px;
-        padding: 0 15px;
-        width: 100vw;
-
         .logo {
             padding-right: 10px;
-            margin-top: -2px;
+            padding-top: 13px;
 
             img {
                 max-height: 22px;
