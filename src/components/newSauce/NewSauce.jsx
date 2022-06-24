@@ -162,7 +162,7 @@ function NewSauce() {
                         {/* <h1>{emailInvalid}</h1> */}
                     </div>
                     <div className="addImageButton">
-                            <input className="signInButton sauceButton "type="file" name="imageUrl" 
+                            <input className=" sauceButton "type="file" name="imageUrl" 
                                 onInput={(event) => {setImageUrl(event.target.files[0])}}
                                 onChange={(e)=> {setImageChanged(true)
                                     getImgData()} }
@@ -199,11 +199,11 @@ function NewSauce() {
                         {/* <h1>{emailInvalid}</h1> */}
                     </div>
                     <div className="addImageButton">
-                        <button id={createSauceButton} className="signInButton sauceButton " type="submit" value="submit"
+                        <button id={createSauceButton} className=" sauceButton " type="submit" value="submit"
                          onClick={event => createSauce(event)}>
                             <span>Create sauce</span>
                         </button>
-                        <button id={updateSauceButton}  className="signInButton sauceButton " type="submit" value="submit"
+                        <button id={updateSauceButton}  className=" sauceButton " type="submit" value="submit"
                          onClick={event => updateSauce(event)}>
                             <span>Update sauce</span>
                         </button>

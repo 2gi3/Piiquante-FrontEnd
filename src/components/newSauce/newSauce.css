@@ -95,21 +95,28 @@
 
 .innerContainer .addImageButton .sauceButton {
   padding: 3px 10px;
-  margin: 5px;
   border-radius: 6px;
   border: none;
-  -webkit-box-shadow: 3px 3px 3px #bbbbbb;
-          box-shadow: 3px 3px 3px #bbbbbb;
+  min-width: 112px;
+  background-color: #683ab7;
+  padding: 4px;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1px;
+  height: 44px;
 }
 
-.innerContainer .addImageButton .signInButton {
-  min-width: 85px;
-  background-color: #673ab7;
+.innerContainer .addImageButton .sauceButton:hover {
+  -webkit-box-shadow: 2px 2px 2px #f44336;
+          box-shadow: 2px 2px 2px #f44336;
 }
 
-.innerContainer .addImageButton .signUpButton {
-  min-width: 85px;
-  background-color: #f44336;
+.innerContainer .addImageButton .sauceButton:focus {
+  outline: none;
+  -webkit-box-shadow: 3px 3px 3px #f44336;
+          box-shadow: 3px 3px 3px #f44336;
+  color: #f44336;
 }
 
 @media all and (min-width: 361px) and (max-width: 768px) {

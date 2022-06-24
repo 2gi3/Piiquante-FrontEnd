@@ -27,9 +27,15 @@
 }
 
 .logInLogOutButtons .logout button:hover {
-  -webkit-box-shadow: 3px 3px 2px #cecece;
-          box-shadow: 3px 3px 2px #cecece;
-  text-shadow: 1px 1px 1px #cecece;
+  -webkit-box-shadow: 3px 3px 2px #683ab7;
+          box-shadow: 3px 3px 2px #683ab7;
+}
+
+.logInLogOutButtons .logout button:focus {
+  outline: none;
+  -webkit-box-shadow: 3px 3px 3px #683ab7;
+          box-shadow: 3px 3px 3px #683ab7;
+  color: #f44336;
 }
 
 .header {
@@ -68,8 +74,6 @@
     padding: 3px 10px;
     border-radius: 6px;
     border: none;
-    -webkit-box-shadow: 1px 1px 1px #f44336;
-            box-shadow: 1px 1px 1px #f44336;
     min-width: 112px;
     background-color: #683ab7;
     padding: 4px;
@@ -114,8 +118,6 @@
     padding: 3px 10px;
     border-radius: 6px;
     border: none;
-    -webkit-box-shadow: 1px 1px 1px #f44336;
-            box-shadow: 1px 1px 1px #f44336;
     min-width: 112px;
     background-color: #683ab7;
     padding: 4px;
@@ -154,6 +156,7 @@
         -ms-flex-align: start;
             align-items: flex-start;
     margin-top: 5px;
+    padding-left: 15px;
   }
   .header .logo {
     padding-right: 10px;
@@ -169,12 +172,12 @@
     display: none;
   }
   .header .title h1 {
-    margin-top: 20px;
+    margin-top: 19px;
     text-align: left;
-    font-size: 24px;
+    font-size: 25px;
   }
   .header .title h3 {
-    margin-top: 25px;
+    margin-top: 22px;
     font-size: 14px;
     margin-left: -18px;
     padding-bottom: 0;

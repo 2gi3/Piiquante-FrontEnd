@@ -1,4 +1,6 @@
 @import "../../Component-styles-SCSS/normalize.css";
+@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 
 .innerContainer {
     width: 70%;
@@ -72,23 +74,23 @@
             display: none;
         }
 
+        // .sauceButton {
+            // padding: 3px 10px;
+            // margin: 5px;
+            // border-radius: 6px;
+            // border: none;
+            // box-shadow: 3px 3px 3px #bbbbbb;
+        // }
+
         .sauceButton {
-            padding: 3px 10px;
-            margin: 5px;
-            border-radius: 6px;
-            border: none;
-            box-shadow: 3px 3px 3px #bbbbbb;
+            // min-width: 85px;
+            // background-color: #673ab7;
+            @include primaryButton($secondaryColor, $primaryColor);
         }
 
-        .signInButton {
-            min-width: 85px;
-            background-color: #673ab7;
-        }
-
-        .signUpButton {
-            min-width: 85px;
-            background-color: #f44336;
-        }
+        // .signUpButton {
+        //     @include primaryButton($primaryColor, $secondaryColor);
+        // }
     }
 }
 

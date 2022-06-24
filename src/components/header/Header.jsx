@@ -31,7 +31,7 @@ function NavBar() {
                     </div>
                 </Link>
                 : <div className="logout">
-                    <button onClick={logOut}>Log out <span>{logOutIcon}</span></button>
+                    <button onClick={logOut}>Log&nbsp;out <span>{logOutIcon}</span></button>
                 </div>}
             </div>}
             <div className="header">

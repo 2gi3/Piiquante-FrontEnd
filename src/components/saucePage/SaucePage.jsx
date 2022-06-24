@@ -142,18 +142,18 @@ function SaucePage() {
                     </div> */}
                     <div className="controlButtons">
                         <Link className="nav-link" to='/'>
-                            <button className="backButton sauceButton">
+                            <button className="backButton ">
                                 <span>Back to homepage</span>
                             </button>
                         </Link>
                         {sauce.userId === userId ?
                             <div className="modifyDeleteButtons">                                
                                 <Link className="nav-link" to={`updatesauce/${params.id}`}>
-                                <button className="modifyButton sauceButton">
+                                <button className="modifyButton ">
                                     <span>MODIFY</span>
                                 </button>
                                 </Link>
-                                <button className="deleteButton sauceButton" onClick={event => deleteSauce()}>
+                                <button className="deleteButton " onClick={event => deleteSauce()}>
                                     <span>DELETE</span>
                                 </button>
                             </div>

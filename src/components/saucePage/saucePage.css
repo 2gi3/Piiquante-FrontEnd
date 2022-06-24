@@ -66,26 +66,35 @@
   padding: 7px 4px 0;
 }
 
-.sauceContainer .sauceInfo .controlButtons .sauceButton {
+.sauceContainer .sauceInfo .controlButtons .nav-link {
+  display: block;
+  text-align: left;
+}
+
+.sauceContainer .sauceInfo .controlButtons .nav-link .backButton {
   padding: 3px 10px;
-  margin: 5px;
   border-radius: 6px;
   border: none;
+  min-width: 112px;
+  background-color: #683ab7;
+  padding: 4px;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1px;
+  height: 44px;
 }
 
-.sauceContainer .sauceInfo .controlButtons .sauceButton:hover {
-  -webkit-box-shadow: 3px 3px 3px #bbbbbb;
-          box-shadow: 3px 3px 3px #bbbbbb;
+.sauceContainer .sauceInfo .controlButtons .nav-link .backButton:hover {
+  -webkit-box-shadow: 2px 2px 2px #f44336;
+          box-shadow: 2px 2px 2px #f44336;
 }
 
-.sauceContainer .sauceInfo .controlButtons .sauceButton:focus-visible {
+.sauceContainer .sauceInfo .controlButtons .nav-link .backButton:focus {
   outline: none;
-}
-
-.sauceContainer .sauceInfo .controlButtons .sauceButton:focus {
-  outline: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 3px 3px 3px #f44336;
+          box-shadow: 3px 3px 3px #f44336;
+  color: #f44336;
 }
 
 .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons {
@@ -93,40 +102,63 @@
   display: -ms-flexbox;
   display: flex;
   min-width: 190px;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  padding: 8px 50px 0 0;
 }
 
 .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .modifyButton {
-  min-width: 85px;
-  background-color: #673ab7;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: none;
+  min-width: 112px;
+  background-color: #683ab7;
+  padding: 4px;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1px;
+  height: 44px;
 }
 
-.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .modifyButton:focus-visible {
-  outline: none;
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .modifyButton:hover {
+  -webkit-box-shadow: 2px 2px 2px #f44336;
+          box-shadow: 2px 2px 2px #f44336;
 }
 
 .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .modifyButton:focus {
   outline: none;
-  margin-bottom: -3px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 3px 3px 3px #f44336;
+          box-shadow: 3px 3px 3px #f44336;
+  color: #f44336;
 }
 
 .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton {
-  min-width: 85px;
+  padding: 3px 10px;
+  border-radius: 6px;
+  border: none;
+  min-width: 112px;
   background-color: #f44336;
-  margin-top: 13px;
-  max-height: 30px;
+  padding: 4px;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  letter-spacing: 1px;
+  height: 44px;
+  margin-top: 8px;
 }
 
-.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton:focus-visible {
-  outline: none;
+.sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton:hover {
+  -webkit-box-shadow: 2px 2px 2px #683ab7;
+          box-shadow: 2px 2px 2px #683ab7;
 }
 
 .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons .deleteButton:focus {
   outline: none;
-  margin-bottom: -3px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  -webkit-box-shadow: 3px 3px 3px #683ab7;
+          box-shadow: 3px 3px 3px #683ab7;
+  color: #683ab7;
 }
 
 @media all and (max-width: 768px) {
@@ -171,6 +203,9 @@
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .sauceContainer .sauceInfo .controlButtons .nav-link {
+    text-align: center;
+  }
   .sauceContainer .sauceInfo .controlButtons .modifyDeleteButtons {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -180,6 +215,7 @@
     -ms-flex-pack: distribute;
         justify-content: space-around;
     min-width: auto;
+    padding: 0;
   }
 }
 

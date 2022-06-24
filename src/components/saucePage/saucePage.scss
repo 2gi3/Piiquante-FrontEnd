@@ -1,4 +1,7 @@
 @import "../../Component-styles-SCSS/normalize.css";
+@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
+
 .sauceContainer {
     display: flex;
     justify-content: center;
@@ -62,62 +65,47 @@
         }
 
         .controlButtons {
+            .nav-link {
+                display: block;
+                text-align: left;
 
 
-            .sauceButton {
-                padding: 3px 10px;
-                margin: 5px;
-                border-radius: 6px;
-                border: none;
+                .backButton {
+                    @include primaryButton($secondaryColor, $primaryColor);
 
-                &:hover {
-                    box-shadow: 3px 3px 3px #bbbbbb;
-                }
+                    // padding: 3px 10px;
+                    // margin: 5px;
+                    // border-radius: 6px;
+                    // border: none;
 
-                &:focus-visible {
-                    outline: none;
-                }
+                    // &:hover {
+                    //     box-shadow: 3px 3px 3px #bbbbbb;
+                    // }
 
-                &:focus {
-                    outline: none;
-                    box-shadow: none;
+                    // &:focus-visible {
+                    //     outline: none;
+                    // }
+
+                    // &:focus {
+                    //     outline: none;
+                    //     box-shadow: none;
+                    // }
                 }
             }
 
             .modifyDeleteButtons {
                 display: flex;
                 min-width: 190px;
+                justify-content:left;
+                padding: 8px 50px 0 0;
 
                 .modifyButton {
-                    min-width: 85px;
-                    background-color: #673ab7;
-
-                    &:focus-visible {
-                        outline: none;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        margin-bottom: -3px;
-                        box-shadow: none;
-                    }
+                    @include primaryButton($secondaryColor, $primaryColor);
                 }
 
                 .deleteButton {
-                    min-width: 85px;
-                    background-color: #f44336;
-                    margin-top: 13px;
-                    max-height: 30px;
-
-                    &:focus-visible {
-                        outline: none;
-                    }
-
-                    &:focus {
-                        outline: none;
-                        margin-bottom: -3px;
-                        box-shadow: none;
-                    }
+                    @include primaryButton($primaryColor, $secondaryColor);
+                    margin-top: 8px;
                 }
 
             }
@@ -151,11 +139,6 @@
             min-width: 320px;
             text-align: center;
             border-radius: 0 0 15px 15px;
-            // .sauceInfoField {
-            //     &.sauce-name {
-            //         border-radius: 10px 10px 0 0;
-            //     }
-            // }
 
             .sauce-name {
                 padding-top: 10px;
@@ -169,6 +152,11 @@
             .likeButtons {
                 justify-content: center;
             }
+            .controlButtons {
+                .nav-link {
+                    text-align: center;
+                }
+            }
 
             .controlButtons {
                 .modifyDeleteButtons {
@@ -176,6 +164,7 @@
                     flex-wrap: wrap;
                     justify-content: space-around;
                     min-width: auto;
+                    padding: 0;
                 }
             }
 
@@ -184,12 +173,13 @@
 
 }
 
-@media all and (max-width: 360px){
+@media all and (max-width: 360px) {
     .sauceContainer {
         .sauceImage {
             width: 85vw;
             min-width: auto;
         }
+
         .sauceInfo {
             width: 85vw;
             min-width: auto;
