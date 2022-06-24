@@ -76,7 +76,7 @@
     width: 46%;
     min-width: 165px;
     max-width: 220px;
-    margin: 3px;
+    margin: 7px 3px;
     padding: 0;
     background-color: white;
   }
@@ -97,7 +97,7 @@
 
 @media all and (max-width: 360px) {
   .allSaucesBody {
-    padding: 0;
+    padding: 10px 0;
     -webkit-box-pack: space-evenly;
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
@@ -115,7 +115,7 @@
             flex-direction: column;
     min-width: 100%;
     height: 150px;
-    margin: 3px;
+    margin: 5px 3px;
     padding: 5px;
   }
   .allSaucesBody .sauceBox .sauceBoxImage {
