@@ -26,7 +26,7 @@
 }
 
 .innerContainer .inputBox #description {
-  height: 60px;
+  height: 110px;
   word-wrap: break-word;
   word-break: break-all;
 }
@@ -71,6 +71,7 @@
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: 200px;
+  margin-bottom: 25px;
 }
 
 .innerContainer .inputRange label {

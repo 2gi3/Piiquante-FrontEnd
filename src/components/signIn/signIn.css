@@ -61,7 +61,7 @@
 .container .inContainer .inputBox .icon {
   background-color: white;
   height: 40px;
-  padding: 3px 12px 0 10px;
+  padding: 8px 12px 0 10px;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
@@ -153,10 +153,6 @@
   .container .inContainer .inputBox input:focus-visible {
     font-size: 16px;
     letter-spacing: normal;
-  }
-  .container .inContainer .inputBox .icon {
-    height: 40px;
-    padding-top: 8px;
   }
 }
 

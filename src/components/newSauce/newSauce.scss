@@ -15,7 +15,7 @@
         margin: 10px 0;
         width: 500px;
         #description{
-            height: 60px;
+            height: 110px;
             word-wrap: break-word;
         word-break: break-all;
         }
@@ -57,6 +57,7 @@
         display: flex;
         flex-wrap: wrap;
         max-width: 200px;
+        margin-bottom: 25px;
         label{
             width: 100%;
         }
