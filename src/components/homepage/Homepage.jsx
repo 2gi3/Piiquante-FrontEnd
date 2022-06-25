@@ -37,7 +37,7 @@ function Homepage() {
             <div className="sauceBox col col-md-6 col-lg-4" key={index}>
                 <Link className="link" to={`saucepage/${data._id}`} >
                     <div className='sauceBoxImage d-flex flex-wrap justify-content-around'>
-                        <img src={data.imageUrl} alt="" />
+                        <img src={data.imageUrl} height="150" width="149" alt="" />
                     </div>
                     <div className="sauceName">
                         <h2>{data.name}</h2>

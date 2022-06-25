@@ -102,14 +102,14 @@ function SignIn() {
                     </div>
                     {/* <div className="logInMessage"> <p>{logInMessage}</p></div> */}
                     <div className="logInSignUpButtons">
-                        <button className="primaryButton sauceButton " type="submit" value="submit">
-                            <span>Log in <FontAwesomeIcon icon={faArrowRightToBracket} /></span>
+                        <button className="primaryButton" type="submit" value="submit">
+                            <span>Log&nbsp;in <FontAwesomeIcon icon={faArrowRightToBracket} /></span>
                         </button>
                     </div>
                 </form>
                 <div className="extraButton" > Don’t have an account? 
                     <Link to={"/signup"}>
-                            <span> Sign up <FontAwesomeIcon icon={faUsers} /></span>
+                          <p className="extraButtonText"> Sign&nbsp;up <span>  <FontAwesomeIcon icon={faUsers} /></span></p>
                     </Link>
                 </div>
             </div>

@@ -61,11 +61,13 @@
   text-align: center;
   color: #f44336;
   font-size: 2rem;
+  font-weight: 700;
 }
 
-.header .title h3 {
+.header .title p {
   text-align: center;
   font-size: 1.4rem;
+  font-weight: 600;
 }
 
 @media all and (min-width: 361px) and (max-width: 768px) {
@@ -106,7 +108,7 @@
     color: #f44336;
     font-size: 1.5rem;
   }
-  .header .title h3 {
+  .header .title p {
     text-align: center;
     font-size: 1rem;
   }
@@ -176,7 +178,7 @@
     text-align: left;
     font-size: 25px;
   }
-  .header .title h3 {
+  .header .title p {
     margin-top: 22px;
     font-size: 14px;
     margin-left: -18px;

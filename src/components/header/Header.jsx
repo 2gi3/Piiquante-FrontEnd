@@ -35,12 +35,12 @@ function NavBar() {
                 </div>}
             </div>}
             <div className="header">
-                <div className="logo"> <img src={logo} /></div>
+                <div className="logo"> <img src={logo}  alt="A flame, the logo of Piiquante" /></div>
                 <div className="title">
                     <h1>HOT TAKES</h1> 
-                    <h3>THE WEB'S BEST HOT SAUCE REVIEWS</h3>
+                    <p>THE WEB'S BEST HOT SAUCE REVIEWS</p>
                 </div>
-                <div className="logo"> <img src={logo} /></div>
+                <div className="logo"> <img src={logo} alt="A flame, the logo of Piiquante" /></div>
             </div>
         </div>
 

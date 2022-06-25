@@ -81,7 +81,7 @@
         }
 
         .primaryButton {
-            @include primaryButton($primaryColor, $secondaryColor)        
+            @include primaryButton($primaryColor, $secondaryColor)
         }
 
         .extraButton {
@@ -89,6 +89,17 @@
             color: white;
             text-align: end;
             font-size: larger;
+            .extraButtonText {
+                font-size: 22px;
+                padding-left: 5px;
+                display: inline-block;
+                font-weight: 600;
+                letter-spacing: 1px;
+
+                // span {
+                //     display: none;
+                // }
+            }
         }
     }
 }
@@ -120,9 +131,9 @@
                 }
             }
 
-            .extraButton {
-                font-size: 15px;
-            }
+        //     .extraButton {
+        //         font-size: 15px;
+        //     }
         }
     }
 }
@@ -133,7 +144,6 @@
             .inputBox {
                 input {
                     min-width: 200px;
-                    height: auto;
 
                     &:focus-visible+.icon {
                         font-size: 14px;
@@ -146,17 +156,29 @@
                     }
                 }
 
-                .icon {
-                    height: auto;
-                }
+                // .icon {
+                // }
             }
 
             .primaryButton {
                 font-size: medium;
+                margin-left: 10px;
             }
 
             .extraButton {
-                font-size: medium;
+                font-size: 14px;
+
+                .extraButtonText {
+                    font-size: 22px;
+                    padding-left: 5px;
+                    display: inline-block;
+                    font-weight: 600;
+                    letter-spacing: 1px;
+
+                    span {
+                        display: none;
+                    }
+                }
             }
 
         }

@@ -70,7 +70,7 @@ function SignUp() {
                     {/* <div className="logInMessage"> <p>{logInMessage}</p></div> */}
                     <div >
                         <button className="primaryButton sauceButton" type="submit" value="submit">
-                            <span>Sign up <FontAwesomeIcon icon={faUsers} /></span>
+                            <span>Sign&nbsp;up <FontAwesomeIcon icon={faUsers} /></span>
                         </button>
                     </div>
                 </form>
@@ -78,7 +78,7 @@ function SignUp() {
                     <p> Already have an account? 
                     <Link to={"/signin"}>
                         
-                            <span> Log in &#160;<FontAwesomeIcon icon={faUsers} /></span>
+                       <p className="extraButtonText">Log&nbsp;in &#160;<span><FontAwesomeIcon icon={faUsers} /></span></p>
                         
                     </Link>
                     </p>

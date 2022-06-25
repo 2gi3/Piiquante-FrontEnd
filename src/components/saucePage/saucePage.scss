@@ -72,24 +72,6 @@
 
                 .backButton {
                     @include primaryButton($secondaryColor, $primaryColor);
-
-                    // padding: 3px 10px;
-                    // margin: 5px;
-                    // border-radius: 6px;
-                    // border: none;
-
-                    // &:hover {
-                    //     box-shadow: 3px 3px 3px #bbbbbb;
-                    // }
-
-                    // &:focus-visible {
-                    //     outline: none;
-                    // }
-
-                    // &:focus {
-                    //     outline: none;
-                    //     box-shadow: none;
-                    // }
                 }
             }
 
