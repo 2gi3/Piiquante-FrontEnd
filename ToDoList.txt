@@ -1,3 +1,6 @@
+-make header as a link to homepage
+-HTML semantic
 -range bar on modify sauce
 -restructure SCSS files and make style consistent
 -like /dislike
+-write documentation

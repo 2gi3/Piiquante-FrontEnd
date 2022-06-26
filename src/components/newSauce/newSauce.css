@@ -7,7 +7,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-top: 3vh;
+  padding: 3vh 0 44px 0;
 }
 
 .innerContainer .inputBox {
@@ -95,17 +95,20 @@
 }
 
 .innerContainer .addImageButton .sauceButton {
-  padding: 3px 10px;
+  padding: 3px 5px;
   border-radius: 6px;
   border: none;
   min-width: 112px;
   background-color: #683ab7;
-  padding: 4px;
   color: white;
   font-size: larger;
   font-weight: 500;
   letter-spacing: 1px;
   height: 44px;
+  -webkit-transition: -webkit-box-shadow 750ms ease-out;
+  transition: -webkit-box-shadow 750ms ease-out;
+  transition: box-shadow 750ms ease-out;
+  transition: box-shadow 750ms ease-out, -webkit-box-shadow 750ms ease-out;
 }
 
 .innerContainer .addImageButton .sauceButton:hover {

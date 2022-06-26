@@ -98,17 +98,20 @@
 }
 
 .container .inContainer .primaryButton {
-  padding: 3px 10px;
+  padding: 3px 5px;
   border-radius: 6px;
   border: none;
   min-width: 112px;
   background-color: #f44336;
-  padding: 4px;
   color: white;
   font-size: larger;
   font-weight: 500;
   letter-spacing: 1px;
   height: 44px;
+  -webkit-transition: -webkit-box-shadow 750ms ease-out;
+  transition: -webkit-box-shadow 750ms ease-out;
+  transition: box-shadow 750ms ease-out;
+  transition: box-shadow 750ms ease-out, -webkit-box-shadow 750ms ease-out;
 }
 
 .container .inContainer .primaryButton:hover {

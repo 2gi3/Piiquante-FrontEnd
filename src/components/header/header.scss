@@ -24,6 +24,7 @@
             right: 5px;
             top: 5px;
             border-radius: 10% 10% 10% 90% / 10% 10% 10% 90%;
+            transition: box-shadow 750ms ease-out;
 
             &:hover {
                 box-shadow: 3px 3px 2px $secondaryColor;
@@ -49,11 +50,19 @@
 
     .logo {
         img {
+            padding-left:1px;
             max-height: 100px;
         }
     }
 
     .title {
+        text-decoration: none;
+        transition: box-shadow 750ms ease-out;
+        padding-right: 3px;
+        &:hover{
+            box-shadow: 1px 1px 1px rgb(185, 185, 185);            
+        }
+
         h1 {
             text-align: center;
             color: $primaryColor;
@@ -62,6 +71,7 @@
         }
 
         p {
+            color: black;
             text-align: center;
             font-size: 1.4rem;
             font-weight: 600;

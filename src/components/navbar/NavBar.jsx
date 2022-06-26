@@ -15,6 +15,11 @@ function NavBar() {
                 <button className="nav-link">
                 Create a sauce
                 </button>
+                <div className="hiddenMessage">
+                {!sessionStorage.getItem('token')?
+                <p>Log in to add your favourite sauce.</p>:
+                <p>You can modify or delete your sauces later.</p>}
+            </div>
             </Link>
         </div>
     )

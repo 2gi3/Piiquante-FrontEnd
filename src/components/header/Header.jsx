@@ -36,10 +36,10 @@ function NavBar() {
             </div>}
             <div className="header">
                 <div className="logo"> <img src={logo}  alt="A flame, the logo of Piiquante" /></div>
-                <div className="title">
+                <Link to="/" className="title">
                     <h1>HOT TAKES</h1> 
                     <p>THE WEB'S BEST HOT SAUCE REVIEWS</p>
-                </div>
+                </Link>
                 <div className="logo"> <img src={logo} alt="A flame, the logo of Piiquante" /></div>
             </div>
         </div>
