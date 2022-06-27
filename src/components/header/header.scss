@@ -1,6 +1,38 @@
 @import "../../Component-styles-SCSS/colors.SCSS";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 @import "../../Component-styles-SCSS/normalize.css";
+@keyframes titleLoader{
+    0%{
+        transform: translateY(-250%)
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+@keyframes deckLoader{
+    0%{color: $primaryColor;
+        transform: scale(0);
+    }
+    80%{
+        color: $primaryColor;
+        transform: scale(1.1);
+    }
+    100%{
+        color: black;
+        transform: scale(1);
+    }
+}
+// @keyframes flameLoad{
+//     0%{
+//         transform: scale(0);
+//     }
+//     80%{
+//         transform: scale(1.1);
+//     }
+//     100%{
+//         transform: scale(1);
+//     }
+// }
 
 .logInLogOutButtons {
     display: flex;
@@ -51,7 +83,18 @@
     .logo {
         img {
             padding-left:1px;
-            max-height: 100px;
+            height: 100px;
+        }
+        &:first-child {
+            img{
+            transform: scale(0);
+            animation: deckLoader 850ms ease-in 200ms forwards
+            }
+        }
+
+        &:nth-child(3) {
+            transform: scale(0);
+            animation: deckLoader 850ms ease-in 200ms forwards
         }
     }
 
@@ -68,6 +111,7 @@
             color: $primaryColor;
             font-size: 2rem;
             font-weight: 700;
+            animation: titleLoader 850ms cubic-bezier(0.51, 0.01, 0.26, 1.51);
         }
 
         p {
@@ -75,6 +119,7 @@
             text-align: center;
             font-size: 1.4rem;
             font-weight: 600;
+            animation: deckLoader 1000ms linear;
         }
     }
 }
@@ -104,7 +149,7 @@
         .title {
             h1 {
                 text-align: center;
-                color: #f44336;
+                color: $primaryColor;
                 font-size: 1.5rem;
             }
 

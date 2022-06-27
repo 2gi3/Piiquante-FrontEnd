@@ -12,10 +12,13 @@
         justify-content: left;
         padding: 0 3vw;
         min-width: 100%;
+        h1{
+            font-size: 18px;
+        }
     }
 
     .sauceBox {
-        max-width: 26.5vw;
+        max-width: 204px;
         margin: 10px 8px;
         padding-top: 10px;
         border-radius: 6px;
@@ -36,8 +39,8 @@
 
             img {
                 object-fit: contain;
-                height: 16vw;
-                width: 16vw;
+                height: 150px;
+                width: 150px;
             }
         }
 
@@ -93,54 +96,8 @@
     }
 }
 
-// @media all and (min-width: 361px) and (max-width: 570px) {
-//     .allSaucesBody {
-//         .sauceBox {
-//             width: 100%;
-//         }
-//     }
-
-// }
-
 @media all and (max-width: 360px) {
-    // .allSaucesBody {
-    //     padding: 0;
-    //     justify-content: space-evenly;
-
-    //     .saucesListHeader {
-    //         display: none;
-    //     }
-
-    //     .sauceBox {
-    //         width: 46%;
-    //         min-width: 130px;
-    //         max-width: 300px;
-    //         margin: 3px;
-    //         padding: 0;
-    //         background-color: white;
-    //         box-shadow: 1px 1px 2px #f44336;
-    //         .sauceBoxImage {
-    //             img {
-    //                 height: 150px;
-    //                 width: 60vw;
-    //                 max-width: 149px;
-
-    //             }
-    //         }
-
-    //         .sauceName {
-    //             h2 {
-    //                 font-size: 16px;
-    //             }
-
-    //             p {
-    //                 margin-top: -10px;
-    //                 margin-bottom: 0;
-    //                 font-size: 14px;
-    //             }
-    //         }
-    //     }
-    // }
+    
 
     .allSaucesBody {
         padding: 10px 0;
@@ -151,7 +108,6 @@
         }
 
         .sauceBox {
-            // min-width: 36vw;
             display: flex;
             flex-direction: column;
             min-width: 100%;

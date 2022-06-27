@@ -22,8 +22,12 @@
   min-width: 100%;
 }
 
+.allSaucesBody .saucesListHeader h1 {
+  font-size: 18px;
+}
+
 .allSaucesBody .sauceBox {
-  max-width: 26.5vw;
+  max-width: 204px;
   margin: 10px 8px;
   padding-top: 10px;
   border-radius: 6px;
@@ -50,8 +54,8 @@
 .allSaucesBody .sauceBox .sauceBoxImage img {
   -o-object-fit: contain;
      object-fit: contain;
-  height: 16vw;
-  width: 16vw;
+  height: 150px;
+  width: 150px;
 }
 
 .allSaucesBody .sauceBox .sauceName {
