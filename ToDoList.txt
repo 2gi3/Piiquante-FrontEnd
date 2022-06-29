@@ -1,4 +1,4 @@
--make header as a link to homepage
+-eliminate bootstrap CDN from HTML main
 -HTML semantic
 -range bar on modify sauce
 -restructure SCSS files and make style consistent

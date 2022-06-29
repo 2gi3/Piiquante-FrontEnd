@@ -5,7 +5,7 @@
 .navLinks {
     display: flex;
     justify-content: space-evenly;
-    padding: 0 15px 30px 15px;
+    padding: 0 ;
     width: auto;
     position: initial;
 
@@ -19,6 +19,7 @@
         width: 159px;
         position: relative;
         z-index: 9;
+        margin-top: 10px;
     }
     .hiddenMessage{
         position: relative;
@@ -26,9 +27,9 @@
         max-width: 159px;
         font-size: 14px;
         text-align: center;
-        bottom: 44px;
+        bottom: 58px;
         border-radius: 6px;
-        padding: 3px;
+        padding: 0;
         height: 44px;
         background: $tertiaryColor;
         transition: bottom 1500ms ease-in-out;
@@ -44,7 +45,7 @@
 @media all and (max-width: 360px) {
     .navLinks {
         justify-content: start;
-    padding: 7px 19px 11px 0;
+    padding: 7px 19px 11px 15px;
         .nav-link {
             font-size: medium;
             min-width: none;

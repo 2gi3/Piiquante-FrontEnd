@@ -34,9 +34,10 @@ function Homepage() {
     const content = sauces.map((data, index) => {
         return (
 
-            <div className="sauceBox col col-md-6 col-lg-4" key={index}>
+            // <div className="sauceBox col col-md-6 col-lg-4" key={index}>
+            <div className="sauceBox" key={index}>
                 <Link className="link" to={`saucepage/${data._id}`} >
-                    <div className='sauceBoxImage d-flex flex-wrap justify-content-around'>
+                    <div className='sauceBoxImage'>
                         <img src={data.imageUrl} height="150" width="150" alt="" />
                     </div>
                     <div className="sauceName">

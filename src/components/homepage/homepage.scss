@@ -3,6 +3,7 @@
 
 .allSaucesBody {
     padding: 0 5vw;
+    margin-bottom: 50px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -10,8 +11,9 @@
     .saucesListHeader {
         display: flex;
         justify-content: left;
-        padding: 0 3vw;
-        min-width: 100%;
+        padding: 0;
+        min-width: 94%;
+        margin-top:-44px ;
         h1{
             font-size: 18px;
         }
@@ -19,7 +21,7 @@
 
     .sauceBox {
         max-width: 204px;
-        margin: 10px 8px;
+        margin: 10px 20px;
         padding-top: 10px;
         border-radius: 6px;
         box-shadow: 1px 1px 2px $primaryColor;
@@ -34,8 +36,9 @@
         }
 
         .sauceBoxImage {
-            justify-content: space-between;
-            padding-top: 8px;
+            display: flex;
+            justify-content: center;
+            padding: 8px;
 
             img {
                 object-fit: contain;
@@ -69,7 +72,7 @@
                         min-width: 165px;
                         max-width: 220px;
                         margin:7px 3px;
-                        padding: 0;
+                        padding-bottom: 8px;
                         background-color: white;
                         .sauceBoxImage {
                             img {

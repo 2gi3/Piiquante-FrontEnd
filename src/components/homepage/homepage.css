@@ -1,6 +1,7 @@
 @import url(c:\p6-front-react\src\Component-styles-SCSS\normalize.css);
 .allSaucesBody {
   padding: 0 5vw;
+  margin-bottom: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,8 +19,9 @@
   -webkit-box-pack: left;
       -ms-flex-pack: left;
           justify-content: left;
-  padding: 0 3vw;
-  min-width: 100%;
+  padding: 0;
+  min-width: 94%;
+  margin-top: -44px;
 }
 
 .allSaucesBody .saucesListHeader h1 {
@@ -28,7 +30,7 @@
 
 .allSaucesBody .sauceBox {
   max-width: 204px;
-  margin: 10px 8px;
+  margin: 10px 20px;
   padding-top: 10px;
   border-radius: 6px;
   -webkit-box-shadow: 1px 1px 2px #f44336;
@@ -45,10 +47,13 @@
 }
 
 .allSaucesBody .sauceBox .sauceBoxImage {
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-top: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 8px;
 }
 
 .allSaucesBody .sauceBox .sauceBoxImage img {
@@ -81,7 +86,7 @@
     min-width: 165px;
     max-width: 220px;
     margin: 7px 3px;
-    padding: 0;
+    padding-bottom: 8px;
     background-color: white;
   }
   .allSaucesBody .sauceBox .sauceBoxImage img {

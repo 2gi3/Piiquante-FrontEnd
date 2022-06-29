@@ -7,13 +7,14 @@ import SaucePage from './components/saucePage/SaucePage';
 import SignIn from './components/signIn/SignIn';
 import NewSauce from './components/newSauce/NewSauce';
 import SignUp from './components/signUp/SignUp';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (
     <Router>
-      <div className='wrapper'>
-        <div className='container-fluid'>
-          <div className='row'>
+      <div>
+        <div>
+          <div>
             <header>
               <Header />
             </header>
@@ -27,6 +28,9 @@ function App() {
         <Route path='signup' element={ <SignUp /> } />
         {!sessionStorage.getItem('token')? <Route path='newsauce' element={<SignIn /> }/> :<Route path='newsauce' element={<NewSauce />}/>}
         </Routes>
+        <footer>
+        <Footer />
+      </footer>
       </div>
     </div>
     </Router >

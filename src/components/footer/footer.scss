@@ -1,0 +1,12 @@
+@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/normalize.css";
+
+.footerContainer{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: $secondaryColor;
+    color: white;
+    
+}
