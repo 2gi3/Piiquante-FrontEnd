@@ -7,6 +7,7 @@ import NavBar from "../navBar/NavBar";
 function Homepage() {
     // const access_token = sessionStorage.getItem('token');
     const [sauces, setSauces] = useState([''])
+    const userId = sessionStorage.getItem('userId');
 
     
 
@@ -35,10 +36,10 @@ function Homepage() {
         return (
 
             // <div className="sauceBox col col-md-6 col-lg-4" key={index}>
-            <div className="sauceBox" key={index}>
+            <div className={data.userId === userId ? "sauceBox sauceBoxOwnSauce": "sauceBox"} key={index}>
                 <Link className="link" to={`saucepage/${data._id}`} >
                     <div className='sauceBoxImage'>
-                        <img src={data.imageUrl} height="150" width="150" alt="" />
+                        <img src={data.imageUrl} height="150" width="150" alt="The image of a sauce" />
                     </div>
                     <div className="sauceName">
                         <h2>{data.name}</h2>

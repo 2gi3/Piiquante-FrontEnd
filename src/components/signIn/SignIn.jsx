@@ -83,7 +83,7 @@ function SignIn() {
             <div className="inContainer">
                 <form onSubmit={event => logIn(event)}>
                     <div className="inputBox">
-                        <input ref={inputRef} type="email" name="userEmail" placeholder="UserEmail"
+                        <input ref={inputRef} type="email" name="userEmail" placeholder="Email"
                             onChange={event => setEmail(event.target.value)}
                         />
                         <div className="icon">

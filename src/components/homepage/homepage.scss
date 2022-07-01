@@ -13,8 +13,9 @@
         justify-content: left;
         padding: 0;
         min-width: 94%;
-        margin-top:-44px ;
-        h1{
+        margin-top: -44px;
+
+        h1 {
             font-size: 18px;
         }
     }
@@ -25,7 +26,13 @@
         padding-top: 10px;
         border-radius: 6px;
         box-shadow: 1px 1px 2px $primaryColor;
-        
+
+        &.sauceBoxOwnSauce {
+            // background: rgb(255,255,255);
+            background: radial-gradient(circle, rgba(255, 255, 255, 1) 80%, $tertiaryColor 100%);
+
+        }
+
 
         .link {
             text-decoration: none;
@@ -67,40 +74,41 @@
     .allSaucesBody {
         padding: 0;
 
-            .sauceBox {
-                        width: 46%;
-                        min-width: 165px;
-                        max-width: 220px;
-                        margin:7px 3px;
-                        padding-bottom: 8px;
-                        background-color: white;
-                        .sauceBoxImage {
-                            img {
-                                height: 150px;
-                                width: 60vw;
-                                max-width: 149px;
-            
-                            }
-                        }
-            
-                        .sauceName {
-                            h2 {
-                                font-size: 16px;
-                            }
-            
-                            p {
-                                margin-top: -10px;
-                                margin-bottom: 0;
-                                font-size: 14px;
-                            }
-                        }
-                    }
-        
+        .sauceBox {
+            width: 46%;
+            min-width: 165px;
+            max-width: 220px;
+            margin: 7px 3px;
+            padding-bottom: 8px;
+            background-color: white;
+
+            .sauceBoxImage {
+                img {
+                    height: 150px;
+                    width: 60vw;
+                    max-width: 149px;
+
+                }
+            }
+
+            .sauceName {
+                h2 {
+                    font-size: 16px;
+                }
+
+                p {
+                    margin-top: -10px;
+                    margin-bottom: 0;
+                    font-size: 14px;
+                }
+            }
+        }
+
     }
 }
 
 @media all and (max-width: 360px) {
-    
+
 
     .allSaucesBody {
         padding: 10px 0;

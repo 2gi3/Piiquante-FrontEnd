@@ -12,6 +12,7 @@ function NavBar() {
     const history = useLocation()
     const pathname = history.pathname
     console.log(pathname)
+    const userEmail = sessionStorage.getItem('email')
 
     function logOut() {
         sessionStorage.removeItem('token');
@@ -34,6 +35,7 @@ function NavBar() {
                     <button onClick={logOut}>Log&nbsp;out <span>{logOutIcon}</span></button>
                 </div>}
             </div>}
+            {sessionStorage.getItem('token')? <div className="userNameDisplay"> <p>Logged in: {userEmail}</p> </div> :<></>}
             <div className="header">
                 <div className="logo"> <img src={logo} height="100"  alt="A flame, the logo of Piiquante" /></div>
                 <Link to="/" className="title">

@@ -29,11 +29,14 @@
 .sauceContainer .sauceInfo .label {
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: -3px;
+  margin-bottom: -5px;
 }
 
 .sauceContainer .sauceInfo .sauceInfoField {
   border-bottom: 1px solid #683ab728;
+  padding-bottom: 4px;
+  margin-top: 6px;
+  height: 30px;
 }
 
 .sauceContainer .sauceInfo .likeButtons {
@@ -203,7 +206,6 @@
     border-radius: 0 0 15px 15px;
   }
   .sauceContainer .sauceInfo .sauce-name {
-    padding-top: 10px;
     font-size: 26px;
   }
   .sauceContainer .sauceInfo .manufacturer {
