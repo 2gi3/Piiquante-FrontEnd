@@ -8,12 +8,13 @@ import axios from 'axios'
 function SignUp() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [logInMessage, setLogInMessage] = useState('')
+    const [logInMessage, setLogInMessage] = useState('"You have entered an invalid username or password"')
     const [afterLogIn, setAfterLogIn] = useState('')
     const inputRef = useRef(null)
     const [emailWarning, setEmailWarning] = useState('')
     const [passwordWarning, setPasswordWarning] = useState('')
     const re = /\S+@\S+\.\S+/g;
+    const [logInResponse, setLogInResponse] = useState('hidden')
     const userData = {
         email,
         password
@@ -29,7 +30,8 @@ function SignUp() {
         e.preventDefault()
         if (!re.test(email)) {
             //   setEmailWarning(` Please provide a valid email `)	
-            alert("Please provide a valid email address")
+            setLogInMessage("Please provide a valid email address")
+            setLogInResponse("appear secondaryColor");
             // 	}else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password)){
             // 	    //   setPasswordWarning('Please provide a password that contains minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character')
             //           alert("Please provide a password that contains minimum eight characters,\n at least one uppercase letter, one lowercase letter, one number and one special character"
@@ -47,6 +49,9 @@ function SignUp() {
     }
     return (
         <div className="container">
+             <div className={logInResponse}>
+                <p> {logInMessage} </p>
+            </div>
             <div className="inContainer">
                 <form onSubmit={e => signUp(e)}>
                     <div className="inputBox">
