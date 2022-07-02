@@ -3,6 +3,23 @@
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 @import "../../Component-styles-SCSS/normalize.css";
 
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+        top: 50px;
+    }
+
+    70% {
+        transform: scale(1.1);
+        top: -55px;
+    }
+
+    100% {
+        transform: scale(1);
+        top: -50px;
+    }
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -10,6 +27,37 @@
     align-items: center;
     margin-top: 8vh;
     margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+
+    .hidden {
+        display: none;
+    }
+
+    .appear {
+        // animation: popUp 1000ms cubic-bezier(0.51, 0.01, 0.26, 1.51)  forwards;
+        animation: popUp 1000ms ease-in-out  forwards;
+        font-size: 17px;
+        font-weight: 500;
+        color: white;
+        letter-spacing: 1px;
+        min-width: 240px;
+        max-width: 460px;
+        width: 55%;
+        border-radius: 15px;
+        padding: 5px;
+        text-align: center;
+        z-index: 3;
+        position: absolute;
+
+        &.primaryColor {
+            background-color: $primaryColor;
+        }
+
+        &.secondaryColor {
+            background-color: $secondaryColor;
+        }
+    }
 
     .inContainer {
         position: relative;
@@ -89,6 +137,7 @@
             color: white;
             text-align: end;
             font-size: larger;
+
             .extraButtonText {
                 font-size: 22px;
                 padding-left: 5px;
@@ -126,9 +175,9 @@
                 }
             }
 
-        //     .extraButton {
-        //         font-size: 15px;
-        //     }
+            //     .extraButton {
+            //         font-size: 15px;
+            //     }
         }
     }
 }
