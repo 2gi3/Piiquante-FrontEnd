@@ -1,4 +1,9 @@
--eliminate bootstrap CDN from HTML main
+-show error when an input is empty in create sauce
+-sauce page text too small compared to buttons
+-add feedback/contact section
+-fill  in password noti
+-confirm delete button
+-toggle password
 -HTML semantic
 -range bar on modify sauce
 -restructure SCSS files and make style consistent
