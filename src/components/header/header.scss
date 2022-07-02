@@ -22,17 +22,6 @@
         transform: scale(1);
     }
 }
-// @keyframes flameLoad{
-//     0%{
-//         transform: scale(0);
-//     }
-//     80%{
-//         transform: scale(1.1);
-//     }
-//     100%{
-//         transform: scale(1);
-//     }
-// }
 
 .logInLogOutButtons {
     display: flex;
@@ -70,6 +59,13 @@
             }
         }
     }
+}
+
+.userNameDisplay{
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    font-size: 14px;
 }
 
 .header {

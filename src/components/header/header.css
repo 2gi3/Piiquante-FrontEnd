@@ -99,6 +99,13 @@
   color: #f44336;
 }
 
+.userNameDisplay {
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  font-size: 14px;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
