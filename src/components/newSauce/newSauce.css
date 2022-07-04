@@ -1,5 +1,53 @@
 @import url(c:\p6-front-react\src\Component-styles-SCSS\normalize.css);
-.innerContainer {
+@-webkit-keyframes newSauceInputFieldWarning {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    bottom: -85px;
+  }
+  70% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    bottom: 0px;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    bottom: -15px;
+  }
+}
+@keyframes newSauceInputFieldWarning {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    bottom: -85px;
+  }
+  70% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    bottom: 0px;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    bottom: -15px;
+  }
+}
+
+.row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row .innerContainer {
   width: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7,10 +55,34 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 3vh 0 44px 0;
+  padding: 3vh 0 60px 0;
+  position: relative;
 }
 
-.innerContainer .inputBox {
+.row .innerContainer .hidden {
+  display: none;
+}
+
+.row .innerContainer .appear {
+  font-size: 15px;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 1px;
+  min-width: 240px;
+  max-width: 460px;
+  width: 55%;
+  border-radius: 15px;
+  padding: 5px;
+  text-align: center;
+  z-index: 3;
+  position: absolute;
+  -webkit-animation: newSauceInputFieldWarning  1000ms ease-in-out  forwards;
+          animation: newSauceInputFieldWarning  1000ms ease-in-out  forwards;
+  padding: 2px;
+  background-color: #f44336;
+}
+
+.row .innerContainer .inputBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -25,24 +97,25 @@
   width: 500px;
 }
 
-.innerContainer .inputBox #description {
+.row .innerContainer .inputBox #description {
   height: 110px;
   word-wrap: break-word;
   word-break: break-all;
 }
 
-.innerContainer .inputBox label {
-  margin-bottom: -3px;
+.row .innerContainer .inputBox label {
+  margin-bottom: 1px;
 }
 
-.innerContainer .inputBox .icon {
+.row .innerContainer .inputBox .icon {
   background-color: white;
   padding: 3px 12px 0 0;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
 }
 
-.innerContainer .inputBox input, .innerContainer .inputBox textarea {
+.row .innerContainer .inputBox input,
+.row .innerContainer .inputBox textarea {
   min-width: 300px;
   border: none;
   width: 100%;
@@ -53,18 +126,20 @@
   background-color: #f443363a;
 }
 
-.innerContainer .inputBox input:focus-visible, .innerContainer .inputBox textarea:focus-visible {
+.row .innerContainer .inputBox input:focus-visible,
+.row .innerContainer .inputBox textarea:focus-visible {
   outline: none;
   background-color: #f4433660;
   -webkit-box-shadow: 2px 2px 2px #683ab779;
           box-shadow: 2px 2px 2px #683ab779;
 }
 
-.innerContainer .inputBox input .description, .innerContainer .inputBox textarea .description {
+.row .innerContainer .inputBox input .description,
+.row .innerContainer .inputBox textarea .description {
   min-height: 80px;
 }
 
-.innerContainer .inputRange {
+.row .innerContainer .inputRange {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,11 +149,11 @@
   margin-bottom: 25px;
 }
 
-.innerContainer .inputRange label {
+.row .innerContainer .inputRange label {
   width: 100%;
 }
 
-.innerContainer .addImageButton {
+.row .innerContainer .addImageButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,11 +165,11 @@
   font-size: 14px;
 }
 
-.innerContainer .addImageButton #vanish {
+.row .innerContainer .addImageButton #vanish {
   display: none;
 }
 
-.innerContainer .addImageButton .sauceButton {
+.row .innerContainer .addImageButton .sauceButton {
   padding: 3px 5px;
   border-radius: 6px;
   border: none;
@@ -104,19 +179,19 @@
   font-size: larger;
   font-weight: 500;
   letter-spacing: 1px;
-  height: 44px;
+  height: 50px;
   -webkit-transition: -webkit-box-shadow 750ms ease-out;
   transition: -webkit-box-shadow 750ms ease-out;
   transition: box-shadow 750ms ease-out;
   transition: box-shadow 750ms ease-out, -webkit-box-shadow 750ms ease-out;
 }
 
-.innerContainer .addImageButton .sauceButton:hover {
+.row .innerContainer .addImageButton .sauceButton:hover {
   -webkit-box-shadow: 2px 2px 2px #f44336;
           box-shadow: 2px 2px 2px #f44336;
 }
 
-.innerContainer .addImageButton .sauceButton:focus {
+.row .innerContainer .addImageButton .sauceButton:focus {
   outline: none;
   -webkit-box-shadow: 3px 3px 3px #f44336;
           box-shadow: 3px 3px 3px #f44336;
@@ -124,19 +199,21 @@
 }
 
 @media all and (min-width: 361px) and (max-width: 768px) {
-  .innerContainer .inputBox {
+  .row .innerContainer .inputBox {
     width: 100%;
   }
-  .innerContainer .inputBox input, .innerContainer .inputBox textarea {
+  .row .innerContainer .inputBox input,
+  .row .innerContainer .inputBox textarea {
     min-width: 330px;
   }
 }
 
 @media all and (max-width: 360px) {
-  .innerContainer .inputBox {
+  .row .innerContainer .inputBox {
     width: 100%;
   }
-  .innerContainer .inputBox input, .innerContainer .inputBox textarea {
+  .row .innerContainer .inputBox input,
+  .row .innerContainer .inputBox textarea {
     min-width: 200px;
   }
 }

@@ -1,4 +1,4 @@
--show error when an input is empty in create sauce
+-adjust size of error when an input is empty in create sauce on mobile and tablet
 -sauce page text too small compared to buttons
 -add feedback/contact section
 -fill  in password noti

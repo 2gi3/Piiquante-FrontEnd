@@ -20,9 +20,13 @@ function NewSauce() {
     const params = useParams()
     const [imageChanged, setImageChanged] = useState(false)
     const [imagePreview, setImagePreview] = useState()
+    const [logInResponse, setLogInResponse] = useState('hidden')
 
     const createSauce = (e) => {
 		e.preventDefault()
+        if(title===''|| manufacturer===''|| description===''|| mainPepper===''){
+            setLogInResponse("appear");
+        } else{
 
         const dataObj = {
             userId,
@@ -54,6 +58,7 @@ function NewSauce() {
 			.catch((err) => {
 				console.log(err);
 			});
+        }
 	}
 
     const updateSauce=(e)=>{
@@ -126,7 +131,7 @@ function NewSauce() {
 
 
     return (
-        <div className="row d-flex justify-content-center" >
+        <div className="row " >
             <div className="innerContainer">
                 <form>
                     <p>Every input field must be filled</p>
@@ -210,6 +215,9 @@ function NewSauce() {
                     </div>
 
                 </form>
+                <div className={logInResponse}>
+                <p> Please fill in all the text input fields </p>
+                </div>
             </div>
         </div>
     )

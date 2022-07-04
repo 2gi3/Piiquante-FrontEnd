@@ -2,8 +2,9 @@
 @import "../../Component-styles-SCSS/colors.SCSS";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 @import "../../Component-styles-SCSS/normalize.css";
+@import "../../Component-styles-SCSS/Mixin-inputFieldWarning.scss";
 
-@keyframes popUp {
+@keyframes signInInputFieldWarning {
     0% {
         transform: scale(0);
         top: 50px;
@@ -35,20 +36,9 @@
     }
 
     .appear {
-        // animation: popUp 1000ms cubic-bezier(0.51, 0.01, 0.26, 1.51)  forwards;
-        animation: popUp 1000ms ease-in-out  forwards;
-        font-size: 17px;
-        font-weight: 500;
-        color: white;
-        letter-spacing: 1px;
-        min-width: 240px;
-        max-width: 460px;
-        width: 55%;
-        border-radius: 15px;
-        padding: 5px;
-        text-align: center;
-        z-index: 3;
-        position: absolute;
+           @include inputFieldWarning;
+           animation: signInInputFieldWarning  1000ms ease-in-out  forwards;
+
 
         &.primaryColor {
             background-color: $primaryColor;

@@ -1,119 +1,168 @@
 @import "../../Component-styles-SCSS/normalize.css";
 @import "../../Component-styles-SCSS/colors.SCSS";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
+@import "../../Component-styles-SCSS/Mixin-inputFieldWarning.scss";
 
-.innerContainer {
-    width: 70%;
+@keyframes newSauceInputFieldWarning {
+    0% {
+        transform: scale(0);
+        bottom: -85px;
+    }
+
+    70% {
+        transform: scale(1.1);
+        bottom: 0px;
+    }
+
+    100% {
+        transform: scale(1);
+        bottom: -15px;
+    }
+}
+
+.row {
     display: flex;
-    justify-content: center;
-    padding: 3vh 0 44px 0;
+    flex-direction: column;
+    align-items: center;
 
-    .inputBox {
+    .innerContainer {
+        width: 70%;
         display: flex;
         justify-content: center;
-        flex-direction: column;
-        margin: 10px 0;
-        width: 500px;
-        #description{
-            height: 110px;
-            word-wrap: break-word;
-        word-break: break-all;
-        }
-        label{
-            margin-bottom: -3px;
-        }
+        padding: 3vh 0 60px 0;
+        position: relative;
 
-        .icon {
-            background-color: white;
-            padding: 3px 12px 0 0;
-            border-top-right-radius: 15px;
-            border-bottom-right-radius: 15px;
-
-        }
-
-        input, textarea {
-            min-width: 300px;
-            border: none;
-            width: 100%;
-            min-height: 30px;
-            border-radius: 10px;
-            padding-left: 10px;
-            margin-bottom: 3px;
-            background-color: #f443363a;
-
-            &:focus-visible {
-                outline: none;
-                background-color: #f4433660;
-                box-shadow: 2px 2px 2px #683ab779;
-            }
-
-            .description {
-                min-height: 80px;
-            }
-        }
-        
-    }
-    .inputRange {
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 200px;
-        margin-bottom: 25px;
-        label{
-            width: 100%;
-        }
-    }
-
-
-    .addImageButton {
-        display: flex;
-        max-width: 230px;
-        justify-content: left;
-        margin-left: -3px;
-        font-size: 14px;
-
-        #vanish {
+        .hidden {
             display: none;
         }
 
-        // .sauceButton {
+        .appear {
+            @include inputFieldWarning;
+            animation: newSauceInputFieldWarning  1000ms ease-in-out  forwards;
+            padding: 2px;
+            background-color: $primaryColor;
+        }
+
+        .inputBox {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px 0;
+            width: 500px;
+
+            #description {
+                height: 110px;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+
+            label {
+                margin-bottom: 1px;
+            }
+
+            .icon {
+                background-color: white;
+                padding: 3px 12px 0 0;
+                border-top-right-radius: 15px;
+                border-bottom-right-radius: 15px;
+
+            }
+
+            input,
+            textarea {
+                min-width: 300px;
+                border: none;
+                width: 100%;
+                min-height: 30px;
+                border-radius: 10px;
+                padding-left: 10px;
+                margin-bottom: 3px;
+                background-color: #f443363a;
+
+                &:focus-visible {
+                    outline: none;
+                    background-color: #f4433660;
+                    box-shadow: 2px 2px 2px #683ab779;
+                }
+
+                .description {
+                    min-height: 80px;
+                }
+            }
+
+        }
+
+        .inputRange {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 200px;
+            margin-bottom: 25px;
+
+            label {
+                width: 100%;
+            }
+        }
+
+
+        .addImageButton {
+            display: flex;
+            max-width: 230px;
+            justify-content: left;
+            margin-left: -3px;
+            font-size: 14px;
+
+            #vanish {
+                display: none;
+            }
+
+            // .sauceButton {
             // padding: 3px 10px;
             // margin: 5px;
             // border-radius: 6px;
             // border: none;
             // box-shadow: 3px 3px 3px #bbbbbb;
-        // }
+            // }
 
-        .sauceButton {
-            // min-width: 85px;
-            // background-color: #673ab7;
-            @include primaryButton($secondaryColor, $primaryColor);
-        }
+            .sauceButton {
+                // min-width: 85px;
+                // background-color: #673ab7;
+                @include primaryButton($secondaryColor, $primaryColor);
+            }
 
-        // .signUpButton {
-        //     @include primaryButton($primaryColor, $secondaryColor);
-        // }
-    }
-}
-
-@media all and (min-width: 361px) and (max-width: 768px){
-    .innerContainer{
-    .inputBox{
-        width: 100%;
-        input, textarea {
-            min-width: 330px;
+            // .signUpButton {
+            //     @include primaryButton($primaryColor, $secondaryColor);
+            // }
         }
     }
 }
-}
 
+@media all and (min-width: 361px) and (max-width: 768px) {
+    .row {
+        .innerContainer {
+            .inputBox {
+                width: 100%;
 
-@media all and (max-width: 360px){
-    .innerContainer{
-    .inputBox{
-        width: 100%;
-        input, textarea {
-            min-width: 200px;
+                input,
+                textarea {
+                    min-width: 330px;
+                }
+            }
         }
     }
 }
+
+
+@media all and (max-width: 360px) {
+    .row {
+        .innerContainer {
+            .inputBox {
+                width: 100%;
+
+                input,
+                textarea {
+                    min-width: 200px;
+                }
+            }
+        }
+    }
 }

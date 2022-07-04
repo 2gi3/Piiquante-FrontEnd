@@ -13,4 +13,15 @@
   background-color: #683ab7;
   color: white;
 }
+
+.footerContainer .footerInnerContainer a {
+  text-decoration: none;
+  color: white;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.footerContainer .footerInnerContainer a:hover {
+  opacity: 0.8;
+}
 /*# sourceMappingURL=footer.css.map */

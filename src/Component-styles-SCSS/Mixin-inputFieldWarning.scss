@@ -1,0 +1,15 @@
+@mixin inputFieldWarning  {
+    
+font-size: 15px;
+    font-weight: 400;
+    color: white;
+    letter-spacing: 1px;
+    min-width: 240px;
+    max-width: 460px;
+    width: 55%;
+    border-radius: 15px;
+    padding: 5px;
+    text-align: center;
+    z-index: 3;
+    position: absolute;
+}

@@ -1,5 +1,5 @@
 @import url(c:\p6-front-react\src\Component-styles-SCSS\normalize.css);
-@-webkit-keyframes popUp {
+@-webkit-keyframes signInInputFieldWarning {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -16,7 +16,7 @@
     top: -50px;
   }
 }
-@keyframes popUp {
+@keyframes signInInputFieldWarning {
   0% {
     -webkit-transform: scale(0);
             transform: scale(0);
@@ -59,10 +59,8 @@
 }
 
 .container .appear {
-  -webkit-animation: popUp 1000ms ease-in-out  forwards;
-          animation: popUp 1000ms ease-in-out  forwards;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: 15px;
+  font-weight: 400;
   color: white;
   letter-spacing: 1px;
   min-width: 240px;
@@ -73,6 +71,8 @@
   text-align: center;
   z-index: 3;
   position: absolute;
+  -webkit-animation: signInInputFieldWarning  1000ms ease-in-out  forwards;
+          animation: signInInputFieldWarning  1000ms ease-in-out  forwards;
 }
 
 .container .appear.primaryColor {
