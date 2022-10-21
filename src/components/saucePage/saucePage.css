@@ -66,8 +66,10 @@
 }
 
 .sauceContainer .sauceInfo .likeButtons .thumbs i:hover {
-  font-size: 1.1em;
-  padding: 7px 4px 0;
+  /* font-size: 1.1em; */
+  /* padding: 7px 4px 0; */
+  cursor: pointer;
+  filter: drop-shadow(1px 1px 1px #f44336);
 }
 
 .sauceContainer .sauceInfo .controlButtons .nav-link {
