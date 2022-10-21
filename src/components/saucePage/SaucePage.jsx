@@ -53,6 +53,9 @@ function SaucePage() {
 
     const likeSauce=async(e, likeValue)=>{
         e.preventDefault()
+        if(!sessionStorage.getItem('token')){
+            alert("please log in to use the like buttons")
+        }
         let history = userLiked.includes(userId )
         let dislikeHistory = userDisliked.includes(userId)
         console.log(dislikeHistory)
@@ -109,9 +112,7 @@ function SaucePage() {
 
     useEffect(() => {
         getSauce()
-        console.log(userId)
         sauceCreator = sauce.userId
-        console.log(sauceCreator)
 
 
     }, 
