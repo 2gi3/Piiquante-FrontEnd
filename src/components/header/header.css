@@ -90,6 +90,7 @@
 .logInLogOutButtons .logout button:hover {
   -webkit-box-shadow: 3px 3px 2px #683ab7;
           box-shadow: 3px 3px 2px #683ab7;
+          cursor: pointer;
 }
 
 .logInLogOutButtons .logout button:focus {

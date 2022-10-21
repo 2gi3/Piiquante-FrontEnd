@@ -48,7 +48,7 @@
 
 .sauceContainer .sauceInfo .likeButtons .thumbs {
   padding: 0.5em 1em;
-  background-color: #ffffff;
+  background-color: #fff0;
   border: none;
 }
 
@@ -97,6 +97,7 @@
 .sauceContainer .sauceInfo .controlButtons .nav-link .backButton:hover {
   -webkit-box-shadow: 2px 2px 2px #f44336;
           box-shadow: 2px 2px 2px #f44336;
+          cursor: pointer;
 }
 
 .sauceContainer .sauceInfo .controlButtons .nav-link .backButton:focus {

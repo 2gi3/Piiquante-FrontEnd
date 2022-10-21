@@ -118,6 +118,7 @@
 .container .inContainer .primaryButton:hover {
   -webkit-box-shadow: 2px 2px 2px #683ab7;
           box-shadow: 2px 2px 2px #683ab7;
+          cursor: pointer;
 }
 
 .container .inContainer .primaryButton:focus {
