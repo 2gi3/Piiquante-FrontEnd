@@ -36,13 +36,14 @@
   border-bottom: 1px solid #683ab728;
   padding-bottom: 4px;
   margin-top: 6px;
-  height: 30px;
+  /* height: 30px; */
 }
 
 .sauceContainer .sauceInfo .likeButtons {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 15px;
 }
 
 .sauceContainer .sauceInfo .likeButtons .thumbs {
