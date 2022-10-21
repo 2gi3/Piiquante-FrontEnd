@@ -65,19 +65,17 @@ function SaucePage() {
     
        
        if(likeValue === 1){
-           if(history === true){
-            // setLiked("changed")
+           if(history === true || dislikeHistory === true){
             payloadValue.current = 0
            }else{
-            // setLiked("changed")
             payloadValue.current = likeValue
            }
        }else{
-           if(dislikeHistory === true){
-            //    setLiked("changed")
+           if(dislikeHistory === true || history=== true){
+            dislikeHistory= false
                payloadValue.current = 0
            }else{
-            //    setLiked("changed")
+            dislikeHistory = true
                payloadValue.current = likeValue
            }
 
