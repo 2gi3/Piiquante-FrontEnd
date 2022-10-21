@@ -1,5 +1,5 @@
 import "./saucePage.css"
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useParams } from 'react-router-dom';
@@ -17,9 +17,10 @@ function SaucePage() {
     let sauceCreator
     const params = useParams()
     const [sauce, setSauce] = useState('')
-    const [liked, setLiked] =useState('')
+    // const [liked, setLiked] =useState('')
     const [userLiked, setUserLiked] =useState([])
     const [userDisliked, setUserDisliked] =useState([])
+    let payloadValue =useRef()
 
     const getSauce = async () => {
         const res = await axios.get(`https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
@@ -29,9 +30,10 @@ function SaucePage() {
                 }
             })
         setSauce(await res.data)
-        setLiked(await sauce.liked)
+        // setLiked(await sauce.liked)
         setUserLiked(JSON.stringify(sauce.userLiked))
         setUserDisliked(JSON.stringify(sauce.userDisliked))
+        // console.log(liked)
     }
     
     const deleteSauce = () => {
@@ -49,11 +51,10 @@ function SaucePage() {
         window.location = "/"
     }
 
-    const likeSauce=(e, likeValue)=>{
+    const likeSauce=async(e, likeValue)=>{
         e.preventDefault()
         let history = userLiked.includes(userId )
         let dislikeHistory = userDisliked.includes(userId)
-        let payloadValue
         console.log(dislikeHistory)
         console.log(userLiked)
         console.log(userDisliked)
@@ -62,26 +63,26 @@ function SaucePage() {
        
        if(likeValue === 1){
            if(history === true){
-            setLiked("changed")
-            payloadValue = 0
+            // setLiked("changed")
+            payloadValue.current = 0
            }else{
-            setLiked("changed")
-            payloadValue = likeValue
+            // setLiked("changed")
+            payloadValue.current = likeValue
            }
        }else{
            if(dislikeHistory === true){
-               setLiked("changed")
-               payloadValue = 0
+            //    setLiked("changed")
+               payloadValue.current = 0
            }else{
-               setLiked("changed")
-               payloadValue = likeValue
+            //    setLiked("changed")
+               payloadValue.current = likeValue
            }
 
        }
 
         const data = {
             userId,
-            like: payloadValue
+            like: payloadValue.current
         }
 
         axios.post(`https://secure-harbor-62492.herokuapp.com/api/sauces/${sauce._id}/like`, data,
@@ -113,7 +114,9 @@ function SaucePage() {
         console.log(sauceCreator)
 
 
-    }, [liked])
+    }, 
+    // [liked]
+    )
     return (
         <div>
 
@@ -130,7 +133,7 @@ function SaucePage() {
                     <p className="sauceInfoField">{sauce.description}</p>
                     <h3 className="label ">Main ingredient:</h3>
                     <p className="sauceInfoField">{sauce.mainPepper}</p>
-                    {/* <div className="likeButtons">
+                    <div className="likeButtons">
                         <button className="thumbs" onClick={e => likeSauce(e,1)}>
                             <i>{like}</i>
                             <span>{sauce.likes}</span>
@@ -139,7 +142,7 @@ function SaucePage() {
                             <i>{dislike}</i>
                             <span>{sauce.dislikes}</span>
                         </button>
-                    </div> */}
+                    </div>
                     <div className="controlButtons">
                         <Link className="nav-link" to='/'>
                             <button className="backButton ">
