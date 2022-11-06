@@ -1,4 +1,4 @@
-@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/colors.scss";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 @import "../../Component-styles-SCSS/normalize.css";
 @keyframes titleLoader{
@@ -49,7 +49,7 @@
 
             &:hover {
                 box-shadow: 3px 3px 2px $secondaryColor;
-                // text-shadow: 1px 1px 1px #cecece;
+                cursor: pointer;
 
             }
             &:focus {

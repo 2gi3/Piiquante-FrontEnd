@@ -1,4 +1,4 @@
-import "./navBar.css"
+import "./navBar.scss"
 import { Link, } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'

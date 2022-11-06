@@ -1,5 +1,5 @@
 @import "../../Component-styles-SCSS/normalize.css";
-@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/colors.scss";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 
 .sauceContainer {
@@ -32,7 +32,6 @@
             border-bottom: 1px solid #683ab728;
             padding-bottom: 4px;
             margin-top: 6px;
-            height: 30px;
 
             // &.sauce-name {
             //     font-size: larger;
@@ -41,10 +40,11 @@
 
         .likeButtons {
             display: flex;
+            margin-bottom: 5px;
 
             .thumbs {
                 padding: 0.5em 1em;
-                background-color: #ffffff;
+                background-color: transparent;
                 border: none;
 
                 &:focus {
@@ -58,11 +58,18 @@
 
                 i {
                     padding: 0 8px 5px 0;
-
                     &:hover {
-                        font-size: 1.1em;
-                        padding: 7px 4px 0;
+                        // cursor: pointer;
+                        // background-color: $tertiaryColor;
+                        // text-shadow: 2px 2px 5px $tertiaryColor;
+                        filter: drop-shadow(2px 2px 5px $secondaryColor);
                     }
+                }
+                &:hover {
+                    cursor: pointer;
+                    // background-color: $tertiaryColor;
+                    text-shadow: 2px 2px 5px $secondaryColor;
+                    // filter: drop-shadow(2px 2px 5px $tertiaryColor);
                 }
             }
         }

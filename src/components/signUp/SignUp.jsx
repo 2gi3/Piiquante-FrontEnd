@@ -1,4 +1,4 @@
-import "./signUp.css"
+import "./signUp.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightToBracket, faKey, faAt, faUsers } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState, useRef } from 'react';

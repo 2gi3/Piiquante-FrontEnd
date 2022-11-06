@@ -1,4 +1,4 @@
-import "./homepage.css"
+import "./homepage.scss"
 import { Navigate, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
@@ -57,7 +57,7 @@ function Homepage() {
             <NavBar />
             <div className="allSaucesBody">
             <div className="saucesListHeader">
-                <h1>The sauces</h1>
+                <h1>The saucest</h1>
             </div>
             {content}
             </div>

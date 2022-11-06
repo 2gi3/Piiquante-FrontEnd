@@ -1,5 +1,5 @@
 @import "../../Component-styles-SCSS/normalize.css";
-@import "../../Component-styles-SCSS/colors.SCSS";
+@import "../../Component-styles-SCSS/colors.scss";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 @import "../../Component-styles-SCSS/Mixin-inputFieldWarning.scss";
 
@@ -97,6 +97,11 @@
             flex-wrap: wrap;
             max-width: 200px;
             margin-bottom: 25px;
+            input{
+                &:hover{
+                cursor: pointer !important ;
+                }
+            }
 
             label {
                 width: 100%;
