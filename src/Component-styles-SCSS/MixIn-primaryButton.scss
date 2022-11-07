@@ -12,6 +12,7 @@
     letter-spacing: 1px;
     height: 50px;
     transition: box-shadow 750ms ease-out;
+    text-shadow: 1px 1px 1px black;
 
     &:hover {
         box-shadow: 2px 2px 2px $minorColor;

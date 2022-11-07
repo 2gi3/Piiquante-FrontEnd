@@ -39,7 +39,7 @@ function Homepage() {
             <div className={data.userId === userId ? "sauceBox sauceBoxOwnSauce": "sauceBox"} key={index}>
                 <Link className="link" to={`saucepage/${data._id}`} >
                     <div className='sauceBoxImage'>
-                        <img src={data.imageUrl} height="150" width="150" alt="The image of a sauce" />
+                        <img src={data.imageUrl} height="150" width="150" alt=" a sauce" />
                     </div>
                     <div className="sauceName">
                         <h2>{data.name}</h2>
@@ -57,7 +57,7 @@ function Homepage() {
             <NavBar />
             <div className="allSaucesBody">
             <div className="saucesListHeader">
-                <h1>The saucest</h1>
+                {/* <h1>The saucest</h1> */}
             </div>
             {content}
             </div>

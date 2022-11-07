@@ -1,25 +1,48 @@
 @import "../../Component-styles-SCSS/colors.scss";
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 @import "../../Component-styles-SCSS/normalize.css";
-@keyframes titleLoader{
-    0%{
+
+@keyframes titleLoader {
+    0% {
         transform: translateY(-250%)
     }
-    100%{
+
+    100% {
         transform: translateY(0);
     }
 }
-@keyframes deckLoader{
-    0%{color: $primaryColor;
+
+@keyframes deckLoader {
+    0% {
+        color: $primaryColor;
         transform: scale(0);
     }
-    80%{
+
+    80% {
         color: $primaryColor;
         transform: scale(1.1);
     }
-    100%{
+
+    100% {
         color: black;
         transform: scale(1);
+    }
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1002;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 450px;
     }
 }
 
@@ -27,6 +50,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: right;
+    position: relative;
+    z-index: 999;
 
     .logout {
 
@@ -46,12 +71,17 @@
             top: 5px;
             border-radius: 10% 10% 10% 90% / 10% 10% 10% 90%;
             transition: box-shadow 750ms ease-out;
+            text-shadow: 1px 1px 1px black;
+            svg{
+                filter: drop-shadow(1px 1px 1px black);
+            }
 
             &:hover {
                 box-shadow: 3px 3px 2px $secondaryColor;
                 cursor: pointer;
 
             }
+
             &:focus {
                 outline: none;
                 box-shadow: 3px 3px 3px $secondaryColor;
@@ -61,7 +91,7 @@
     }
 }
 
-.userNameDisplay{
+.userNameDisplay {
     position: absolute;
     top: -10px;
     left: 5px;
@@ -69,22 +99,27 @@
 }
 
 .header {
+    position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 40px;
-    padding: 15px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    // margin-top: 40px;
+    // padding: 15px;
     width: auto;
+    height: 400px;
 
     .logo {
-        img {
-            padding-left:1px;
-            height: 100px;
-        }
+        mix-blend-mode: darken;
+    }
+
+    img {
+        padding-left: 1px;
+        height: 100px;
+
         &:first-child {
-            img{
-            transform: scale(0);
-            animation: deckLoader 850ms ease-in 200ms forwards
+            img {
+                transform: scale(0);
+                animation: deckLoader 850ms ease-in 200ms forwards
             }
         }
 
@@ -98,22 +133,29 @@
         text-decoration: none;
         transition: box-shadow 750ms ease-out;
         padding-right: 3px;
-        &:hover{
-            box-shadow: 1px 1px 1px rgb(185, 185, 185);            
+
+        &:hover {
+            text-shadow: 1px 1px 1px rgb(185, 185, 185);
         }
 
         h1 {
             text-align: center;
+            margin-left: 50px;
             color: $primaryColor;
-            font-size: 2rem;
+            font-size: 4.1rem;
             font-weight: 700;
             animation: titleLoader 850ms cubic-bezier(0.51, 0.01, 0.26, 1.51);
+            text-shadow: 1px 1px 1px black;
         }
 
         p {
             color: black;
             text-align: center;
-            font-size: 1.4rem;
+            position: absolute;
+            bottom: -40px;
+            right: 50px;
+            padding-left: 15px;
+            font-size: 1.5rem;
             font-weight: 600;
             animation: deckLoader 1000ms linear;
         }
@@ -130,7 +172,7 @@
                 font-size: medium;
                 padding: 0 3px 3px 3px;
                 min-width: 82px;
-                top: 7px;
+                top: 26px;
             }
         }
     }
@@ -144,9 +186,10 @@
 
         .title {
             h1 {
+                margin-left: 30px;
                 text-align: center;
                 color: $primaryColor;
-                font-size: 1.5rem;
+                font-size: 2.5rem;
             }
 
             p {
@@ -187,10 +230,10 @@
     }
 
     .header {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        margin-top: -8px;
+        // display: flex;
+        // justify-content: flex-start;
+        // align-items: flex-start;
+        // margin-top: -8px;
         padding-left: 15px;
 
         .logo {
@@ -212,9 +255,11 @@
 
         .title {
             h1 {
-                margin-top: 19px;
+                margin-top: 28px;
+                margin-left: 0px;
                 text-align: left;
-                font-size: 25px;
+                font-size: 2.1rem;
+                margin-bottom: -16px;
             }
 
             p {
@@ -223,8 +268,8 @@
                 margin-left: -18px;
                 padding-bottom: 0;
                 padding-top: 15px;
-                box-shadow: inset 0px 1px 0px rgba(192, 192, 192, 0.900);
-                box-shadow: inset 0px 1px 0px $primaryColor;
+                // box-shadow: inset 0px 1px 0px rgba(192, 192, 192, 0.900);
+                // box-shadow: inset 0px 1px 0px $primaryColor;
             }
         }
     }

@@ -1,5 +1,6 @@
 import "./header.scss"
 import logo from "../../assets/images/flame.png"
+import background from "../../assets/images/hero.webp"
 import { Link, useParams, useLocation } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons' 
@@ -23,6 +24,9 @@ function NavBar() {
     }
     return (
         <div>
+            <div className="backgroundImage">
+            <img src={background} height="853" width="1280" alt=" a chilly plant" />
+            </div>
             {pathname === "/signin" || pathname === "/newsauce" || pathname === "/signup"? <></>
             : <div className="logInLogOutButtons">
                 {!sessionStorage.getItem('token')?
@@ -37,12 +41,12 @@ function NavBar() {
             </div>}
             {sessionStorage.getItem('token')? <div className="userNameDisplay"> <p>Logged in: {userEmail}</p> </div> :<></>}
             <div className="header">
-                <div className="logo"> <img src={logo} height="100"  alt="A flame, the logo of Piiquante" /></div>
+                {/* <div className="logo"> <img src={logo} height="100"  alt="A flame, the logo of Piiquante" /></div> */}
                 <Link to="/" className="title">
                     <h1>HOT TAKES</h1> 
                     <p>THE WEB'S BEST HOT SAUCE REVIEWS</p>
                 </Link>
-                <div className="logo"> <img src={logo} height="100" alt="A flame, the logo of Piiquante" /></div>
+                {/* <div className="logo"> <img src={logo} height="100" alt="A flame, the logo of Piiquante" /></div> */}
             </div>
         </div>
 
