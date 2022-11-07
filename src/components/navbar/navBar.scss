@@ -51,13 +51,11 @@
 
 @media all and (max-width: 769px) {
     .navLinks {
-        // display: flex;
-        // justify-content: space-evenly;
-        // padding: 0 ;
-        // width: auto;
-        justify-content: start;
+        display: flex;
+        justify-content: center;
         padding: 7px 19px 11px 15px;
         margin-top: 52px;
+        text-align: center;
 
         .nav-link {
             font-size: medium;

@@ -36,8 +36,8 @@
     }
 
     .appear {
-           @include inputFieldWarning;
-           animation: signInInputFieldWarning  1000ms ease-in-out  forwards;
+        @include inputFieldWarning;
+        animation: signInInputFieldWarning 1000ms ease-in-out forwards;
 
 
         &.primaryColor {
@@ -51,7 +51,7 @@
 
     .inContainer {
         position: relative;
-        min-width: 290px;
+        min-width: 270px;
         width: 55%;
         border-radius: 15px;
         max-width: 500px;
@@ -76,12 +76,12 @@
             height: 30px;
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin: 0 26px 50px 26px;
 
             .icon {
                 background-color: white;
-                height: 40px;
-                padding: 8px 12px 0 10px;
+                height: 32px;
+                padding: 16px 12px 0 10px;
                 border-top-right-radius: 15px;
                 border-bottom-right-radius: 15px;
 
@@ -122,6 +122,11 @@
             @include primaryButton($primaryColor, $secondaryColor)
         }
 
+        svg {
+            filter: drop-shadow(1px 1px 1px black);
+        }
+
+
         .extraButton {
             padding-top: 25px;
             color: white;
@@ -135,6 +140,7 @@
                 font-weight: 600;
                 letter-spacing: 1px;
                 color: $tertiaryColor;
+                text-shadow: 1px 1px 1px black;
 
                 // span {
                 //     display: none;
@@ -150,6 +156,7 @@
             width: 75%;
 
             .inputBox {
+                margin: 0px 9px 50px 9px;
                 input {
                     min-width: 90%;
 
@@ -176,6 +183,7 @@
     .container {
         .inContainer {
             .inputBox {
+                margin: 0px 6px 50px 6px;
                 input {
                     min-width: 200px;
 
