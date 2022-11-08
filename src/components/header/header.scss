@@ -2,30 +2,56 @@
 @import "../../Component-styles-SCSS/MixIn-primaryButton.scss";
 @import "../../Component-styles-SCSS/normalize.css";
 
-@keyframes titleLoader {
+// @keyframes titleLoader {
+//     0% {
+//         transform: translateY(-250%)
+//     }
+
+//     100% {
+//         transform: translateY(0);
+//     }
+// }
+
+// @keyframes deckLoader {
+//     0% {
+//         color: $primaryColor;
+//         transform: scale(0);
+//     }
+
+//     80% {
+//         color: $primaryColor;
+//         transform: scale(1.1);
+//     }
+
+//     100% {
+//         color: black;
+//         transform: scale(1);
+//     }
+// }
+
+@keyframes blockByBlock {
     0% {
-        transform: translateY(-250%)
+        opacity: 0;
+        transform: scale(0) translateY(1000px);
+    }
+
+    50% {
+        opacity: 1;
+        // background: url("../../assets/images/hero.webp");
+        // background-position: center;
+        // background-attachment: fixed;
+        // background-size: cover;
+        // background-repeat: no-repeat;
     }
 
     100% {
-        transform: translateY(0);
-    }
-}
-
-@keyframes deckLoader {
-    0% {
-        color: $primaryColor;
-        transform: scale(0);
-    }
-
-    80% {
-        color: $primaryColor;
-        transform: scale(1.1);
-    }
-
-    100% {
-        color: black;
-        transform: scale(1);
+        opacity: 1;
+        transform: scale(1) translateY(0);
+        // background: url("../../assets/images/hero.webp");
+        // background-position: center;
+        // background-attachment: fixed;
+        // background-size: cover;
+        // background-repeat: no-repeat;
     }
 }
 
@@ -33,16 +59,32 @@
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    z-index: -1002;
+    width: 500px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    // height: 100%;
+    overflow: hidden;
 
-    img {
-        object-fit: cover;
-        width: 100%;
-        height: 450px;
+    .blocks {
+        position: relative;
+        display: block;
+        width: 50px;
+            height: 50px;
+        // outline: 1px solid black;
+        overflow: hidden;
+        opacity: 0;
+        transform: scale(0) translateY(1000px);
+
+        img {
+            width: 500px;
+            // height: 700px;
+            object-fit: contain;
+            // object-position: 25% 25%;
+        }
+
+        // animation: blockByBlock 750ms ease-in-out forwards;
     }
 }
 
@@ -117,17 +159,17 @@
         padding-left: 1px;
         height: 100px;
 
-        &:first-child {
-            img {
-                transform: scale(0);
-                animation: deckLoader 850ms ease-in 200ms forwards
-            }
-        }
+        // &:first-child {
+        //     img {
+        //         transform: scale(0);
+        //         animation: deckLoader 850ms ease-in 200ms forwards
+        //     }
+        // }
 
-        &:nth-child(3) {
-            transform: scale(0);
-            animation: deckLoader 850ms ease-in 200ms forwards
-        }
+        // &:nth-child(3) {
+        //     transform: scale(0);
+        //     animation: deckLoader 850ms ease-in 200ms forwards
+        // }
     }
 
     .title {
@@ -145,7 +187,7 @@
             color: $primaryColor;
             font-size: 4.1rem;
             font-weight: 700;
-            animation: titleLoader 850ms cubic-bezier(0.51, 0.01, 0.26, 1.51);
+            // animation: titleLoader 850ms cubic-bezier(0.51, 0.01, 0.26, 1.51);
             text-shadow: 1px 1px 1px black;
         }
 
