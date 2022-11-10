@@ -1,6 +1,6 @@
 import "./signUp.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightToBracket, faKey, faAt, faUsers } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRightToBracket, faKey, faAt, faUsers,faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
@@ -13,6 +13,7 @@ function SignUp() {
     const inputRef = useRef(null)
     const [emailWarning, setEmailWarning] = useState('')
     const [passwordWarning, setPasswordWarning] = useState('')
+    const [passwordType, setPasswordType] = useState("password")
     const re = /\S+@\S+\.\S+/g;
     const [logInResponse, setLogInResponse] = useState('hidden')
     const userData = {
@@ -64,16 +65,19 @@ function SignUp() {
                         {/* <h1>{emailWarning}</h1> */}
                     </div>
                     <div className="inputBox">
-                        <input type="password" name="password" placeholder="Password"
+                        <input type={passwordType} name="password" placeholder="Password"
                             onChange={event => setPassword(event.target.value)}
                         />
-                        <div className="icon">
-                            <FontAwesomeIcon icon={faKey} />
-                        </div>
+                        <button type='button' onClick={()=>{
+                            passwordType === 'password'? setPasswordType('text'): setPasswordType('password')
+                            }} className="icon">
+                                { passwordType === 'password'? <FontAwesomeIcon icon={faEyeSlash} />
+                                : <FontAwesomeIcon icon={faEye} />}                            
+                        </button>
                         {/* <h1>{passwordWarning}</h1> */}
                     </div>
                     {/* <div className="logInMessage"> <p>{logInMessage}</p></div> */}
-                    <div >
+                    <div className='logInSignUpButtons' >
                         <button className="primaryButton sauceButton" type="submit" value="submit">
                             <span>Sign&nbsp;up <FontAwesomeIcon icon={faUsers} /></span>
                         </button>

@@ -71,7 +71,7 @@
             font-weight: 500;
             letter-spacing: 1px;
         }
-
+        
         .inputBox {
             height: 30px;
             display: flex;
@@ -79,12 +79,25 @@
             margin: 0 26px 50px 26px;
 
             .icon {
+                all: unset;
                 background-color: white;
-                height: 32px;
-                padding: 16px 12px 0 10px;
+                height: 48px;
+                min-width: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 border-top-right-radius: 15px;
                 border-bottom-right-radius: 15px;
 
+                svg{
+                    font-size: 28px;
+                    color: $secondaryColor;
+                }
+            }
+            button{
+                &:hover{
+                    cursor: pointer;
+                }
             }
 
             input {
@@ -147,6 +160,10 @@
                 // }
             }
         }
+
+        .logInSignUpButtons{
+            min-height: 100px;
+        }
     }
 }
 
@@ -157,6 +174,7 @@
 
             .inputBox {
                 margin: 0px 9px 50px 9px;
+
                 input {
                     min-width: 90%;
 
@@ -184,6 +202,7 @@
         .inContainer {
             .inputBox {
                 margin: 0px 6px 50px 6px;
+
                 input {
                     min-width: 200px;
 
