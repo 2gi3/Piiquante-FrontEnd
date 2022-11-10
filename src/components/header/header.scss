@@ -193,7 +193,7 @@
             text-align: center;
             margin-left: 50px;
             color: $secondaryColor;
-            font-size: 8.5vw;
+            font-size: 10vw;
             font-weight: 700;
             // animation: titleLoader 850ms cubic-bezier(0.51, 0.01, 0.26, 1.51);
             text-shadow: 
@@ -244,7 +244,7 @@
                 font-size: medium;
                 padding: 0 3px 3px 3px;
                 min-width: 82px;
-                top: 26px;
+                // top: 26px;
             }
         }
     }
@@ -257,16 +257,17 @@
         }
 
         .title {
+            padding: 0 17px;
             h1 {
                 margin-left: 30px;
                 text-align: center;
-                font-size: 2.5rem;
+                // font-size: 2.5rem;
             }
         }
     }
     .slogan {
         p {
-            font-size: 1.3rem;
+            font-size: 1rem;
         }
     }
 }
@@ -280,14 +281,6 @@
             button {
                 background: none;
                 @include primaryButton($secondaryColor, $primaryColor);
-                // border-radius: 10px;
-                // background: linear-gradient(270deg, $primaryColor 10%, $secondaryColor 65%);
-                // padding: 0 3px 5px 3px;
-                // height: 28px;
-                // width: auto;
-                // font-size: 16px;
-                // right: 10px;
-                // top: 10px;
                 text-align: center;
                 font-size: medium;
                 padding: 0 3px 3px 3px;
@@ -303,10 +296,6 @@
     }
 
     .header {
-        // display: flex;
-        // justify-content: flex-start;
-        // align-items: flex-start;
-        // margin-top: -8px;
         padding-left: 15px;
 
         .logo {
@@ -331,18 +320,16 @@
                 margin-top: 20px;
                 margin-left: 0px;
                 text-align: left;
-                font-size: 2.1rem;
                 margin-bottom: -16px;
             }
         }
     }
     .slogan {
-        p {
+        padding: 0 10px;
             p {
-                font-size: 16px;
+                font-size: 14px;
                 font-weight: 600;
                 letter-spacing: 1px;
             }
-        }
     }
 }
