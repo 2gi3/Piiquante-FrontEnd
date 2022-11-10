@@ -1,6 +1,6 @@
 import "./header.scss"
 import logo from "../../assets/images/flame.png"
-import background from "../../assets/images/peppersLarge.webp"
+import background from "../../assets/images/chillyLarge.webp"
 import { Link, useParams, useLocation } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
