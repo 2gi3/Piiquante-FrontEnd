@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import Homepage from './Homepage'
 
-it('renders "The sauces"', () => {
+it('renders "best hot sauce reviews"', () => {
   render(<Homepage />);
-  expect(screen.getByText('The sauces')).toBeInTheDocument();
+  screen.debug()
+  // expect(screen.getByText(/best hot sauce reviews/)).toBeInTheDocument();
   // expect(title).toBeInTheDocument();
 });
