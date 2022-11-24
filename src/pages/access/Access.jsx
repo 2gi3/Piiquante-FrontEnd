@@ -76,7 +76,7 @@ function Access() {
     }
   }
   return (
-    <>
+    <main>
       <Container>
         {/* <div className={logInResponse}>
                 <p> {logInMessage} </p>
@@ -147,7 +147,7 @@ function Access() {
           </AlternativeAccess>
         </InContainer>
       </Container>
-    </>
+    </main>
   )
 }
 
