@@ -18,17 +18,25 @@ import {
 } from './styledComponents'
 import { PrimaryButton } from '../../styles/buttons'
 import colors from '../../styles/colors'
+import SignIn from '../signIn/SignIn'
 
 function Access() {
+  const [requiredAction, setRequiredAction] = useState('login')
+  const [dynamicText, setDynaminText] = useState(
+    "Don't"
+    // requiredAction === 'login' ? "Don't" : 'already'
+  )
+  const [AlternativeAccessDisplay, setAlternativeAccessDisplay] =
+    useState('block')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [logInMessage, setLogInMessage] = useState(
     'You have entered an invalid username or password'
   )
-  const [afterLogIn, setAfterLogIn] = useState('')
+  //   const [afterLogIn, setAfterLogIn] = useState('')
   const inputRef = useRef(null)
-  const [emailWarning, setEmailWarning] = useState('')
-  const [passwordWarning, setPasswordWarning] = useState('')
+  //   const [emailWarning, setEmailWarning] = useState('')
+  //   const [passwordWarning, setPasswordWarning] = useState('')
   const [passwordType, setPasswordType] = useState('password')
   const re = /\S+@\S+\.\S+/g
   const [logInResponse, setLogInResponse] = useState('hidden')
@@ -38,12 +46,24 @@ function Access() {
     password,
   }
 
+  const switchButtons = () => {
+    if (requiredAction === 'login') {
+      setRequiredAction('signup')
+      setDynaminText('Already')
+    } else {
+      setRequiredAction('login')
+      setDynaminText("Don't")
+    }
+  }
+
   useEffect(() => {
     inputRef.current.focus()
   }, [])
 
-  const logIn = (e) => {
+  // pass 'signup' as the second argument to create an account
+  const access = (e, endpoint = 'login') => {
     e.preventDefault()
+    sessionStorage.setItem('email', email)
     console.log(userData)
     if (!re.test(email)) {
       // 	//   setEmailWarning(` Please provide a valid email `)
@@ -56,17 +76,24 @@ function Access() {
     } else {
       axios
         .post(
-          'https://secure-harbor-62492.herokuapp.com/api/auth/login',
+          `https://secure-harbor-62492.herokuapp.com/api/auth/${endpoint}`,
           userData
         )
         .then((res) => {
-          sessionStorage.setItem('token', res.data.token)
-          sessionStorage.setItem('userId', res.data.userId)
-          sessionStorage.setItem('email', email)
-          // UserId = res.data.userId;
-          console.log(res)
+          if (res.data.userId === undefined || res.data.token === undefined) {
+            console.log(res.data)
+            switchButtons()
+            setAlternativeAccessDisplay('none')
+            //   window.location = '/login'
+          } else {
+            sessionStorage.setItem('token', res.data.token)
+            sessionStorage.setItem('userId', res.data.userId)
+            sessionStorage.setItem('email', email)
+            // UserId = res.data.userId;
+            console.log(res)
 
-          window.location = '/'
+            window.location = '/'
+          }
         })
         .catch((err) => {
           setLogInResponse('appear primaryColor')
@@ -82,7 +109,7 @@ function Access() {
                 <p> {logInMessage} </p>
             </div> */}
         <InContainer>
-          <form onSubmit={(event) => logIn(event)}>
+          <form onSubmit={(event) => access(event, requiredAction)}>
             <AccessInputBox>
               <input
                 ref={inputRef}
@@ -128,22 +155,45 @@ function Access() {
                 type="submit"
                 value="submit"
               >
-                <span>
-                  Log&nbsp;in <FontAwesomeIcon icon={faArrowRightToBracket} />
-                </span>
+                {/* <span> */}
+                {/* Log&nbsp;in  */}
+                {requiredAction === 'login' ? (
+                  <span>
+                    Log&nbsp;in <FontAwesomeIcon icon={faArrowRightToBracket} />
+                  </span>
+                ) : (
+                  <span>
+                    Sign&nbsp;up <FontAwesomeIcon icon={faUsers} />
+                  </span>
+                )}
+                {/* <FontAwesomeIcon icon={faArrowRightToBracket} />
+                </span> */}
               </PrimaryButton>
             </div>
           </form>
-          <AlternativeAccess>
-            Don’t have an account?
-            <Link to={'/signup'}>
-              <p>
-                Sign&nbsp;up
+          <AlternativeAccess appear={AlternativeAccessDisplay}>
+            {dynamicText} have an account?
+            {/* <Link to={'/signup'}> */}
+            <button
+              onClick={() => {
+                switchButtons()
+              }}
+            >
+              {requiredAction === 'login' ? (
                 <span>
-                  <FontAwesomeIcon icon={faUsers} />
+                  Sign&nbsp;up <FontAwesomeIcon icon={faUsers} />
                 </span>
-              </p>
-            </Link>
+              ) : (
+                <span>
+                  Log&nbsp;in <FontAwesomeIcon icon={faArrowRightToBracket} />
+                </span>
+              )}
+              {/* Sign&nbsp;up
+              <span>
+                <FontAwesomeIcon icon={faUsers} />
+              </span> */}
+            </button>
+            {/* </Link> */}
           </AlternativeAccess>
         </InContainer>
       </Container>

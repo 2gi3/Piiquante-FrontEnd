@@ -149,17 +149,19 @@ export const AccessInputBox = styled.div`
 `
 
 export const AlternativeAccess = styled.div`
+  display: ${(prop) => prop.appear};
   padding-top: 25px;
   color: white;
   text-align: end;
   font-size: larger;
-  p {
+  button {
+    all: unset;
     font-size: 22px;
     padding-left: 5px;
     display: inline-block;
     font-weight: 600;
     letter-spacing: 1px;
-    color: $tertiaryColor;
+    color: ${colors.tertiaryColor};
     text-shadow: 1px 1px 1px black;
     span {
       margin-left: 5px;
