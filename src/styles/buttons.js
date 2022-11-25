@@ -6,7 +6,7 @@ export const PrimaryButton = styled.button`
   border-radius: 6px;
   border: none;
   // box-shadow: 1px 1px 1px ${(prop) => prop.minorColor};
-  min-width: 112px;
+  min-width: 128px;
   background-color: ${(prop) => prop.majorColor};
   color: white;
   font-size: larger;

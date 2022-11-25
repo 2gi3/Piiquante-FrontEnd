@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import colors from '../../styles/colors.js'
-import { primaryButton } from '../../styles/buttons'
 
 export const Container = styled.div`
   display: flex;
@@ -8,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 8vh;
-  margin-bottom: 30px;
+  margin-bottom: 13vh;
   position: relative;
   z-index: 2;
   .hidden {
@@ -168,6 +167,9 @@ export const AlternativeAccess = styled.div`
       svg {
         margin-left: 5px;
       }
+    }
+    &:hover {
+      cursor: pointer;
     }
   }
 `

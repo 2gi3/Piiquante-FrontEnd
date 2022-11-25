@@ -60,7 +60,23 @@ function Access() {
     inputRef.current.focus()
   }, [])
 
-  // pass 'signup' as the second argument to create an account
+  const automaticLogin = () => {
+    axios
+      .post(
+        'https://secure-harbor-62492.herokuapp.com/api/auth/login',
+        userData
+      )
+      .then((res) => {
+        sessionStorage.setItem('token', res.data.token)
+        sessionStorage.setItem('userId', res.data.userId)
+        window.location = '/'
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+  }
+
+  //log in or pass 'signup' as the second argument to create an account
   const access = (e, endpoint = 'login') => {
     e.preventDefault()
     sessionStorage.setItem('email', email)
@@ -82,9 +98,7 @@ function Access() {
         .then((res) => {
           if (res.data.userId === undefined || res.data.token === undefined) {
             console.log(res.data)
-            switchButtons()
-            setAlternativeAccessDisplay('none')
-            //   window.location = '/login'
+            automaticLogin()
           } else {
             sessionStorage.setItem('token', res.data.token)
             sessionStorage.setItem('userId', res.data.userId)
