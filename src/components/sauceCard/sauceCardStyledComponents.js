@@ -9,7 +9,6 @@ export const SauceCardContainer = styled.div`
   box-shadow: 1px 1px 2px ${colors.primaryColor};
 
   &.sauceBoxOwnSauce {
-    // background: rgb(255,255,255);
     background: radial-gradient(
       circle,
       rgba(255, 255, 255, 1) 85%,
