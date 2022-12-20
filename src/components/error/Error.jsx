@@ -1,11 +1,19 @@
+import colors from '../../styles/colors'
 import { ErrorMessage } from '../../styles/styledComponents'
+import { PrimaryButton } from '../../styles/styledComponents'
 
 const Error = ({ handleClick }) => {
   return (
     <ErrorMessage>
-      ;<h3>Something went wrong, sorry.</h3>
+      <h3>Something went wrong, sorry.</h3>
       <p>Please try again later</p>
-      <button onClick={handleClick}>Try again</button>
+      <PrimaryButton
+        onClick={handleClick}
+        mainColor={colors.secondaryColor}
+        minorColor={colors.primaryColor}
+      >
+        Try again
+      </PrimaryButton>
     </ErrorMessage>
   )
 }
