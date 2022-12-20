@@ -23,7 +23,7 @@ function App() {
             {!sessionStorage.getItem('token') ? (
               <Route
                 path="saucepage/:id/updatesauce/:id"
-                element={<SignIn />}
+                element={<Access />}
               />
             ) : (
               <Route
@@ -31,10 +31,10 @@ function App() {
                 element={<NewSauce />}
               />
             )}
-            <Route path=":signin" element={<SignIn />} />
-            <Route path="signup" element={<SignUp />} />
+            <Route path=":signin" element={<Access />} />
+            <Route path="signup" element={<Access />} />
             {!sessionStorage.getItem('token') ? (
-              <Route path="newsauce" element={<SignIn />} />
+              <Route path="newsauce" element={<Access />} />
             ) : (
               <Route path="newsauce" element={<NewSauce />} />
             )}

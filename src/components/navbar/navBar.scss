@@ -1,67 +1,69 @@
-@import "../../styles/colors.scss";
-@import "../../styles/MixIn-primaryButton.scss";
-@import "../../styles/normalize.css";
+@import '../../styles/colors.scss';
+@import '../../styles/MixIn-primaryButton.scss';
+@import '../../styles/normalize.css';
 
-.navLinks {
-    height: 85px;
-    position: initial;
-    margin-top: -10px;
+// .navLinks {
+//   height: 85px;
+//   position: initial;
+//   margin-top: -10px;
 
-    .link {
-        text-decoration: none;
-    }
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+//   .nav-link {
+//     @include primaryButton($secondaryColor, $primaryColor);
+//     padding: 0 10px;
+//     width: 159px;
+//     position: relative;
+//     z-index: 9;
+//     margin-top: -10px;
+//     margin-left: 50px;
+//   }
+
+//   .hiddenMessage {
+//     position: relative;
+//     z-index: 0;
+//     margin-left: 50px;
+//     max-width: 159px;
+//     font-size: 14px;
+//     text-align: center;
+//     bottom: 58px;
+//     border-radius: 6px;
+//     padding: 0;
+//     height: 44px;
+//     background: $tertiaryColor;
+//     transition: bottom 1500ms ease-in-out;
+//   }
+
+//   .link:hover {
+//     .hiddenMessage {
+//       display: flex;
+//       align-items: center;
+//       bottom: 0;
+//     }
+//   }
+// }
+
+@media all and (max-width: 769px) {
+  .navLinks {
+    display: flex;
+    justify-content: center;
+    padding: 7px 19px 11px 15px;
+    margin-top: 52px;
+    text-align: center;
 
     .nav-link {
-        @include primaryButton($secondaryColor, $primaryColor);
-        padding: 0 10px;
-        width: 159px;
-        position: relative;
-        z-index: 9;
-        margin-top: -10px;
-        margin-left: 50px;
+      font-size: medium;
+      min-width: none;
+      margin-left: 0;
     }
 
     .hiddenMessage {
-        position: relative;
-        z-index: 0;
-        margin-left: 50px;
-        max-width: 159px;
-        font-size: 14px;
-        text-align: center;
-        bottom: 58px;
-        border-radius: 6px;
-        padding: 0;
-        height: 44px;
-        background: $tertiaryColor;
-        transition: bottom 1500ms ease-in-out;
+      margin-left: 0;
     }
-
-    .link:hover {
-        .hiddenMessage {
-            display: flex;
-            align-items: center;
-            bottom: 0;
-        }
-    }
-
-}
-
-@media all and (max-width: 769px) {
-    .navLinks {
-        display: flex;
-        justify-content: center;
-        padding: 7px 19px 11px 15px;
-        margin-top: 52px;
-        text-align: center;
-
-        .nav-link {
-            font-size: medium;
-            min-width: none;
-            margin-left: 0;
-        }
-
-        .hiddenMessage {
-            margin-left: 0;
-        }
-    }
+  }
 }
