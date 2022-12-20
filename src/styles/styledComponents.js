@@ -60,3 +60,10 @@ export const HiddenComponent = styled.div`
     bottom: 0;
   } */
 `
+export const ErrorMessage = styled.div`
+  box-sizing: border-box;
+  padding: 5vw;
+  width: 300px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+`
