@@ -1,11 +1,9 @@
 import './homepage.scss'
-// import { Navigate, Link } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NavBar from '../../components/navBar/NavBar'
 import SauceCard from '../../components/sauceCard/SauceCard'
 import Error from '../../components/error/Error'
-// import background from '../../assets/images/error2.webp'
 
 function Homepage() {
   // const access_token = sessionStorage.getItem('token');
@@ -14,15 +12,6 @@ function Homepage() {
   const userId = sessionStorage.getItem('userId')
   const [error, setError] = useState(null)
 
-  // const getSauces = async () => {
-  //   setDataLoading(true)
-  //   const res = await axios.get(
-  //     'https://secure-harbor-62492.herokuapp.com/api/sauces'
-  //   )
-  //   setDataLoading(false)
-  //   setSauces(res.data)
-  //   console.log(sauces)
-  // }
   const getSauces = async () => {
     setError(null)
     setDataLoading(true)

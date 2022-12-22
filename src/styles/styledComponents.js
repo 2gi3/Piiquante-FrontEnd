@@ -1,8 +1,7 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import colors from './colors'
 
-export const PrimaryButton = styled.div`
-  all: unset;
+export const PrimaryButtonMixIn = css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +36,9 @@ export const PrimaryButton = styled.div`
     align-items: center;
     bottom: 0;
   }
+`
+export const PrimaryButton = styled.div`
+  ${PrimaryButtonMixIn}
 `
 
 export const HiddenComponent = styled.div`

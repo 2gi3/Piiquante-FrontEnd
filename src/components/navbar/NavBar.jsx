@@ -1,12 +1,8 @@
-// import './navBar.scss'
 import { Link } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { PrimaryButton, HiddenComponent } from '../../styles/styledComponents'
 import colors from '../../styles/colors'
 function NavBar() {
   return (
-    // <div className="links">
     <Link style={{ all: 'unset' }} className="link" to="newsauce">
       <PrimaryButton
         mainColor={colors.secondaryColor}
@@ -22,7 +18,6 @@ function NavBar() {
         )}
       </HiddenComponent>
     </Link>
-    // </div>
   )
 }
 

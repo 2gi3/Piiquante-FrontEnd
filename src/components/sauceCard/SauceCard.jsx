@@ -10,11 +10,11 @@ const SauceCard = (data) => {
     //     data.userId === userId ? 'sauceBox sauceBoxOwnSauce' : 'sauceBox'
     //   }
     >
-      <Link className="link" to={`saucepage/${data.URI}`}>
-        <div className="sauceBoxImage">
+      <Link to={`saucepage/${data.URI}`}>
+        <div>
           <img src={data.image} height="150" width="150" alt=" a sauce" />
         </div>
-        <div className="sauceName">
+        <div>
           <h2>{data.name}</h2>
           <p>Heat: {data.heat}/10</p>
         </div>

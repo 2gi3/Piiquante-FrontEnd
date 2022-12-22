@@ -1,6 +1,5 @@
 import colors from '../../styles/colors'
-import { ErrorMessage } from '../../styles/styledComponents'
-import { PrimaryButton } from '../../styles/styledComponents'
+import { ErrorMessage, PrimaryButton } from '../../styles/styledComponents'
 
 const Error = ({ handleClick }) => {
   return (

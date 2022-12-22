@@ -4,12 +4,12 @@ function Footer() {
   return (
     <footer>
       <FooterContainer>
-        <FooterInnerContainer>
+        <div>
           <a href="mailto:gippolito@hotmail.co.uk?subject=PIIQUANTE-feedback from the website's footer">
             Send a feedback about this website.
           </a>
           <p>Website by: Giuseppe Ippolito.</p>
-        </FooterInnerContainer>
+        </div>
       </FooterContainer>
     </footer>
   )

@@ -8,6 +8,14 @@ export const FooterContainer = styled.div`
   height: 100px;
   background-color: ${colors.secondaryColor};
   color: white;
+  div {
+    a {
+      color: white;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
 `
 export const FooterInnerContainer = styled.div`
   a {

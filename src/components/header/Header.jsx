@@ -1,13 +1,21 @@
-import './header.scss'
-import logo from '../../assets/images/flame.png'
 import background from '../../assets/images/chillyLarge.webp'
 import { Link, useParams, useLocation } from 'react-router-dom'
-import { useEffect, useState, useRef } from 'react'
+import { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowRightFromBracket,
   faArrowRightToBracket,
 } from '@fortawesome/free-solid-svg-icons'
+import {
+  BackgroundImageContainer,
+  Block,
+  BlockImg,
+  LogInLogOutButtons,
+  Slogan,
+  Title,
+  UsernameDisplay,
+} from './headerStyledComponents'
+import colors from '../../styles/colors'
 
 function NavBar() {
   const logOutIcon = <FontAwesomeIcon icon={faArrowRightFromBracket} />
@@ -15,7 +23,6 @@ function NavBar() {
   const params = useParams()
   const history = useLocation()
   const pathname = history.pathname
-  console.log(pathname)
   const userEmail = sessionStorage.getItem('email')
 
   function logOut() {
@@ -26,7 +33,8 @@ function NavBar() {
     window.location = '/'
   }
 
-  const arrayOfBlocks = {
+  const mosaicRows = {
+    0: [],
     1: [],
     2: [],
     3: [],
@@ -36,30 +44,23 @@ function NavBar() {
     7: [],
     8: [],
     9: [],
-    10: [],
   }
-  let windowWidth = {
-    size: 0,
-  }
-  let windowHeight = {
-    size: 0,
-  }
-  const [blockHeight, setBlockHeight] = useState(0)
-  const [blockWidth, setBlockWidth] = useState(0)
-  useEffect(() => {
-    windowWidth.size = window.innerWidth
-    setBlockWidth(windowWidth.size)
-    windowHeight.size = window.innerHeight
-    setBlockHeight(windowHeight.size)
-  }, [])
+
+  const [blockHeight, setBlockHeight] = useState(window.innerHeight)
+  const [blockWidth, setBlockWidth] = useState(window.innerWidth)
+
   window.addEventListener('resize', () => {
-    windowWidth.size = window.innerWidth
-    setBlockWidth(windowWidth.size)
-    windowHeight.size = window.innerHeight
-    setBlockHeight(windowHeight.size)
+    setBlockWidth((v) => (v = window.innerWidth))
+    setBlockHeight((v) => (v = window.innerHeight))
   })
 
-  const loop = (array, height, delay) => {
+  /**
+   * Function that creates the animated mosaic image in the website header.
+   * @param {number} row The index of the row, 0 is the top row, 1 is the second from the top, and so on.
+   * @param {number} delay delay property in the css animation
+   * @returns a row of 10 tiles with with background images that match each other like a mosaic
+   */
+  const adjustRowAnimationDelay = (row, delay) => {
     for (let i = 0; i < 10; i++) {
       let animationSpeed = 3000
       if (i === 1 || i === 4 || i === 8) {
@@ -69,117 +70,86 @@ function NavBar() {
       } else {
         animationSpeed = 2000
       }
-      array.push(
-        <div
-          style={{
-            animation: `blockByBlock ${
-              i * 100 + animationSpeed
-            }ms ease-in-out ${delay}ms forwards`,
-          }}
+      mosaicRows[row].push(
+        <Block
           key={i}
-          className="blocks"
+          durationMS={i * 100 + animationSpeed}
+          delayMS={delay}
+          width={`${blockWidth / 10}`}
+          height={`${blockHeight / 10}`}
         >
-          <img
+          <BlockImg
+            backgroundPosition={`${(-i * blockWidth) / 10}px ${
+              -(blockHeight / 10) * row
+            }px`}
+            width={`${blockWidth}px`}
             loading="eager"
-            style={{
-              objectPosition: `${(-i * blockWidth) / 10}px ${-height}px`,
-            }}
             src={background}
-            height={`${blockHeight}`}
-            width="1280"
             alt=" a chilly plant"
           />
-        </div>
+        </Block>
       )
     }
+    return mosaicRows[row].map((tile) => tile)
   }
 
   return (
     <header>
-      <style jsx>{`
-        .backgroundImage {
-          width: ${blockWidth}px;
-        }
-        .backgroundImage .blocks {
-          width: ${blockWidth / 10}px;
-          height: ${blockHeight / 10}px;
-        }
-        .backgroundImage .blocks img {
-          width: ${blockWidth}px;
-        }
-      `}</style>
-      <div className="backgroundImageContainer">
-        <div className="backgroundImage">
-          {/* <img loading="eager" src={background} height="853" width="1280" alt=" a chilly plant" /> */}
-
-          {loop(arrayOfBlocks[1], blockHeight / 10, 500)}
-          {loop(arrayOfBlocks[2], (blockHeight / 10) * 2, 1500)}
-          {loop(arrayOfBlocks[3], (blockHeight / 10) * 3, 1000)}
-          {loop(arrayOfBlocks[4], (blockHeight / 10) * 4, 750)}
-          {loop(arrayOfBlocks[5], (blockHeight / 10) * 5, 1750)}
-          {loop(arrayOfBlocks[6], (blockHeight / 10) * 6, 1250)}
-          {loop(arrayOfBlocks[7], (blockHeight / 10) * 7, 1000)}
-          {loop(arrayOfBlocks[8], (blockHeight / 10) * 8, 2000)}
-          {loop(arrayOfBlocks[9], (blockHeight / 10) * 9, 1500)}
-          {/* {loop(arrayOfBlocks[10],(blockHeight/10) *10, 450)} */}
-
-          {arrayOfBlocks[1].map((a) => a)}
-          {arrayOfBlocks[2].map((a) => a)}
-          {arrayOfBlocks[3].map((a) => a)}
-          {arrayOfBlocks[4].map((a) => a)}
-          {arrayOfBlocks[5].map((a) => a)}
-          {arrayOfBlocks[6].map((a) => a)}
-          {arrayOfBlocks[7].map((a) => a)}
-          {arrayOfBlocks[8].map((a) => a)}
-          {arrayOfBlocks[9].map((a) => a)}
-          {/* {arrayOfBlocks[10].map((a) => (
-                        a
-                    ))} */}
+      <BackgroundImageContainer width={`${blockWidth}px`}>
+        <div>
+          {adjustRowAnimationDelay(0, 500)}
+          {adjustRowAnimationDelay(1, 1500)}
+          {adjustRowAnimationDelay(2, 1000)}
+          {adjustRowAnimationDelay(3, 750)}
+          {adjustRowAnimationDelay(4, 1750)}
+          {adjustRowAnimationDelay(5, 1250)}
+          {adjustRowAnimationDelay(6, 1000)}
+          {adjustRowAnimationDelay(7, 2000)}
+          {adjustRowAnimationDelay(8, 1500)}
         </div>
-      </div>
+      </BackgroundImageContainer>
       {pathname === '/signin' ||
       pathname === '/newsauce' ||
       pathname === '/signup' ? (
         <></>
       ) : (
-        <div className="logInLogOutButtons">
+        <LogInLogOutButtons
+          mainColor={'#838383ad'}
+          minorColor={colors.tertiaryColor}
+        >
           {!sessionStorage.getItem('token') ? (
             <Link to={'/signin'}>
-              <div className="logout">
+              <div>
                 <button>
-                  Log in <span>{logInIcon}</span>
+                  Log&nbsp;in&nbsp; <span>{logInIcon}</span>
                 </button>
               </div>
             </Link>
           ) : (
-            <div className="logout">
+            <div>
               <button onClick={logOut}>
-                Log&nbsp;out <span>{logOutIcon}</span>
+                Log&nbsp;out&nbsp; <span>{logOutIcon}</span>
               </button>
             </div>
           )}
-        </div>
+        </LogInLogOutButtons>
       )}
       {sessionStorage.getItem('token') ? (
-        <div className="userNameDisplay">
+        <UsernameDisplay>
           {' '}
           <p>Logged in: {userEmail}</p>{' '}
-        </div>
+        </UsernameDisplay>
       ) : (
         <></>
       )}
-      <div className="header">
-        {/* <div className="logo"> <img src={logo} height="100"  alt="A flame, the logo of Piiquante" /></div> */}
-        <Link to="/" className="title">
+      <Title>
+        <Link to="/">
           <h1>HOT TAKES</h1>
-          {/* <p>{blockWidth}</p> */}
-          {/* <p>{blockHeight}</p> */}
         </Link>
-        {/* <div className="logo"> <img src={logo} height="100" alt="A flame, the logo of Piiquante" /></div> */}
-      </div>
-      <div className="slogan">
+      </Title>
+      <Slogan>
         <p>THE WEB'S BEST HOT SAUCE REVIEWS</p>
-      </div>
+      </Slogan>
     </header>
   )
 }
