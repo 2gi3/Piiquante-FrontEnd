@@ -1,183 +1,177 @@
-@import "../../styles/normalize.css";
-@import "../../styles/colors.scss";
-@import "../../styles/MixIn-primaryButton.scss";
+@import '../../styles/normalize.css';
+@import '../../styles/colors.scss';
+@import '../../styles/MixIn-primaryButton.scss';
 
-.sauceContainer {
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
-    padding: 3vw 6vw;
+// .sauceContainer {
+// margin-top: 60px;
+// display: flex;
+// justify-content: center;
+// padding: 3vw 6vw;
 
-    .sauceImage {
-        padding-right: 10px;
-        max-width: 500px;
+// .sauceImage {
+//     padding-right: 10px;
+//     max-width: 500px;
 
-        img {
-            max-width: 100%;
-            max-height: 360px;
-        }
-    }
+//     img {
+//         max-width: 100%;
+//         max-height: 360px;
+//     }
+// }
 
-    .sauceInfo {
-        max-width: 50vw;
-        background: linear-gradient(90deg, #683ab720 20%, #f4433610 80%);
-        padding: 10px;
+// .sauceInfo {
+//     max-width: 50vw;
+//     background: linear-gradient(90deg, #683ab720 20%, #f4433610 80%);
+//     padding: 10px;
 
-        .label {
-            font-size: 14px;
-            font-weight: 400;
-            margin-bottom: -5px;
-        }
+//     .label {
+//         font-size: 14px;
+//         font-weight: 400;
+//         margin-bottom: -5px;
+//     }
 
-        .sauceInfoField {
-            border-bottom: 1px solid #683ab728;
-            padding-bottom: 4px;
-            margin-top: 6px;
+//     .sauceInfoField {
+//         border-bottom: 1px solid #683ab728;
+//         padding-bottom: 4px;
+//         margin-top: 6px;
 
-            // &.sauce-name {
-            //     font-size: larger;
-            // }
-        }
+//         // &.sauce-name {
+//         //     font-size: larger;
+//         // }
+//     }
 
-        .likeButtons {
-            display: flex;
-            margin-bottom: 5px;
+//     .likeButtons {
+//         display: flex;
+//         margin-bottom: 5px;
 
-            .thumbs {
-                padding: 0.5em 1em;
-                background-color: transparent;
-                border: none;
+//         .thumbs {
+//             padding: 0.5em 1em;
+//             background-color: transparent;
+//             border: none;
 
-                &:focus {
-                    outline: none;
-                    color: #673ab7;
-                }
+//             &:focus {
+//                 outline: none;
+//                 color: #673ab7;
+//             }
 
-                &:focus-visible {
-                    outline: none;
-                }
+//             &:focus-visible {
+//                 outline: none;
+//             }
 
-                i {
-                    padding: 0 8px 5px 0;
-                    &:hover {
-                        // cursor: pointer;
-                        // background-color: $tertiaryColor;
-                        // text-shadow: 2px 2px 5px $tertiaryColor;
-                        filter: drop-shadow(2px 2px 5px $secondaryColor);
-                    }
-                }
-                &:hover {
-                    cursor: pointer;
-                    // background-color: $tertiaryColor;
-                    text-shadow: 2px 2px 5px $secondaryColor;
-                    // filter: drop-shadow(2px 2px 5px $tertiaryColor);
-                }
-            }
-        }
+//             i {
+//                 padding: 0 8px 5px 0;
+//                 &:hover {
+//                     // cursor: pointer;
+//                     // background-color: $tertiaryColor;
+//                     // text-shadow: 2px 2px 5px $tertiaryColor;
+//                     filter: drop-shadow(2px 2px 5px $secondaryColor);
+//                 }
+//             }
+//             &:hover {
+//                 cursor: pointer;
+//                 // background-color: $tertiaryColor;
+//                 text-shadow: 2px 2px 5px $secondaryColor;
+//                 // filter: drop-shadow(2px 2px 5px $tertiaryColor);
+//             }
+//         }
+//     }
 
-        .controlButtons {
-            .nav-link {
-                display: block;
-                text-align: left;
+//     .controlButtons {
+//         .nav-link {
+//             display: block;
+//             text-align: left;
 
+//             .backButton {
+//                 @include primaryButton($secondaryColor, $primaryColor);
+//             }
+//         }
 
-                .backButton {
-                    @include primaryButton($secondaryColor, $primaryColor);
-                }
-            }
+//         .modifyDeleteButtons {
+//             display: flex;
+//             min-width: 190px;
+//             justify-content: left;
+//             padding: 8px 50px 0 0;
 
-            .modifyDeleteButtons {
-                display: flex;
-                min-width: 190px;
-                justify-content: left;
-                padding: 8px 50px 0 0;
+//             .modifyButton {
+//                 @include primaryButton($secondaryColor, $primaryColor);
+//                 margin-right: 15px;
+//                 margin-top: 8px;
+//             }
 
-                .modifyButton {
-                    @include primaryButton($secondaryColor, $primaryColor);
-                    margin-right: 15px;
-                    margin-top: 8px;
-                }
+//             .deleteButton {
+//                 @include primaryButton($primaryColor, $secondaryColor);
+//                 margin-top: 8px;
+//             }
 
-                .deleteButton {
-                    @include primaryButton($primaryColor, $secondaryColor);
-                    margin-top: 8px;
-                }
+//         }
+//     }
+// }
+// }
 
-            }
-        }
-    }
-}
+// @media all and (max-width: 768px) {
+//         align-items: center;
+//         flex-direction: column;
 
-@media all and (max-width: 768px) {
-    .sauceContainer {
-        align-items: center;
-        flex-direction: column;
+//         .sauceImage {
+//             padding-right: 0;
+//             width: 50vw;
+//             min-width: 320px;
 
-        .sauceImage {
-            padding-right: 0;
-            width: 50vw;
-            min-width: 320px;
+//             img {
+//                 object-fit: cover;
+//                 width: 100%;
+//                 max-height: 240px;
+//                 border-radius: 15px 15px 0 0;
+//             }
+//         }
 
-            img {
-                object-fit: cover;
-                width: 100%;
-                max-height: 240px;
-                border-radius: 15px 15px 0 0;
-            }
-        }
+//         .sauceInfo {
+//             margin-top: 10px;
+//             max-width: 500px;
+//             width: 50vw;
+//             min-width: 320px;
+//             text-align: center;
+//             border-radius: 0 0 15px 15px;
 
+//             .sauce-name {
+//                 font-size: 26px;
+//             }
 
-        .sauceInfo {
-            margin-top: 10px;
-            max-width: 500px;
-            width: 50vw;
-            min-width: 320px;
-            text-align: center;
-            border-radius: 0 0 15px 15px;
+//             .manufacturer {
+//                 font-size: 20px;
+//             }
 
-            .sauce-name {
-                font-size: 26px;
-            }
+//             .likeButtons {
+//                 justify-content: center;
+//             }
 
-            .manufacturer {
-                font-size: 20px;
-            }
+//             .controlButtons {
+//                 .nav-link {
+//                     text-align: center;
+//                 }
+//             }
 
-            .likeButtons {
-                justify-content: center;
-            }
+//             .controlButtons {
+//                 .modifyDeleteButtons {
+//                     display: flex;
+//                     flex-wrap: wrap;
+//                     justify-content: space-around;
+//                     min-width: auto;
+//                     padding: 0;
+//                 }
+//             }
 
-            .controlButtons {
-                .nav-link {
-                    text-align: center;
-                }
-            }
+//         }
 
-            .controlButtons {
-                .modifyDeleteButtons {
-                    display: flex;
-                    flex-wrap: wrap;
-                    justify-content: space-around;
-                    min-width: auto;
-                    padding: 0;
-                }
-            }
+// }
 
-        }
-    }
+// @media all and (max-width: 360px) {
+//         .sauceImage {
+//             width: 85vw;
+//             min-width: auto;
+//         }
 
-}
-
-@media all and (max-width: 360px) {
-    .sauceContainer {
-        .sauceImage {
-            width: 85vw;
-            min-width: auto;
-        }
-
-        .sauceInfo {
-            width: 85vw;
-            min-width: auto;
-        }
-    }
-}
+//         .sauceInfo {
+//             width: 85vw;
+//             min-width: auto;
+//         }
+//     }
