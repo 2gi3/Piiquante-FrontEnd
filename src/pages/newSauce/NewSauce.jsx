@@ -1,39 +1,40 @@
-import "./newSauce.scss";
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { useParams } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
 import {
-  faArrowRightToBracket,
-  faKey,
-} from "@fortawesome/free-solid-svg-icons";
+  AddImageButton,
+  InputBox,
+  NewSauceContainer,
+  InputRange,
+} from './newSauceStyledComponents'
+import colors from '../../styles/colors'
 
 function NewSauce() {
-  const access_token = sessionStorage.getItem("token");
-  const userId = sessionStorage.getItem("userId");
-  const [title, setTitle] = useState("");
-  const [manufacturer, setManifacturer] = useState("");
-  const [description, setDescription] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
-  const [mainPepper, setMainPepper] = useState("");
-  const [heat, setHeat] = useState(0);
-  const [updateSauceButton, setUpdateSauceButton] = useState("");
-  const [createSauceButton, setCreateSauceButton] = useState("");
-  const [sauce, setSauce] = useState("");
-  const params = useParams();
-  const [imageChanged, setImageChanged] = useState(false);
-  const [imagePreview, setImagePreview] = useState();
-  const [logInResponse, setLogInResponse] = useState("hidden");
+  const access_token = sessionStorage.getItem('token')
+  const userId = sessionStorage.getItem('userId')
+  const [title, setTitle] = useState('')
+  const [manufacturer, setManifacturer] = useState('')
+  const [description, setDescription] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
+  const [mainPepper, setMainPepper] = useState('')
+  const [heat, setHeat] = useState(0)
+  const [updateSauceButton, setUpdateSauceButton] = useState('')
+  const [createSauceButton, setCreateSauceButton] = useState('')
+  const [sauce, setSauce] = useState('')
+  const params = useParams()
+  const [imageChanged, setImageChanged] = useState(false)
+  const [imagePreview, setImagePreview] = useState()
+  const [logInResponse, setLogInResponse] = useState('hidden')
 
   const createSauce = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (
-      title === "" ||
-      manufacturer === "" ||
-      description === "" ||
-      mainPepper === ""
+      title === '' ||
+      manufacturer === '' ||
+      description === '' ||
+      mainPepper === ''
     ) {
-      setLogInResponse("appear");
+      setLogInResponse('appear')
     } else {
       const dataObj = {
         userId,
@@ -42,32 +43,32 @@ function NewSauce() {
         description,
         mainPepper,
         heat,
-      };
+      }
 
-      const data = new FormData();
-      data.append("sauce", JSON.stringify(dataObj));
-      data.append("image", imageUrl);
-      console.log("formData", dataObj);
-      console.log(data);
+      const data = new FormData()
+      data.append('sauce', JSON.stringify(dataObj))
+      data.append('image', imageUrl)
+      console.log('formData', dataObj)
+      console.log(data)
 
       axios
-        .post("https://secure-harbor-62492.herokuapp.com/api/sauces", data, {
+        .post('https://secure-harbor-62492.herokuapp.com/api/sauces', data, {
           headers: {
             Authorization: `token ${access_token}`,
           },
         })
         .then((res) => {
-          console.log("sauce created");
-          window.location = "/";
+          console.log('sauce created')
+          window.location = '/'
         })
         .catch((err) => {
-          console.log(err);
-        });
+          console.log(err)
+        })
     }
-  };
+  }
 
   const updateSauce = (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     const dataObj = {
       userId,
@@ -76,17 +77,17 @@ function NewSauce() {
       description,
       mainPepper,
       heat,
-    };
+    }
 
-    const data = new FormData();
-    data.append("sauce", JSON.stringify(dataObj));
-    data.append("image", imageUrl);
+    const data = new FormData()
+    data.append('sauce', JSON.stringify(dataObj))
+    data.append('image', imageUrl)
 
-    let payLoad;
+    let payLoad
     if (imageChanged === false) {
-      payLoad = dataObj;
+      payLoad = dataObj
     } else {
-      payLoad = data;
+      payLoad = data
     }
 
     axios
@@ -99,13 +100,13 @@ function NewSauce() {
           },
         }
       )
-      .then((response) => console.log("Sauce updated"))
+      .then((response) => console.log('Sauce updated'))
       .then(() => (window.location = `/saucepage/${params.id}`))
       .catch((error) => {
-        console.log(error.message);
-        console.error("There was an error!", error);
-      });
-  };
+        console.log(error.message)
+        console.error('There was an error!', error)
+      })
+  }
 
   const getSauce = async () => {
     const res = await axios.get(
@@ -115,37 +116,40 @@ function NewSauce() {
           Authorization: `token ${access_token}`,
         },
       }
-    );
-    await console.log(imageUrl);
-    setImageUrl(res.data.imageUrl);
-    setTitle(res.data.name);
-    setManifacturer(res.data.manufacturer);
-    setDescription(res.data.description);
-    setMainPepper(res.data.mainPepper);
-    setHeat(res.data.heat);
-  };
+    )
+    await console.log(imageUrl)
+    setImageUrl(res.data.imageUrl)
+    setTitle(res.data.name)
+    setManifacturer(res.data.manufacturer)
+    setDescription(res.data.description)
+    setMainPepper(res.data.mainPepper)
+    setHeat(res.data.heat)
+  }
 
   useEffect(() => {
     params.id == undefined
-      ? setUpdateSauceButton("vanish")
-      : setCreateSauceButton("vanish");
-    getSauce();
-  }, []);
+      ? setUpdateSauceButton('vanish')
+      : setCreateSauceButton('vanish')
+    getSauce()
+  }, [])
 
   function getImgData() {
-    const fileReader = new FileReader();
-    fileReader.readAsDataURL(imageUrl);
-    fileReader.addEventListener("load", function () {
-      setImagePreview(this.result);
-    });
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(imageUrl)
+    fileReader.addEventListener('load', function () {
+      setImagePreview(this.result)
+    })
   }
 
   return (
-    <div className="row ">
-      <div className="innerContainer">
+    <NewSauceContainer
+      mainColor={colors.secondaryColor}
+      minorColor={colors.primaryColor}
+    >
+      <div>
         <form>
           <p>Every input field must be filled</p>
-          <div className="inputBox">
+          <InputBox>
             <label htmlFor="name"> Sauce name</label>
             <input
               type="text"
@@ -154,13 +158,10 @@ function NewSauce() {
               defaultValue={title}
               onChange={(event) => setTitle(event.target.value)}
             />
-            <div className="icon">
-              {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
-            </div>
             {/* <h1>{emailInvalid}</h1> */}
-          </div>
+          </InputBox>
 
-          <div className="inputBox">
+          <InputBox>
             <label htmlFor="manufacturer"> Manufacturer</label>
             <input
               type="text"
@@ -169,39 +170,36 @@ function NewSauce() {
               defaultValue={manufacturer}
               onChange={(event) => setManifacturer(event.target.value)}
             />
-            <div className="icon">{/* <FontAwesomeIcon icon={faKey} /> */}</div>
             {/* <h1>{passwordWarning}</h1> */}
-          </div>
-          <div className="inputBox">
+          </InputBox>
+          <InputBox>
             <label htmlFor="description"> Description</label>
             <textarea
               id="description"
-              className="description"
               type="text"
               name="description"
               defaultValue={description}
               onChange={(event) => setDescription(event.target.value)}
             ></textarea>
-            <div className="icon">
-              {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
-            </div>
             {/* <h1>{emailInvalid}</h1> */}
-          </div>
-          <div className="addImageButton">
+          </InputBox>
+          <AddImageButton
+            mainColor={colors.secondaryButton}
+            minorColor={colors.primaryColor}
+          >
             <input
-              className=" sauceButton "
               type="file"
               name="imageUrl"
               onInput={(event) => {
-                setImageUrl(event.target.files[0]);
+                setImageUrl(event.target.files[0])
               }}
               onChange={(e) => {
-                setImageChanged(true);
-                getImgData();
+                setImageChanged(true)
+                getImgData()
               }}
               accept="image/png, image/jpeg, image/jpg, image/webp"
             ></input>
-          </div>
+          </AddImageButton>
           {params.id == undefined ? (
             <img height="100px" src={imagePreview} />
           ) : imageChanged == true ? (
@@ -211,7 +209,7 @@ function NewSauce() {
           )}
 
           {/* <img height="100px" src={imagePreview} /> */}
-          <div className="inputBox">
+          <InputBox>
             <label htmlFor="mainPepperIngredient"> Main ingredient</label>
             <input
               id="mainPepperIngredient"
@@ -220,13 +218,10 @@ function NewSauce() {
               defaultValue={mainPepper}
               onChange={(event) => setMainPepper(event.target.value)}
             />
-            <div className="icon">
-              {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
-            </div>
             {/* <h1>{emailInvalid}</h1> */}
-          </div>
+          </InputBox>
           {/* formcontrolname="heat"  */}
-          <div className="inputRange">
+          <InputRange>
             <label htmlFor="heat"> Heat</label>
             <input
               id="heat"
@@ -236,20 +231,19 @@ function NewSauce() {
               name="heat"
               defaultValue={heat}
               onInput={(e) => {
-                setHeat(e.target.value);
+                setHeat(e.target.value)
               }}
               onChange={(event) => setHeat(event.target.value)}
             />
             <output>{heat}</output>
-            <div className="icon">
-              {/* <FontAwesomeIcon icon={faArrowRightToBracket} /> */}
-            </div>
             {/* <h1>{emailInvalid}</h1> */}
-          </div>
-          <div className="addImageButton">
+          </InputRange>
+          <AddImageButton
+            mainColor={colors.secondaryColor}
+            minorColor={colors.tertiaryColor}
+          >
             <button
               id={createSauceButton}
-              className=" sauceButton "
               type="submit"
               value="submit"
               onClick={(event) => createSauce(event)}
@@ -258,21 +252,20 @@ function NewSauce() {
             </button>
             <button
               id={updateSauceButton}
-              className=" sauceButton "
               type="submit"
               value="submit"
               onClick={(event) => updateSauce(event)}
             >
               <span>Update sauce</span>
             </button>
-          </div>
+          </AddImageButton>
         </form>
         <div className={logInResponse}>
           <p> Please fill in all the text input fields </p>
         </div>
       </div>
-    </div>
-  );
+    </NewSauceContainer>
+  )
 }
 
-export default NewSauce;
+export default NewSauce

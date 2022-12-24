@@ -1,9 +1,10 @@
-import './homepage.scss'
+// import './homepage.scss'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import NavBar from '../../components/navBar/NavBar'
 import SauceCard from '../../components/sauceCard/SauceCard'
 import Error from '../../components/error/Error'
+import { Gallery, Loader } from '../../styles/styledComponents'
 
 function Homepage() {
   // const access_token = sessionStorage.getItem('token');
@@ -37,11 +38,11 @@ function Homepage() {
     <main>
       <NavBar />
       {dataLoading ? (
-        <h2>Loading...</h2>
+        <Loader />
       ) : error ? (
         <Error handleClick={getSauces} />
       ) : (
-        <div className="allSaucesBody">
+        <Gallery>
           {sauces.map((data, index) => (
             <SauceCard
               key={index}
@@ -52,7 +53,7 @@ function Homepage() {
               userId={data.userId}
             />
           ))}
-        </div>
+        </Gallery>
       )}
     </main>
   )

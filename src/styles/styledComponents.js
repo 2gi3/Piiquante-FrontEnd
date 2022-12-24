@@ -1,6 +1,34 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import colors from './colors'
 
+export const rotate = keyframes`
+from {
+   transform: rotate(0deg);
+}
+
+to {
+transform: rotate(360deg);
+}
+`
+export const Gallery = styled.div`
+  padding: 0 5vw;
+  margin-bottom: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+`
+
+export const Loader = styled.div`
+  padding: 24px;
+  border: 6px solid #f44336;
+  border-bottom-color: transparent;
+  border-radius: 32px;
+  -webkit-animation: bXglxr 1s infinite linear;
+  animation: bXglxr 1s infinite linear;
+  height: 0;
+  width: 0;
+  margin: 30px auto 75px auto;
+`
 export const PrimaryButtonMixIn = css`
   display: flex;
   justify-content: center;

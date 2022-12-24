@@ -16,6 +16,7 @@ import {
   UsernameDisplay,
 } from './headerStyledComponents'
 import colors from '../../styles/colors'
+import { logOut } from '../../functions/globalFunctions'
 
 function NavBar() {
   const logOutIcon = <FontAwesomeIcon icon={faArrowRightFromBracket} />
@@ -24,14 +25,6 @@ function NavBar() {
   const history = useLocation()
   const pathname = history.pathname
   const userEmail = sessionStorage.getItem('email')
-
-  function logOut() {
-    sessionStorage.removeItem('token')
-    sessionStorage.removeItem('userId')
-    sessionStorage.removeItem('UserName')
-    sessionStorage.removeItem('email')
-    window.location = '/'
-  }
 
   const mosaicRows = {
     0: [],
@@ -114,7 +107,7 @@ function NavBar() {
         <></>
       ) : (
         <LogInLogOutButtons
-          mainColor={'#838383ad'}
+          mainColor={colors.secondaryButton}
           minorColor={colors.tertiaryColor}
         >
           {!sessionStorage.getItem('token') ? (
