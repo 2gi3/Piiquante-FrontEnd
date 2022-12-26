@@ -8,7 +8,7 @@ import { Gallery, Loader } from '../../styles/styledComponents'
 
 function Homepage() {
   // const access_token = sessionStorage.getItem('token');
-  const [dataLoading, setDataLoading] = useState(false)
+  const [dataLoading, setDataLoading] = useState(true)
   const [sauces, setSauces] = useState([''])
   const userId = sessionStorage.getItem('userId')
   const [error, setError] = useState(null)
