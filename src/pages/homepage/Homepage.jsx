@@ -5,42 +5,29 @@ import NavBar from '../../components/navBar/NavBar'
 import SauceCard from '../../components/sauceCard/SauceCard'
 import Error from '../../components/error/Error'
 import { Gallery, Loader } from '../../styles/styledComponents'
+import { useFetch } from '../../functions/hooks'
+import { useNavigate } from 'react-router-dom'
 
 function Homepage() {
-  // const access_token = sessionStorage.getItem('token');
-  const [dataLoading, setDataLoading] = useState(true)
-  const [sauces, setSauces] = useState([''])
   const userId = sessionStorage.getItem('userId')
-  const [error, setError] = useState(null)
-
-  const getSauces = async () => {
-    setError(null)
-    setDataLoading(true)
-    try {
-      const res = await axios.get(
-        'https://secure-harbor-62492.herokuapp.com/api/sauces'
-      )
-      setSauces(res.data)
-      console.log(sauces)
-    } catch (error) {
-      console.log(error)
-      setError(error.message)
-    } finally {
-      setDataLoading(false)
-    }
+  const navigate = useNavigate()
+  const handleClick = () => {
+    // navigate(0)
+    window.location.reload(false)
   }
 
-  useEffect(() => {
-    getSauces()
-  }, [])
+  const { data, isLoading, error } = useFetch(
+    'https://secure-harbor-62492.herokuapp.com/api/sauces'
+  )
+  let sauces = data
 
   return (
     <main>
       <NavBar />
-      {dataLoading ? (
+      {isLoading ? (
         <Loader />
       ) : error ? (
-        <Error handleClick={getSauces} />
+        <Error handleClick={handleClick} />
       ) : (
         <Gallery>
           {sauces.map((data, index) => (
