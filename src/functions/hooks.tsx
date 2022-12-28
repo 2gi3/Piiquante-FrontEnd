@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import { SauceInterface, UserID } from '../types/interfaces'
 
-export const useFetch = (url) => {
-  const [data, setData] = useState([''])
+export const useFetch = (url: string) => {
+  const [data, setData] = useState<SauceInterface[]>()
   const [isLoading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!url) return

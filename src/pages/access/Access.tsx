@@ -23,8 +23,8 @@ import {
 } from './styledComponents'
 import { PrimaryButton } from '../../styles/buttons'
 import colors from '../../styles/colors'
-import { UserContext } from '../../store/Context'
-import { automaticLogin2 } from '../../functions/globalFunctions'
+import { UserContext } from '../../store/Context.tsx'
+import { automaticLogin2 } from '../../functions/globalFunctions.ts'
 
 const initialState = {
   requiredAction: 'login',
@@ -41,17 +41,6 @@ function Access() {
   const goToHomepage = () => navigate('/')
   const inputRef = useRef(null)
 
-  // const [requiredAction, setRequiredAction] = useState('login')
-  // const [dynamicText, setDynamicText] = useState("Don't")
-  // const [AlternativeAccessDisplay, setAlternativeAccessDisplay] =
-  //   useState('block')
-  // const [email, setEmail] = useState('')
-  // const [password, setPassword] = useState('')
-  // const [passwordType, setPasswordType] = useState('password')
-  // const userData = {
-  //   email,
-  //   password,
-  // }
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
       case 'SET_REQUIRED_ACTION':

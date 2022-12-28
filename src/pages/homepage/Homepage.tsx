@@ -5,21 +5,22 @@ import NavBar from '../../components/navBar/NavBar'
 import SauceCard from '../../components/sauceCard/SauceCard'
 import Error from '../../components/error/Error'
 import { Gallery, Loader } from '../../styles/styledComponents'
-import { useFetch } from '../../functions/hooks'
+import { useFetch } from '../../functions/hooks.tsx'
 import { useNavigate } from 'react-router-dom'
+import { SauceInterface } from '../../types/interfaces'
 
 function Homepage() {
   const userId = sessionStorage.getItem('userId')
   const navigate = useNavigate()
   const handleClick = () => {
     // navigate(0)
-    window.location.reload(false)
+    window.location.reload()
   }
 
   const { data, isLoading, error } = useFetch(
     'https://secure-harbor-62492.herokuapp.com/api/sauces'
   )
-  let sauces = data
+  const sauces = data
 
   return (
     <main>
@@ -30,7 +31,7 @@ function Homepage() {
         <Error handleClick={handleClick} />
       ) : (
         <Gallery>
-          {sauces.map((data, index) => (
+          {sauces?.map((data, index) => (
             <SauceCard
               key={index}
               URI={data._id}

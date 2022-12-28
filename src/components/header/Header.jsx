@@ -16,7 +16,7 @@ import {
   UsernameDisplay,
 } from './headerStyledComponents'
 import colors from '../../styles/colors'
-import { logOut } from '../../functions/globalFunctions'
+import { logOut } from '../../functions/globalFunctions.ts'
 
 function NavBar() {
   const logOutIcon = <FontAwesomeIcon icon={faArrowRightFromBracket} />
