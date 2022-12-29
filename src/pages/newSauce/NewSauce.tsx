@@ -15,7 +15,7 @@ function NewSauce() {
   const [title, setTitle] = useState('')
   const [manufacturer, setManifacturer] = useState('')
   const [description, setDescription] = useState('')
-  const [imageUrl, setImageUrl] = useState('')
+  const [imageUrl, setImageUrl] = useState<any>('')
   const [mainPepper, setMainPepper] = useState('')
   const [heat, setHeat] = useState(0)
   const [updateSauceButton, setUpdateSauceButton] = useState('')
@@ -23,7 +23,7 @@ function NewSauce() {
   const [sauce, setSauce] = useState('')
   const params = useParams()
   const [imageChanged, setImageChanged] = useState(false)
-  const [imagePreview, setImagePreview] = useState()
+  const [imagePreview, setImagePreview] = useState<any>()
   const [logInResponse, setLogInResponse] = useState('hidden')
 
   const createSauce = (e) => {
@@ -59,7 +59,7 @@ function NewSauce() {
         })
         .then((res) => {
           console.log('sauce created')
-          window.location = '/'
+          window.location.href = '/'
         })
         .catch((err) => {
           console.log(err)
@@ -101,7 +101,7 @@ function NewSauce() {
         }
       )
       .then((response) => console.log('Sauce updated'))
-      .then(() => (window.location = `/saucepage/${params.id}`))
+      .then(() => (window.location.href = `/saucepage/${params.id}`))
       .catch((error) => {
         console.log(error.message)
         console.error('There was an error!', error)
@@ -176,7 +176,7 @@ function NewSauce() {
             <label htmlFor="description"> Description</label>
             <textarea
               id="description"
-              type="text"
+              // type="text"
               name="description"
               defaultValue={description}
               onChange={(event) => setDescription(event.target.value)}
@@ -190,7 +190,7 @@ function NewSauce() {
             <input
               type="file"
               name="imageUrl"
-              onInput={(event) => {
+              onInput={(event: any) => {
                 setImageUrl(event.target.files[0])
               }}
               onChange={(e) => {
@@ -230,10 +230,10 @@ function NewSauce() {
               max="10"
               name="heat"
               defaultValue={heat}
-              onInput={(e) => {
+              onInput={(e: any) => {
                 setHeat(e.target.value)
               }}
-              onChange={(event) => setHeat(event.target.value)}
+              onChange={(event: any) => setHeat(event.target.value)}
             />
             <output>{heat}</output>
             {/* <h1>{emailInvalid}</h1> */}

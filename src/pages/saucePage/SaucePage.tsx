@@ -13,6 +13,7 @@ import {
   ControlButtons,
 } from './saucePageStyledComponents'
 import colors from '../../styles/colors'
+import { SauceInterface } from '../../types/interfaces'
 
 function SaucePage() {
   const like = <FontAwesomeIcon icon={faThumbsUp} />
@@ -22,11 +23,11 @@ function SaucePage() {
   const userId = sessionStorage.getItem('userId')
   let sauceCreator
   const params = useParams()
-  const [sauce, setSauce] = useState('')
+  const [sauce, setSauce] = useState<SauceInterface>()
   // const [liked, setLiked] =useState('')
-  const [userLiked, setUserLiked] = useState([])
-  const [userDisliked, setUserDisliked] = useState([])
-  let payloadValue = useRef()
+  const [userLiked, setUserLiked] = useState<any>([])
+  const [userDisliked, setUserDisliked] = useState<any>([])
+  let payloadValue = useRef<number>()
 
   const getSauce = async () => {
     const res = await axios.get(
@@ -39,8 +40,11 @@ function SaucePage() {
     )
     setSauce(await res.data)
     // setLiked(await sauce.liked)
-    setUserLiked(JSON.stringify(sauce.userLiked))
-    setUserDisliked(JSON.stringify(sauce.userDisliked))
+    // setUserLiked(JSON.stringify(sauce?.userLiked))
+    // setUserDisliked(JSON.stringify(sauce?.userDisliked))
+    setUserLiked(sauce?.userLiked)
+    setUserDisliked(sauce?.userDisliked)
+
     // console.log(liked)
   }
 
@@ -59,7 +63,7 @@ function SaucePage() {
         console.log(error.message)
         console.error('There was an error!', error)
       })
-    window.location = '/'
+    window.location.href = '/'
   }
 
   const likeSauce = async (e, likeValue) => {
@@ -96,7 +100,7 @@ function SaucePage() {
 
     axios
       .post(
-        `https://secure-harbor-62492.herokuapp.com/api/sauces/${sauce._id}/like`,
+        `https://secure-harbor-62492.herokuapp.com/api/sauces/${sauce?._id}/like`,
         data,
         {
           headers: {
@@ -115,7 +119,7 @@ function SaucePage() {
   useEffect(
     () => {
       getSauce()
-      sauceCreator = sauce.userId
+      sauceCreator = sauce?.userId
     }
     // [liked]
   )
@@ -123,28 +127,28 @@ function SaucePage() {
     <div>
       <SauceContainer>
         <SauceImage>
-          <img alt="A sauce" src={sauce.imageUrl} />
+          <img alt="A sauce" src={sauce?.imageUrl} />
         </SauceImage>
         <SauceInfo
           mainColor={colors.secondaryColor}
           minorColor={colors.primaryColor}
         >
           <h1>Sauce name:</h1>
-          <h2>{sauce.name}</h2>
+          <h2>{sauce?.name}</h2>
           <h3>Manufacturer:</h3>
-          <p>{sauce.manufacturer}</p>
+          <p>{sauce?.manufacturer}</p>
           <h3>Description:</h3>
-          <p>{sauce.description}</p>
+          <p>{sauce?.description}</p>
           <h3>Main ingredient:</h3>
-          <p>{sauce.mainPepper}</p>
+          <p>{sauce?.mainPepper}</p>
           <LikeButtons>
             <button onClick={(e) => likeSauce(e, 1)}>
               <i>{like}</i>
-              <span>{sauce.likes}</span>
+              <span>{sauce?.likes}</span>
             </button>
             <button onClick={(e) => likeSauce(e, -1)}>
               <i>{dislike}</i>
-              <span>{sauce.dislikes}</span>
+              <span>{sauce?.dislikes}</span>
             </button>
           </LikeButtons>
           <ControlButtons
@@ -156,7 +160,7 @@ function SaucePage() {
                 <span>Back to homepage</span>
               </button>
             </Link>
-            {sauce.userId === userId ? (
+            {sauce?.userId === userId ? (
               <div>
                 <Link to={`updatesauce/${params.id}`}>
                   <button>
