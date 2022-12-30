@@ -25,6 +25,7 @@ import { PrimaryButton } from '../../styles/buttons'
 import colors from '../../styles/colors'
 import { UserContext } from '../../store/Context.tsx'
 import { automaticLogin2 } from '../../functions/globalFunctions.ts'
+import { UserInterface } from '../../types/interfaces'
 
 const initialState = {
   requiredAction: 'login',
@@ -36,10 +37,10 @@ const initialState = {
 }
 
 function Access() {
-  const { user2, user2Set } = useContext(UserContext)
+  const { user2, user2Set } = useContext<any>(UserContext)
   const navigate = useNavigate()
   const goToHomepage = () => navigate('/')
-  const inputRef = useRef(null)
+  const inputRef = useRef<any>(null)
 
   const [state, dispatch] = useReducer((state, action) => {
     switch (action.type) {
@@ -93,6 +94,7 @@ function Access() {
 
   useEffect(() => {
     inputRef.current.focus()
+    console.log(UserContext)
   }, [])
 
   //log in or pass 'signup' as the second argument to create an account

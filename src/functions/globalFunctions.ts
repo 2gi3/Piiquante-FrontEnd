@@ -1,3 +1,4 @@
+import React from 'react'
 import axios from 'axios'
 
 export function logOut() {
@@ -5,7 +6,7 @@ export function logOut() {
   sessionStorage.removeItem('userId')
   sessionStorage.removeItem('UserName')
   sessionStorage.removeItem('email')
-  window.location = '/'
+  window.location.href = '/'
 }
 
 export const automaticLogin2 = async (credentials, email) => {

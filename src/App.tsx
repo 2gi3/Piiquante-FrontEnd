@@ -1,19 +1,19 @@
 import logo from './logo.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Header from './components/header/Header'
+import Header from './components/header/Header.tsx'
 import Homepage from './pages/homepage/Homepage.tsx'
 import SaucePage from './pages/saucePage/SaucePage.tsx'
 import SignIn from './pages/signIn/SignIn'
 import NewSauce from './pages/newSauce/NewSauce.tsx'
 import SignUp from './pages/signUp/SignUp'
-import Footer from './components/footer/Footer'
+import Footer from './components/footer/Footer.tsx'
 import Access from './pages/access/Access.tsx'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { UserContext } from './store/Context.tsx'
 
 function App() {
-  const [user2, user2Set] = useState({
+  const [user2, user2Set] = useState<UserContext>({
     userId: null,
     token: null,
     email: null,

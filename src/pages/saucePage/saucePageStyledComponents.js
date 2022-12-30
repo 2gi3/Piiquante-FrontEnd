@@ -7,100 +7,6 @@ export const SauceContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 3vw 6vw;
-
-  /* .sauceImage {
-    padding-right: 10px;
-    max-width: 500px;
-
-    img {
-      max-width: 100%;
-      max-height: 360px;
-    }
-  } */
-
-  /* .sauceInfo {
-    max-width: 50vw;
-    background: linear-gradient(90deg, #683ab720 20%, #f4433610 80%);
-    padding: 10px;
-
-    .label {
-      font-size: 14px;
-      font-weight: 400;
-      margin-bottom: -5px;
-    }
-
-    .sauceInfoField {
-      border-bottom: 1px solid #683ab728;
-      padding-bottom: 4px;
-      margin-top: 6px;
-    }
-
-    .likeButtons {
-      display: flex;
-      margin-bottom: 5px;
-
-      .thumbs {
-        padding: 0.5em 1em;
-        background-color: transparent;
-        border: none;
-
-        &:focus {
-          outline: none;
-          color: #673ab7;
-        }
-
-        &:focus-visible {
-          outline: none;
-        }
-
-        i {
-          padding: 0 8px 5px 0;
-          &:hover {
-            filter: drop-shadow(2px 2px 5px ${colors.secondaryColor});
-          }
-        }
-        &:hover {
-          cursor: pointer;
-          text-shadow: 2px 2px 5px ${colors.secondaryColor};
-        }
-      }
-    }
-
-    .controlButtons {
-      .nav-link {
-        display: block;
-        text-align: left;
-
-        .backButton {
-          ${PrimaryButtonMixIn}
-          background-color: ${colors.secondaryButton};
-          border: none;
-          margin: 0;
-        }
-      }
-
-      .modifyDeleteButtons {
-        display: flex;
-        min-width: 190px;
-        justify-content: left;
-        padding: 8px 50px 0 0;
-
-        .modifyButton {
-          ${PrimaryButtonMixIn}
-          margin-right: 15px;
-          margin-top: 8px;
-        }
-
-        .deleteButton {
-          ${PrimaryButtonMixIn}
-          margin-top: 8px;
-          margin-left: 10px;
-          background-color: red;
-        }
-      }
-    }
-  } */
-
   @media all and (max-width: 768px) {
     align-items: center;
     flex-direction: column;
@@ -154,39 +60,6 @@ export const SauceInfo = styled.div`
     margin-top: 6px;
   }
 
-  /* .controlButtons {
-    .nav-link {
-      display: block;
-      text-align: left;
-
-      .backButton {
-        ${PrimaryButtonMixIn}
-        background-color: ${colors.secondaryButton};
-        border: none;
-        margin: 0;
-      }
-    }
-
-    .modifyDeleteButtons {
-      display: flex;
-      min-width: 190px;
-      justify-content: left;
-      padding: 8px 50px 0 0;
-
-      .modifyButton {
-        ${PrimaryButtonMixIn}
-        margin-right: 15px;
-        margin-top: 8px;
-      }
-
-      .deleteButton {
-        ${PrimaryButtonMixIn}
-        margin-top: 8px;
-        margin-left: 10px;
-        background-color: red;
-      }
-    }
-  } */
   @media all and (max-width: 768px) {
     margin-top: 10px;
     max-width: 500px;
@@ -261,12 +134,14 @@ export const ControlButtons = styled.div`
   > a:first-of-type {
     display: block;
     text-align: left;
+    text-decoration: none !important;
 
     button {
       ${PrimaryButtonMixIn}
       background-color: ${colors.secondaryButton};
       border: none;
       margin: 0;
+      text-decoration: none !important;
     }
   }
 
@@ -275,11 +150,16 @@ export const ControlButtons = styled.div`
     min-width: 190px;
     justify-content: left;
     padding: 8px 50px 0 0;
+    text-decoration: none !important;
+    a {
+      text-decoration: none !important;
+    }
 
     button:first-child {
       ${PrimaryButtonMixIn}
       margin-right: 15px;
       margin-top: 8px;
+      text-decoration: none !important;
     }
 
     button:nth-child(2) {

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { PrimaryButton, HiddenComponent } from '../../styles/styledComponents'
 import colors from '../../styles/colors'

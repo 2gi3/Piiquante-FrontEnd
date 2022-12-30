@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { SauceInterface, UserID } from '../types/interfaces'
 
-export const useFetch = (url: string) => {
+export const useFetch = (url: string, token: null | string = null) => {
   const [data, setData] = useState<SauceInterface[]>()
   const [isLoading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -11,8 +11,15 @@ export const useFetch = (url: string) => {
     if (!url) return
 
     const fetchData = async () => {
+      let res
       try {
-        const res = await axios.get(url)
+        token === null
+          ? (res = await axios.get(url))
+          : (res = await axios.get(url, {
+              headers: {
+                Authorization: `token ${token}`,
+              },
+            }))
         const data = await res.data
         setData(data)
       } catch (error) {

@@ -1,6 +1,6 @@
 import background from '../../assets/images/chillyLarge.webp'
 import { Link, useParams, useLocation } from 'react-router-dom'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowRightFromBracket,

@@ -45,8 +45,9 @@ export const PrimaryButtonMixIn = css`
   letter-spacing: 1px;
   transition: box-shadow 750ms ease-out;
   text-shadow: 1px 1px 1px black;
+  text-decoration: none !important;
   a {
-    text-decoration: none;
+    text-decoration: none !important;
   }
 
   &:hover {

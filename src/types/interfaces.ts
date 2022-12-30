@@ -21,6 +21,22 @@ export interface UserInterface {
     token: null | string;
 }
 
+export interface SauceState {
+    sauce: SauceInterface | null;
+    userLiked:UserID[];
+    userDisliked: UserID[];
+    // payloadValue: number;
+  }
+  
+//   export interface SauceAction {
+//     type: string;
+//     sauce?: SauceInterface;
+//     userLiked?: string[];
+//     userDisliked?: string[];
+//     // payloadValue?: number;
+//   }
+  
+
 export enum UserID {
     The6287B3Bc7463870C5F1Eb0F0 = "6287b3bc7463870c5f1eb0f0",
 }
