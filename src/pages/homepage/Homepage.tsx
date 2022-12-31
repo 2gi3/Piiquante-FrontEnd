@@ -6,12 +6,12 @@ import SauceCard from '../../components/sauceCard/SauceCard.tsx'
 import Error from '../../components/error/Error.tsx'
 import { Gallery, Loader } from '../../styles/styledComponents'
 import { useFetch } from '../../functions/hooks.tsx'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { SauceInterface } from '../../types/interfaces'
 
 function Homepage() {
   const userId = sessionStorage.getItem('userId')
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const handleClick = () => {
     // navigate(0)
     window.location.reload()
@@ -26,7 +26,7 @@ function Homepage() {
     <main>
       <NavBar />
       {isLoading ? (
-        <Loader />
+        <Loader data-testid="loader" />
       ) : error ? (
         <Error handleClick={handleClick} />
       ) : (
