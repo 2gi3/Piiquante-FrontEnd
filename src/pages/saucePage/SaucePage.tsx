@@ -66,9 +66,11 @@ function SaucePage() {
     // setSauce(await res.data)
     // setUserLiked(sauce?.userLiked)
     // setUserDisliked(sauce?.userDisliked)
-    dispatch({ type: 'SET_SAUCE', sauce: res.data })
-    dispatch({ type: 'SET_USER_LIKED', userLiked: res.data.userLiked })
-    dispatch({ type: 'SET_USER_DISLIKED', userDisliked: res.data.userDisliked })
+    const data = await res.data
+    // console.log(data)
+    dispatch({ type: 'SET_SAUCE', sauce: data })
+    dispatch({ type: 'SET_USER_LIKED', userLiked: data.userLiked })
+    dispatch({ type: 'SET_USER_DISLIKED', userDisliked: data.userDisliked })
   }
 
   const deleteSauce = () => {
