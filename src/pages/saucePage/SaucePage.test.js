@@ -28,13 +28,41 @@ const server = setupServer(
           imageUrl:
             'https://res.cloudinary.com/gippolito/image/upload/v1656275976/qrj4vr3mwafiqvx6scmp.webp',
           heat: 5,
-          likes: 3,
-          dislikes: 4,
+          likes: 1,
+          dislikes: 0,
           userLiked: ['62f5cc8c6bffad7e9ed14144'],
           userDisliked: [],
           createdAt: '2022-06-21T14:08:34.412Z',
           updatedAt: '2023-01-01T10:11:31.334Z',
           __v: 41,
+        })
+      )
+    }
+  ),
+  rest.delete(
+    'https://secure-harbor-62492.herokuapp.com/api/sauces/:id',
+    (req, res, ctx) => {
+      return res(ctx.json({ message: 'Deleted!' }))
+    }
+  ),
+  rest.patch(
+    'https://secure-harbor-62492.herokuapp.com/api/sauces/:id/like',
+    (req, res, ctx) => {
+      return res(
+        ctx.json({
+          message: 'Sauce Like Updated!',
+          sauce: { userLiked: ['user1', 'user2'] },
+        })
+      )
+    }
+  ),
+  rest.patch(
+    'https://secure-harbor-62492.herokuapp.com/api/sauces/:id/dislike',
+    (req, res, ctx) => {
+      return res(
+        ctx.json({
+          message: 'Sauce Like Updated!',
+          sauce: { userDisliked: ['user1', 'user2'] },
         })
       )
     }
@@ -66,3 +94,24 @@ test('Should render without crash', async () => {
     expect(screen.getByRole('link', { name: 'Back to homepage' })).toBeTruthy()
   })
 })
+
+// test('Allows user to like, dislike and delete sauce', async () => {
+//   const { getByText } = render(<SaucePage />)
+
+//   // await waitFor(() => expect(getByText('sample sauce')).toBeInTheDocument())
+
+//   fireEvent.click(getByText(/like/i))
+//   await waitFor(() =>
+//     expect(getByText('Successfully liked sauce')).toBeInTheDocument()
+//   )
+
+//   fireEvent.click(getByText(/dislike/i))
+//   await waitFor(() =>
+//     expect(getByText('Successfully disliked sauce')).toBeInTheDocument()
+//   )
+
+//   fireEvent.click(getByText(/delete/i))
+//   await waitFor(() =>
+//     expect(getByText('Delete successful')).toBeInTheDocument()
+//   )
+// })

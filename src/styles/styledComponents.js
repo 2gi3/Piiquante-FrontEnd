@@ -19,14 +19,17 @@ export const Gallery = styled.div`
 `
 
 export const Loader = styled.div`
+  box-sizing: border-box;
   padding: 24px;
   border: 6px solid #f44336;
   border-bottom-color: transparent;
   border-radius: 32px;
-  -webkit-animation: bXglxr 1s infinite linear;
-  animation: bXglxr 1s infinite linear;
-  height: 0;
-  width: 0;
+  -webkit-animation: ${rotate} 1s infinite cubic-bezier(0.19, 0.34, 0.76, 0.63);
+  animation: ${rotate} 1s infinite cubic-bezier(0.19, 0.34, 0.76, 0.63);
+  height: 60px !important;
+  width: 60px !important;
+  max-width: 60px !important ;
+  max-height: 60px !important ;
   margin: 30px auto 75px auto;
 `
 export const PrimaryButtonMixIn = css`

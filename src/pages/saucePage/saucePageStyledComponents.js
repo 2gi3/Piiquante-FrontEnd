@@ -58,6 +58,7 @@ export const SauceInfo = styled.div`
     border-bottom: 1px solid #683ab728;
     padding-bottom: 4px;
     margin-top: 6px;
+    max-width: 300px;
   }
 
   @media all and (max-width: 768px) {
@@ -72,6 +73,9 @@ export const SauceInfo = styled.div`
       font-size: 26px;
     }
 
+    p {
+      max-width: 100%;
+    }
     p:first-of-type {
       font-size: 20px;
     }
@@ -170,13 +174,18 @@ export const ControlButtons = styled.div`
     }
   }
   @media all and (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     a:first-of-type {
+      display: flex;
+      justify-content: center;
       text-align: center;
     }
 
     > div {
       display: flex;
-      flex-wrap: wrap;
+      /* flex-wrap: wrap; */
       justify-content: space-around;
       min-width: auto;
       padding: 0;

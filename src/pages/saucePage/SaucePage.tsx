@@ -13,8 +13,15 @@ import {
 import colors from '../../styles/colors'
 import { SauceState } from '../../types/interfaces'
 import { UserID } from '../../types/enums'
+import Confirmation from '../../components/confirmation/Confirmation.tsx'
+import { Loader } from '../../styles/styledComponents'
 
 function SaucePage() {
+  const [Message, setMessage] = useState<string | null>(null)
+  const testDelete = () => {
+    console.log('Hello world')
+  }
+
   const like = <FontAwesomeIcon icon={faThumbsUp} />
   const dislike = <FontAwesomeIcon icon={faThumbsDown} />
 
@@ -74,6 +81,7 @@ function SaucePage() {
   }
 
   const deleteSauce = () => {
+    setMessage('deletion in progress')
     axios
       .delete(
         `https://secure-harbor-62492.herokuapp.com/api/sauces/${params.id}`,
@@ -83,12 +91,15 @@ function SaucePage() {
           },
         }
       )
-      .then((response) => console.log('Delete successful'))
-      .catch((error) => {
-        console.log(error.message)
-        console.error('There was an error!', error)
+      .then((response) => {
+        // setMessage(response.data.message)
+        console.log(response.data.message)
       })
-    window.location.href = '/'
+      .then(() => (window.location.href = '/'))
+      .catch((error) => {
+        setMessage(error.message)
+        console.error(error.message)
+      })
   }
 
   const likeSauce = async (e, likeValue) => {
@@ -144,10 +155,10 @@ function SaucePage() {
         }
       )
       .then((res) => {
-        console.log('sauce liked')
+        console.log(res.data.message)
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err.data.message)
       })
   }
 
@@ -161,60 +172,85 @@ function SaucePage() {
   return (
     <div>
       <SauceContainer>
-        <SauceImage>
-          <img
-            alt="A sauce"
-            //  src={sauce?.imageUrl}
-            src={state.sauce?.imageUrl}
-          />
-        </SauceImage>
-        <SauceInfo
-          mainColor={colors.secondaryColor}
-          minorColor={colors.primaryColor}
-        >
-          <h1>Sauce name:</h1>
-          <h2>{state.sauce?.name}</h2>
-          <h3>Manufacturer:</h3>
-          <p>{state.sauce?.manufacturer}</p>
-          <h3>Description:</h3>
-          <p>{state.sauce?.description}</p>
-          <h3>Main ingredient:</h3>
-          <p>{state.sauce?.mainPepper}</p>
-          <LikeButtons>
-            <button onClick={(e) => likeSauce(e, 1)}>
-              <i>{like}</i>
-              <span>{state.sauce?.likes}</span>
-            </button>
-            <button onClick={(e) => likeSauce(e, -1)}>
-              <i>{dislike}</i>
-              <span>{state.sauce?.dislikes}</span>
-            </button>
-          </LikeButtons>
-          <ControlButtons
-            mainColor={colors.secondaryColor}
-            minorColor={colors.primaryColor}
-          >
-            <Link to="/">
-              <button>
-                <span>Back to homepage</span>
-              </button>
-            </Link>
-            {state.sauce?.userId === userId ? (
-              <div>
-                <Link to={`updatesauce/${params.id}`}>
+        {!state.sauce ? (
+          <Loader />
+        ) : (
+          <>
+            <SauceImage>
+              <img
+                alt="A sauce"
+                //  src={sauce?.imageUrl}
+                src={state.sauce?.imageUrl}
+              />
+            </SauceImage>
+            <SauceInfo
+              mainColor={colors.secondaryColor}
+              minorColor={colors.primaryColor}
+            >
+              <h1>Sauce name:</h1>
+              <h2>{state.sauce?.name}</h2>
+              <h3>Manufacturer:</h3>
+              <p>{state.sauce?.manufacturer}</p>
+              <h3>Description:</h3>
+              <p>{state.sauce?.description}</p>
+              <h3>Main ingredient:</h3>
+              <p>{state.sauce?.mainPepper}</p>
+              <LikeButtons>
+                <button
+                  onClick={(e) => likeSauce(e, 1)}
+                  data-testid="likeButton"
+                >
+                  <i>{like}</i>
+                  <span>{state.sauce?.likes}</span>
+                </button>
+                <button
+                  onClick={(e) => likeSauce(e, -1)}
+                  data-testid="dislikeButton"
+                >
+                  <i>{dislike}</i>
+                  <span>{state.sauce?.dislikes}</span>
+                </button>
+              </LikeButtons>
+              <ControlButtons
+                mainColor={colors.secondaryColor}
+                minorColor={colors.primaryColor}
+              >
+                <Link to="/">
                   <button>
-                    <span>MODIFY</span>
+                    <span>Back to homepage</span>
                   </button>
                 </Link>
-                <button onClick={(event) => deleteSauce()}>
-                  <span>DELETE</span>
-                </button>
-              </div>
-            ) : (
-              <></>
-            )}
-          </ControlButtons>
-        </SauceInfo>
+                {state.sauce?.userId === userId ? (
+                  Message === null ? (
+                    <div>
+                      <Link to={`updatesauce/${params.id}`}>
+                        <button>
+                          <span>MODIFY</span>
+                        </button>
+                      </Link>
+                      <button
+                        onClick={() =>
+                          setMessage('Do you want to delete this sauce?')
+                        }
+                        //  onClick={(event) => deleteSauce()}
+                      >
+                        <span>DELETE</span>
+                      </button>
+                    </div>
+                  ) : (
+                    <Confirmation
+                      message={Message}
+                      setMessage={setMessage}
+                      goAhead={deleteSauce}
+                    />
+                  )
+                ) : (
+                  <></>
+                )}
+              </ControlButtons>
+            </SauceInfo>
+          </>
+        )}
       </SauceContainer>
     </div>
   )
