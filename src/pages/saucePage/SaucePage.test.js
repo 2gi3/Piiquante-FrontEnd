@@ -3,6 +3,7 @@ import { setupServer } from 'msw/node'
 import {
   render,
   waitFor,
+  fireEvent,
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react'
@@ -42,27 +43,30 @@ const server = setupServer(
   rest.delete(
     'https://secure-harbor-62492.herokuapp.com/api/sauces/:id',
     (req, res, ctx) => {
-      return res(ctx.json({ message: 'Deleted!' }))
+      return res(ctx.delay(200), ctx.json({ message: 'Deleted!' }))
     }
   ),
-  rest.patch(
+  rest.post(
     'https://secure-harbor-62492.herokuapp.com/api/sauces/:id/like',
     (req, res, ctx) => {
       return res(
+        ctx.delay(200),
         ctx.json({
           message: 'Sauce Like Updated!',
-          sauce: { userLiked: ['user1', 'user2'] },
+          // sauce: { userLiked: ['user1', 'user2'] },
         })
       )
     }
   ),
-  rest.patch(
+  rest.post(
     'https://secure-harbor-62492.herokuapp.com/api/sauces/:id/dislike',
     (req, res, ctx) => {
       return res(
         ctx.json({
-          message: 'Sauce Like Updated!',
-          sauce: { userDisliked: ['user1', 'user2'] },
+          data: {
+            message: 'Sauce Like Updated!',
+            // sauce: { userLiked: ['user1', 'user2'] },
+          },
         })
       )
     }
@@ -75,43 +79,80 @@ beforeAll(() => server.listen())
 afterEach(() => server.resetHandlers())
 // Close the API mock once tests are over
 afterAll(() => server.close())
+// Clear sessionStorage after each test
+afterEach(() => {
+  window.sessionStorage.clear()
+})
 
+const consoleSpy = jest.spyOn(console, 'log')
 test('Should render without crash', async () => {
   const res = await fetch(
     'https://secure-harbor-62492.herokuapp.com/api/sauces/62b0af8e40eb3624c884d3c6'
   )
   const data = await res.json()
+  window.sessionStorage.setItem('userId', '6287b3bc7463870c5f1eb0f0')
+  window.sessionStorage.setItem('token', 'eyJhbGciOiJIUzI1NiIs')
 
-  render(
+  const { getByText, getByRole, getByTestId, queryByText } = render(
     <MemoryRouter>
       <SaucePage />
     </MemoryRouter>
   )
-  // expect(screen.getByTestId('loader')).toBeTruthy()
-  // await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
+
+  await waitForElementToBeRemoved(() => getByTestId('pageLoader'))
   await waitFor(() => {
-    expect(screen.getByText(/TEST SAUCE/i)).toBeTruthy()
-    expect(screen.getByRole('link', { name: 'Back to homepage' })).toBeTruthy()
+    expect(getByText(/TEST SAUCE/i)).toBeTruthy()
+    expect(getByRole('link', { name: 'Back to homepage' })).toBeTruthy()
   })
+
+  fireEvent.click(getByTestId('likeButton'))
+  await waitFor(() =>
+    expect(consoleSpy).toHaveBeenCalledWith('Sauce Like Updated!')
+  )
+
+  fireEvent.click(getByText(/delete/i))
+  await waitFor(() =>
+    // expect(getByText(/Do you want to delete this sauce\?/i)).toBeInTheDocument()
+    expect(getByRole('button', { name: 'No' })).toBeInTheDocument()
+  )
+
+  fireEvent.click(getByRole('button', { name: 'No' }))
+  await waitFor(() =>
+    expect(queryByText(/Do you want to delete this sauce\?/i)).toBeNull()
+  )
+
+  fireEvent.click(getByText(/delete/i))
+  await waitFor(() =>
+    expect(getByText(/Do you want to delete this sauce\?/i)).toBeInTheDocument()
+  )
+
+  fireEvent.click(getByText(/yes/i))
+  // await waitForElementToBeRemoved(() => getByTestId('confirmationLoader'))
+  await waitFor(() => {
+    expect(getByTestId('confirmationLoader')).toBeInTheDocument()
+  })
+  await waitFor(() => expect(consoleSpy).toHaveBeenCalledWith('Deleted!'))
 })
 
-// test('Allows user to like, dislike and delete sauce', async () => {
-//   const { getByText } = render(<SaucePage />)
+it('Modify and Delete buttons should not appear if the uses is not the sauce creator', async () => {
+  const res = await fetch(
+    'https://secure-harbor-62492.herokuapp.com/api/sauces/62b0af8e40eb3624c884d3c6'
+  )
+  const data = await res.json()
+  const { queryByText, getByTestId } = render(
+    <MemoryRouter>
+      <SaucePage />
+    </MemoryRouter>
+  )
 
-//   // await waitFor(() => expect(getByText('sample sauce')).toBeInTheDocument())
+  await waitForElementToBeRemoved(() => getByTestId('pageLoader'))
+  expect(queryByText('DELETE')).toBeNull()
+  expect(queryByText('MODIFY')).toBeNull()
 
-//   fireEvent.click(getByText(/like/i))
-//   await waitFor(() =>
-//     expect(getByText('Successfully liked sauce')).toBeInTheDocument()
-//   )
-
-//   fireEvent.click(getByText(/dislike/i))
-//   await waitFor(() =>
-//     expect(getByText('Successfully disliked sauce')).toBeInTheDocument()
-//   )
-
-//   fireEvent.click(getByText(/delete/i))
-//   await waitFor(() =>
-//     expect(getByText('Delete successful')).toBeInTheDocument()
-//   )
-// })
+  fireEvent.click(getByTestId('dislikeButton'))
+  await waitFor(() =>
+    expect(consoleSpy).toHaveBeenCalledWith(
+      'please log in to use the like buttons'
+    )
+  )
+})

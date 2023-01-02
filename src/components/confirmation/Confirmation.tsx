@@ -10,7 +10,7 @@ const Confirmation = ({ message, setMessage, goAhead }) => {
   return (
     <ConfirmationContainer>
       {message === 'deletion in progress' ? (
-        <Loader />
+        <Loader data-testid="confirmationLoader" />
       ) : (
         <>
           <div>

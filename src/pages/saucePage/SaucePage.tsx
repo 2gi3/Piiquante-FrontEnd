@@ -12,15 +12,11 @@ import {
 } from './saucePageStyledComponents'
 import colors from '../../styles/colors'
 import { SauceState } from '../../types/interfaces'
-import { UserID } from '../../types/enums'
 import Confirmation from '../../components/confirmation/Confirmation.tsx'
 import { Loader } from '../../styles/styledComponents'
 
 function SaucePage() {
   const [Message, setMessage] = useState<string | null>(null)
-  const testDelete = () => {
-    console.log('Hello world')
-  }
 
   const like = <FontAwesomeIcon icon={faThumbsUp} />
   const dislike = <FontAwesomeIcon icon={faThumbsDown} />
@@ -32,9 +28,6 @@ function SaucePage() {
     : (userId = '')
   let sauceCreator
   const params = useParams()
-  // const [sauce, setSauce] = useState<SauceInterface>()
-  // const [userLiked, setUserLiked] = useState<any>([])
-  // const [userDisliked, setUserDisliked] = useState<any>([])
   let payloadValue = useRef<number>()
 
   const initialState: SauceState = {
@@ -106,6 +99,7 @@ function SaucePage() {
     e.preventDefault()
     if (!sessionStorage.getItem('token')) {
       alert('please log in to use the like buttons')
+      console.log('please log in to use the like buttons')
     }
     // let history = userLiked.includes(userId)
     // let dislikeHistory = userDisliked.includes(userId)
@@ -173,7 +167,7 @@ function SaucePage() {
     <div>
       <SauceContainer>
         {!state.sauce ? (
-          <Loader />
+          <Loader data-testid="pageLoader" />
         ) : (
           <>
             <SauceImage>
@@ -200,7 +194,7 @@ function SaucePage() {
                   onClick={(e) => likeSauce(e, 1)}
                   data-testid="likeButton"
                 >
-                  <i>{like}</i>
+                  <i data-testid="likes">{like}</i>
                   <span>{state.sauce?.likes}</span>
                 </button>
                 <button
