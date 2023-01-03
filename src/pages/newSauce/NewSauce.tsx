@@ -58,7 +58,7 @@ function NewSauce() {
           },
         })
         .then((res) => {
-          console.log('sauce created')
+          console.log(res)
           window.location.href = '/'
         })
         .catch((err) => {
@@ -100,7 +100,7 @@ function NewSauce() {
           },
         }
       )
-      .then((response) => console.log('Sauce updated'))
+      .then((response) => console.log(response.data.message))
       .then(() => (window.location.href = `/saucepage/${params.id}`))
       .catch((error) => {
         console.log(error.message)
@@ -224,6 +224,7 @@ function NewSauce() {
           <InputRange>
             <label htmlFor="heat"> Heat</label>
             <input
+              data-testid="heat-range"
               id="heat"
               type="range"
               min="0"

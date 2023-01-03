@@ -4,10 +4,8 @@ import {
   render,
   waitFor,
   fireEvent,
-  screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react'
-import { wait } from '@testing-library/user-event/dist/utils'
 import { MemoryRouter } from 'react-router-dom'
 import SaucePage from './SaucePage'
 

@@ -1,6 +1,4 @@
-// import './homepage.scss'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import NavBar from '../../components/navBar/NavBar.tsx'
 import SauceCard from '../../components/sauceCard/SauceCard.tsx'
 import Error from '../../components/error/Error.tsx'

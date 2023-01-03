@@ -6,10 +6,9 @@ import {
   screen,
   waitForElementToBeRemoved,
 } from '@testing-library/react'
-// import { ThemeProvider } from '../../context'
-import { wait } from '@testing-library/user-event/dist/utils'
 import Homepage from './Homepage'
 import { MemoryRouter } from 'react-router-dom'
+import { act } from 'react-dom/test-utils'
 
 const server = setupServer(
   // Specify the url that we want to "intercept"
@@ -90,20 +89,20 @@ afterEach(() => server.resetHandlers())
 afterAll(() => server.close())
 
 test('Should render without crash', async () => {
-  const res = await fetch(
-    'https://secure-harbor-62492.herokuapp.com/api/sauces'
-  )
+  let res
+  await act(async () => {
+    res = await fetch('https://secure-harbor-62492.herokuapp.com/api/sauces')
+  })
   const data = await res.json()
-  //   console.log(data)
   render(
     <MemoryRouter>
       <Homepage />
     </MemoryRouter>
   )
-  //   expect(screen.getByTestId('loader')).toBeTruthy()
+
   await waitForElementToBeRemoved(() => screen.getByTestId('loader'))
   await waitFor(() => {
+    expect(screen.getByText(/Create a sauce/i)).toBeTruthy()
     expect(screen.getByText(/First Test Sauce/i)).toBeTruthy()
-    // expect(screen.getByText(/Ervin/i)).toBeTruthy()
   })
 })
