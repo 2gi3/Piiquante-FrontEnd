@@ -13,19 +13,6 @@ export const Container = styled.div`
   .hidden {
     display: none;
   }
-
-  //   .appear {
-  //     @include inputFieldWarning;
-  //     animation: signInInputFieldWarning 1000ms ease-in-out forwards;
-
-  //     &.primaryColor {
-  //       background-color: ${colors.primaryColor};
-  //     }
-
-  //     &.secondaryColor {
-  //       background-color: ${colors.secondaryColor};
-  //     }
-  //   }
 `
 
 export const InContainer = styled.div`
@@ -40,52 +27,6 @@ export const InContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  //   .logInMessage {
-  //     background-color: #f44336cc;
-  //     text-align: center;
-  //     font-size: 14px;
-  //     border-radius: 15px;
-  //     margin: 20px 10vw -20px 10vw;
-  //     font-weight: 500;
-  //     letter-spacing: 1px;
-  //   }
-
-  //   .inputBox {
-  //
-
-  //   .primaryButton {
-  //     @include primaryButton(${colors.primaryColor}, ${colors.secondaryColor});
-  //   }
-
-  //   svg {
-  //     filter: drop-shadow(1px 1px 1px black);
-  //   }
-
-  //   .extraButton {
-  //     padding-top: 25px;
-  //     color: white;
-  //     text-align: end;
-  //     font-size: larger;
-
-  //     .extraButtonText {
-  //       font-size: 22px;
-  //       padding-left: 5px;
-  //       display: inline-block;
-  //       font-weight: 600;
-  //       letter-spacing: 1px;
-  //       color: $tertiaryColor;
-  //       text-shadow: 1px 1px 1px black;
-
-  //       // span {
-  //       //     display: none;
-  //       // }
-  //     }
-  //   }
-
-  //   .logInSignUpButtons {
-  //     min-height: 100px;
-  //   }
 `
 export const AccessInputBox = styled.div`
       height: 30px;
@@ -143,8 +84,6 @@ export const AccessInputBox = styled.div`
           color: white;
         }
       }
-    }
-
 `
 
 export const AlternativeAccess = styled.div`

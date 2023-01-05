@@ -1,6 +1,6 @@
 import background from '../../assets/images/chillyLarge.webp'
 import { Link, useParams, useLocation } from 'react-router-dom'
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowRightFromBracket,
@@ -17,6 +17,8 @@ import {
 } from './headerStyledComponents.ts'
 import colors from '../../styles/colors'
 import { logOut } from '../../functions/globalFunctions.ts'
+import { UserContext } from '../../store/Context.tsx'
+import { UserInterface } from '../../types/interfaces'
 
 function NavBar() {
   const logOutIcon = <FontAwesomeIcon icon={faArrowRightFromBracket} />
@@ -24,7 +26,7 @@ function NavBar() {
   const params = useParams()
   const history = useLocation()
   const pathname = history.pathname
-  const userEmail = sessionStorage.getItem('email')
+  const { user2, user2Set } = useContext(UserContext)
 
   const mosaicRows = {
     0: [],
@@ -110,7 +112,7 @@ function NavBar() {
           mainColor={colors.secondaryButton}
           minorColor={colors.tertiaryColor}
         >
-          {!sessionStorage.getItem('token') ? (
+          {user2.token === null ? (
             <Link to={'/signin'}>
               <div>
                 <button>
@@ -120,17 +122,26 @@ function NavBar() {
             </Link>
           ) : (
             <div>
-              <button onClick={logOut}>
+              <button
+                onClick={() => {
+                  user2Set({
+                    userId: null,
+                    token: null,
+                    email: null,
+                  })
+                  logOut()
+                }}
+              >
                 Log&nbsp;out&nbsp; <span>{logOutIcon}</span>
               </button>
             </div>
           )}
         </LogInLogOutButtons>
       )}
-      {sessionStorage.getItem('token') ? (
+      {user2.token !== null ? (
         <UsernameDisplay>
           {' '}
-          <p>Logged in: {userEmail}</p>{' '}
+          <p>Logged in: {user2.email}</p>
         </UsernameDisplay>
       ) : (
         <></>

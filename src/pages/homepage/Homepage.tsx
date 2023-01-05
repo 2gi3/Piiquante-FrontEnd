@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import NavBar from '../../components/navBar/NavBar.tsx'
 import SauceCard from '../../components/sauceCard/SauceCard.tsx'
 import Error from '../../components/error/Error.tsx'
 import { Gallery, Loader } from '../../styles/styledComponents'
 import { useFetch } from '../../functions/hooks.tsx'
+import { UserContext } from '../../store/Context.tsx'
 // import { useNavigate } from 'react-router-dom'
 import { SauceInterface } from '../../types/interfaces'
 
 function Homepage() {
-  const userId = sessionStorage.getItem('userId')
+  const { user2 } = useContext(UserContext)
   // const navigate = useNavigate()
   const handleClick = () => {
     // navigate(0)
@@ -19,7 +20,6 @@ function Homepage() {
     'https://secure-harbor-62492.herokuapp.com/api/sauces'
   )
   const sauces = data
-
   return (
     <main>
       <NavBar />

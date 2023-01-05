@@ -14,9 +14,9 @@ import { UserContext } from './store/Context.tsx'
 
 function App() {
   const [user2, user2Set] = useState<UserContext>({
-    userId: null,
-    token: null,
-    email: null,
+    userId: sessionStorage.getItem('userId'),
+    token: sessionStorage.getItem('token'),
+    email: sessionStorage.getItem('email'),
   })
   return (
     <Router>

@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { PrimaryButton, HiddenComponent } from '../../styles/styledComponents'
 import colors from '../../styles/colors'
+import { UserContext } from '../../store/Context.tsx'
+
 function NavBar() {
+  const { user2 } = useContext(UserContext)
   return (
     <Link style={{ all: 'unset' }} className="link" to="newsauce">
       <PrimaryButton
@@ -12,7 +15,7 @@ function NavBar() {
         Create a sauce
       </PrimaryButton>
       <HiddenComponent>
-        {!sessionStorage.getItem('token') ? (
+        {user2.token === null ? (
           <p>Log in to add your favourite sauce.</p>
         ) : (
           <p>You can modify it later.</p>

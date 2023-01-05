@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useRef, useReducer } from 'react'
+import React, {
+  useEffect,
+  useState,
+  useRef,
+  useReducer,
+  useContext,
+} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -14,14 +20,17 @@ import colors from '../../styles/colors'
 import { SauceState } from '../../types/interfaces'
 import Confirmation from '../../components/confirmation/Confirmation.tsx'
 import { Loader } from '../../styles/styledComponents'
+import { UserContext } from '../../store/Context.tsx'
+import { UserInterface } from '../../types/interfaces'
 
 function SaucePage() {
+  const { user2 } = useContext<UserInterface>(UserContext)
+  const access_token = user2.token
   const [Message, setMessage] = useState<string | null>(null)
 
   const like = <FontAwesomeIcon icon={faThumbsUp} />
   const dislike = <FontAwesomeIcon icon={faThumbsDown} />
 
-  const access_token = sessionStorage.getItem('token')
   let userId
   sessionStorage.getItem('userId')
     ? (userId = sessionStorage.getItem('userId'))
@@ -97,7 +106,7 @@ function SaucePage() {
 
   const likeSauce = async (e, likeValue) => {
     e.preventDefault()
-    if (!sessionStorage.getItem('token')) {
+    if (user2.token === null) {
       alert('please log in to use the like buttons')
       console.log('please log in to use the like buttons')
     }

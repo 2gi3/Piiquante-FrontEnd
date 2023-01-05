@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import {
@@ -8,10 +8,13 @@ import {
   InputRange,
 } from './newSauceStyledComponents.ts'
 import colors from '../../styles/colors'
+import { UserContext } from '../../store/Context.tsx'
+import { UserInterface } from '../../types/interfaces'
 
 function NewSauce() {
-  const access_token = sessionStorage.getItem('token')
-  const userId = sessionStorage.getItem('userId')
+  const { user2 } = useContext<UserInterface>(UserContext)
+  const access_token = user2.token
+  const userId = user2.userId
   const [title, setTitle] = useState('')
   const [manufacturer, setManifacturer] = useState('')
   const [description, setDescription] = useState('')
