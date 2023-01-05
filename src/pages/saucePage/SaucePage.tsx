@@ -9,7 +9,7 @@ import {
   SauceInfo,
   LikeButtons,
   ControlButtons,
-} from './saucePageStyledComponents'
+} from './saucePageStyledComponents.ts'
 import colors from '../../styles/colors'
 import { SauceState } from '../../types/interfaces'
 import Confirmation from '../../components/confirmation/Confirmation.tsx'

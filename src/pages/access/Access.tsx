@@ -20,7 +20,7 @@ import {
   InContainer,
   AlternativeAccess,
   AccessInputBox,
-} from './styledComponents'
+} from './styledComponents.ts'
 import { PrimaryButton } from '../../styles/buttons'
 import colors from '../../styles/colors'
 import { UserContext } from '../../store/Context.tsx'

@@ -6,7 +6,7 @@ import {
   InputBox,
   NewSauceContainer,
   InputRange,
-} from './newSauceStyledComponents'
+} from './newSauceStyledComponents.ts'
 import colors from '../../styles/colors'
 
 function NewSauce() {
