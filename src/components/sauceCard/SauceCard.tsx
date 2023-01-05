@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { SauceCardContainer } from './sauceCardStyledComponents'
+import { SauceCardContainer } from './sauceCardStyledComponents.ts'
 
 const SauceCard = (data) => {
   const userId = sessionStorage.getItem('userId')

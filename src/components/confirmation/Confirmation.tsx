@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Loader } from '../../styles/styledComponents'
-import { ConfirmationContainer } from './confirmationStyledComponents'
+import { ConfirmationContainer } from './confirmationStyledComponents.ts'
 
 // type Props = {
 //   onClick: React.MouseEventHandler<HTMLButtonElement>

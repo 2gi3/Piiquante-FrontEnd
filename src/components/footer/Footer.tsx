@@ -1,5 +1,5 @@
 import React from 'react'
-import { FooterContainer } from './styledComponents'
+import { FooterContainer } from './styledComponents.ts'
 
 function Footer() {
   return (

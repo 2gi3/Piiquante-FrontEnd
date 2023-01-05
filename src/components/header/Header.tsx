@@ -14,7 +14,7 @@ import {
   Slogan,
   Title,
   UsernameDisplay,
-} from './headerStyledComponents'
+} from './headerStyledComponents.ts'
 import colors from '../../styles/colors'
 import { logOut } from '../../functions/globalFunctions.ts'
 
