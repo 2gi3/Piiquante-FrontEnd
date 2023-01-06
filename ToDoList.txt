@@ -1,8 +1,4 @@
--add feedback/contact section
 -fill  in password noti
--confirm delete button
--toggle password
--HTML semantic
 -write documentation
 
 hero image credits: Photo by ROMAN ODINTSOV: https://www.pexels.com/photo/close-up-of-red-chilli-peppers-6342150/
