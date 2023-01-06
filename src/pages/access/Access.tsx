@@ -6,13 +6,7 @@ import {
   faEye,
   faEyeSlash,
 } from '@fortawesome/free-solid-svg-icons'
-import React, {
-  useEffect,
-  useState,
-  useRef,
-  useContext,
-  useReducer,
-} from 'react'
+import React, { useEffect, useRef, useContext, useReducer } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import {
@@ -73,15 +67,6 @@ function Access() {
     passwordType,
   } = state
 
-  // const switchButtons = () => {
-  //   if (requiredAction === 'login') {
-  //     setRequiredAction('signup')
-  //     setDynamicText('Already')
-  //   } else {
-  //     setRequiredAction('login')
-  //     setDynamicText("Don't")
-  //   }
-  // }
   const switchButtons = () => {
     if (requiredAction === 'login') {
       dispatch({ type: 'SET_REQUIRED_ACTION', requiredAction: 'signup' })

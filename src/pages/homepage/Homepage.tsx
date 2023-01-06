@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import NavBar from '../../components/navBar/NavBar.tsx'
 import SauceCard from '../../components/sauceCard/SauceCard.tsx'
 import Error from '../../components/error/Error.tsx'
@@ -6,7 +6,6 @@ import { Gallery, Loader } from '../../styles/styledComponents'
 import { useFetch } from '../../functions/hooks.tsx'
 import { UserContext } from '../../store/Context.tsx'
 // import { useNavigate } from 'react-router-dom'
-import { SauceInterface } from '../../types/interfaces'
 
 function Homepage() {
   const { user2 } = useContext(UserContext)
