@@ -5,17 +5,16 @@ import Error from '../../components/error/Error.tsx'
 import { Gallery, Loader } from '../../styles/styledComponents'
 import { useFetch } from '../../functions/hooks.tsx'
 import { UserContext } from '../../store/Context.tsx'
-// import { useNavigate } from 'react-router-dom'
+import { SauceInterface } from '../../types/interfaces'
 
 function Homepage() {
   const { user2 } = useContext(UserContext)
-  // const navigate = useNavigate()
+
   const handleClick = () => {
-    // navigate(0)
     window.location.reload()
   }
 
-  const { data, isLoading, error } = useFetch(
+  const { data, isLoading, error } = useFetch<SauceInterface[]>(
     'https://secure-harbor-62492.herokuapp.com/api/sauces'
   )
   const sauces = data
@@ -28,7 +27,7 @@ function Homepage() {
         <Error handleClick={handleClick} />
       ) : (
         <Gallery>
-          {sauces?.map((data, index) => (
+          {sauces?.map((data: SauceInterface, index: string) => (
             <SauceCard
               key={index}
               URI={data._id}

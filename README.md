@@ -1,13 +1,18 @@
 # Project overview
 
-I created this project in the beginning of 2022 with React, javascript SCSS modules.
-in january 2023 i have updated the project to better reflect my current skills, i have migrated to Typescript and Styled-Components, i have written tests that cover most of the code (see /coverage directory), and i have updated the state management with the implementation of UseContext and useReducer.
+A gallery that allows users to upload their favorite hot sauces or like/dislike ones that others share.
+
+- Te [homepage/gallery](https://piiquante.netlify.app/) and [login](https://piiquante.netlify.app/signin) pages are accessible to everyone
+- To create, update or delete your own sauces or like/dislike other people's sauces you must first login or create an account.
+
+I created this project ( including the Back-End ) in the beginning of 2022 with React, javascript and SCSS modules.
+in january 2023 i have updated the project to better reflect my improved skills, i have migrated to Typescript and Styled-Components, i have written tests that cover most of the code (see /coverage directory), and i have updated the state management with the implementation of UseContext and useReducer.
 
 ## Production links:
 
 ### [Front-End](https://piiquante.netlify.app/)
 
-### [Beck-End (Node, Express, MongoDB)](https://secure-harbor-62492.herokuapp.com/api/sauces)
+### [Beck-End /sauces (Node, Express, MongoDB)](https://secure-harbor-62492.herokuapp.com/api/sauces)
 
 ### [Beck-End documentation](https://github.com/2gi3/Piiquante-FrontEnd/blob/main/BackEnd-requirements.pdf)
 
@@ -96,25 +101,27 @@ This directory contains custom types, e.g.: Interfaces, enums.
 
 This directory contains images and videos that are used in the project
 
-## Available Scripts
+## Set up the project locally
 
-In the project directory, you can run:
+### `git clone https://github.com/2gi3/Piiquante-FrontEnd.git`
+
+If you use the GitHub CLI, copy the command above to clone the repository, otherwise download the zip file from [this page](https://github.com/2gi3/Piiquante-FrontEnd)
 
 ### `npm install`
 
-If you have cloned this repository, this command will install all the necessary Node modules.
+In the project directory, run this command to install all any dependencies.
 
 ### `npm start`
 
-Runs the app in the development mode.
+Starts the development server.
 
 ### `npm test`
 
-Launches the test runner in the interactive watch mode.
+Launches the test runner in the interactive watch mode, add the flag `-- --coverage` to check the test coverage
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.
+Compiles and optimises the code for production in the `build` folder.
 
 ### `netlify deploy`
 
@@ -123,6 +130,25 @@ After running running the "build" script, this comand will create a draft deploy
 ### `netlify deploy --prod`
 
 After running running the "build" script, this comand will update the [production website](https://piiquante.netlify.app/)
+
+## Deployment
+
+Using the Netlify CLI:
+
+- Save any changes you may have made locally
+- Run `npm run build`
+- Update any environment key on [Netlify](https://www.netlify.com/)
+- Run one of the following scripts:
+
+### `netlify deploy`
+
+Creates a draft deploy with a draft URL.
+
+### `netlify deploy --prod`
+
+Creates or updates the [production website](https://piiquante.netlify.app/)
+
+For different ways to build and deploy this project on Netlify, [clisk here](https://docs.netlify.com/)
 
 ## Issues and bugs
 

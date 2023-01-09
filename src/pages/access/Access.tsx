@@ -1,3 +1,4 @@
+//This page is used for both logging in or to create a new account
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faArrowRightToBracket,
@@ -67,6 +68,11 @@ function Access() {
     passwordType,
   } = state
 
+  /**
+   * This function transforms the page from login to signup
+   * requiredAction is passed to the gainAccess function as endpoint to the HTTP request
+   * dynamicText is the word concatenated to the sentence '... have an account?'
+   */
   const switchButtons = () => {
     if (requiredAction === 'login') {
       dispatch({ type: 'SET_REQUIRED_ACTION', requiredAction: 'signup' })
@@ -82,8 +88,12 @@ function Access() {
     console.log(UserContext)
   }, [])
 
-  //log in or pass 'signup' as the second argument to create an account
-  const Access = async (e, endpoint = 'login') => {
+  /**
+   * Creates a new account and then logs in the new user automatically, or just logs in an existing user
+   * @param e event
+   * @param endpoint pass 'signup' to create a new account, or leave the default option to login
+   */
+  const gainAccess = async (e, endpoint = 'login') => {
     e.preventDefault()
     sessionStorage.setItem('email', email)
 
@@ -116,7 +126,7 @@ function Access() {
     <main>
       <Container>
         <InContainer>
-          <form onSubmit={(event) => Access(event, requiredAction)}>
+          <form onSubmit={(event) => gainAccess(event, requiredAction)}>
             <AccessInputBox>
               <input
                 ref={inputRef}

@@ -1,3 +1,4 @@
+// This page iss used for both creating a new sauce or to update an existing one
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -31,6 +32,7 @@ function NewSauce() {
 
   const createSauce = (e) => {
     e.preventDefault()
+    // Makes sure all fielda are filled in
     if (
       title === '' ||
       manufacturer === '' ||
@@ -87,6 +89,7 @@ function NewSauce() {
     data.append('image', imageUrl)
 
     let payLoad
+    //Displays the image and updates the image preview in the form when user selects a new image
     if (imageChanged === false) {
       payLoad = dataObj
     } else {
@@ -121,6 +124,7 @@ function NewSauce() {
       }
     )
     await console.log(imageUrl)
+    //Prefills the forms with the current data before the user changes said data
     setImageUrl(res.data.imageUrl)
     setTitle(res.data.name)
     setManifacturer(res.data.manufacturer)
@@ -130,12 +134,15 @@ function NewSauce() {
   }
 
   useEffect(() => {
+    //Detects wether or not the user is logged in and switches call-to-action button accordingly
     params.id == undefined
       ? setUpdateSauceButton('vanish')
       : setCreateSauceButton('vanish')
+
     getSauce()
   }, [])
 
+  //changes the state of imagePreview to a base64 string
   function getImgData() {
     const fileReader = new FileReader()
     fileReader.readAsDataURL(imageUrl)

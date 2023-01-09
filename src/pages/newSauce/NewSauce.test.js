@@ -11,11 +11,9 @@ import { MemoryRouter } from 'react-router-dom'
 import NewSauce from './NewSauce'
 
 const server = setupServer(
-  // Specify the url that we want to "intercept"
   rest.get(
     'https://secure-harbor-62492.herokuapp.com/api/sauces/*',
     (req, res, ctx) => {
-      // Here we can pass the mocked data into what is returned in json
       return res(
         ctx.json({
           _id: '62b1d0e2153b0f0ac5a856e2',
@@ -51,16 +49,9 @@ const server = setupServer(
   )
 )
 
-// Activate the API mock before the tests from server
 beforeAll(() => server.listen())
-// Reset anything we might have added in terms of duration for our tests before each test
 afterEach(() => server.resetHandlers())
-// Close the API mock once tests are over
 afterAll(() => server.close())
-// Clear sessionStorage after each test
-// afterEach(() => {
-//   window.sessionStorage.clear()
-// })
 const consoleSpy = jest.spyOn(console, 'log')
 
 describe('Test the NewSauce page as accessed through the modify-sauce route', () => {
@@ -71,7 +62,6 @@ describe('Test the NewSauce page as accessed through the modify-sauce route', ()
     const res = await fetch(
       'https://secure-harbor-62492.herokuapp.com/api/sauces/62b1d0e2153b0f0ac5a856e2'
     )
-    //   const data = await res.json()
     const { getByText, getByLabelText, getByRole, getByTestId, queryByText } =
       render(
         <MemoryRouter

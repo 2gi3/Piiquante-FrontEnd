@@ -223,6 +223,7 @@ function SaucePage() {
                     <span>Back to homepage</span>
                   </button>
                 </Link>
+                {/* Renders the following elements only if the logged-in user is the creator of the sauce */}
                 {state.sauce?.userId === userId ? (
                   Message === null ? (
                     <div>
@@ -233,9 +234,9 @@ function SaucePage() {
                       </Link>
                       <button
                         onClick={() =>
+                          //Setting the state of message as a string causes <Confirmation> to be rendered
                           setMessage('Do you want to delete this sauce?')
                         }
-                        //  onClick={(event) => deleteSauce()}
                       >
                         <span>DELETE</span>
                       </button>

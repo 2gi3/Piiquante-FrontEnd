@@ -11,11 +11,9 @@ import { MemoryRouter } from 'react-router-dom'
 import { act } from 'react-dom/test-utils'
 
 const server = setupServer(
-  // Specify the url that we want to "intercept"
   rest.get(
     'https://secure-harbor-62492.herokuapp.com/api/sauces',
     (req, res, ctx) => {
-      // Here we can pass the mocked data into what is returned in json
       return res(
         ctx.json([
           {
@@ -81,11 +79,8 @@ const server = setupServer(
   )
 )
 
-// Activate the API mock before the tests from server
 beforeAll(() => server.listen())
-// Reset anything we might have added in terms of duration for our tests before each test
 afterEach(() => server.resetHandlers())
-// Close the API mock once tests are over
 afterAll(() => server.close())
 
 test('Should render without crash', async () => {

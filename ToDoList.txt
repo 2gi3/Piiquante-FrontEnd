@@ -1,5 +1,4 @@
--fill  in password noti
-- Add comments at the beginning of every page
-- Add more variables to .env
+- Access regex
+- Let the user see all of his own sauces separately
 
 hero image credits: Photo by ROMAN ODINTSOV: https://www.pexels.com/photo/close-up-of-red-chilli-peppers-6342150/
